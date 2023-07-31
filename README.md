@@ -1,11 +1,3 @@
-# White Ravens Home Page
-
-[![Static Badge](https://img.shields.io/badge/Discord_PL-White%20Ravens-blue?logo=discord&labelColor=lightgrey&link=https%3A%2F%2Fdiscord.gg%2F5JMk8Z4)](https://discord.gg/5JMk8Z4)
-
-**[PL]** Kod źródłowy strony [whiteravens.net](https://whiteravens.net) stworzony przy pomocy [Jekyll](https://jekyllrb.com/) i [Jekyll Resume Theme](https://github.com/murraco/jekyll-theme-minimal-resume). Dzięki [murraco](https://github.com/murraco)!
-
-**[ENG]** Source code of [whiteravens.net](https://whiteravens.net) created with [Jekyll](https://jekyllrb.com/) and [Jekyll Resume Theme](https://github.com/murraco/jekyll-theme-minimal-resume). Thanks [murraco](https://github.com/murraco)!
-
 # Jekyll Resume Theme
 
 Live demo at https://jekyll-theme-minimal-resume.netlify.com/
