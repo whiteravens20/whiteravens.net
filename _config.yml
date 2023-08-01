@@ -12,12 +12,14 @@ discord_invite_code: 5JMk8Z4
 email: kontakt@whiteravens.net
 # twitter_username: lorem_ipsum
 # instagram_username: mauriciourraco7
-# facebook_username: mauricio.urraco
+facebook_username: whiteravensnet
 # linkedin_username: murraco
 github_username:  whiteravens20
 # medium_username: lorem_ipsum
 # medium_url: lorem_ipsum.medium.com
 # gplus_username:  lorem_ipsum
+##
+public_dev: https://dev.whiteravens.net/?controller=BoardViewController&action=readonly&token=d9ab6bf9453f039493a22fa541024695ed1b9061274eeadb0bc96e70533f
 
 exclude: ['package.json', 'src', 'node_modules', 'vendor']
 
