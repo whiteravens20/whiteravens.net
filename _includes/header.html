@@ -5,8 +5,8 @@
         <span class="site-description">{{ site.user_title }}</span>
       </h1>
       <div class="header-icons">
-        {% if site.discord_invite %}
-        <a aria-label="Discord" href="https://discord.com/{{ site.discord_invite }}"><i class="icon fa fa-discord"></i></a>
+        {% if site.discord_invite_code %}
+        <a aria-label="Discord" href="https://discord.gg/{{ site.discord_invite_code }}"><i class="icon fa fa-discord"></i></a>
         {% endif %}
         {% if site.email %}
         <a aria-label="Wyślij email" href="mailto:{{ site.email }}"><i class="icon fa fa-envelope"></i></a>
