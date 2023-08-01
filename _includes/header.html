@@ -5,11 +5,11 @@
         <span class="site-description">{{ site.user_title }}</span>
       </h1>
       <div class="header-icons">
-        {% if site.discord_invite_code %}
-        <a aria-label="Discord" href="https://discord.gg/{{ site.discord_invite_code }}"><i class="icon fa fa-discord"></i></a>
-        {% endif %}
         {% if site.email %}
         <a aria-label="Wyślij email" href="mailto:{{ site.email }}"><i class="icon fa fa-envelope"></i></a>
+        {% endif %}
+        {% if site.discord_invite_code %}
+        <a aria-label="Discord" href="https://discord.gg/{{ site.discord_invite_code }}"><i class="icon fa-discord"></i></a>
         {% endif %}
         {% if site.twitter_username %}
         <a aria-label="Nasz Twitter" target="_blank" href="https://twitter.com/{{ site.twitter_username }}"><i class="icon fa fa-twitter" aria-hidden="true"></i></a>
@@ -25,6 +25,9 @@
         {% endif %}
         {% if site.github_username %}
         <a aria-label="Nasz Github" target="_blank" href="https://github.com/{{ site.github_username }}"><i class="icon fa fa-github-alt" aria-hidden="true"></i></a>
+        {% endif %}
+        {% if site.public_dev %}
+        <a aria-label="Public development" href="{{ site.public_dev }}"><i class="icon fa-code"></i></a>
         {% endif %}
         {% if site.medium_username %}
         <a aria-label="My Medium" target="_blank" href="https://medium.com/{{ site.medium_username }}"><i class="icon fa fa-medium" aria-hidden="true"></i></a>
