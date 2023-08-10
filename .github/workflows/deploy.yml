@@ -5,9 +5,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - uses: actions/setup-ruby@v1
+    - uses: ruby/setup-ruby@v1
       with:
-        ruby-version: '2.7'
+        ruby-version: '3.1.3'
     - name: Setup Environment
       run: |
         bundle install
@@ -16,7 +16,7 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
-        server: ftp.samkirkland.com
+        server: s48.mydevil.net
         username: ${{ secrets.md_ftp_user }}
         password: ${{ secrets.md_ftp_password }}
         local-dir: ./_site/
