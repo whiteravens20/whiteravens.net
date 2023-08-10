@@ -1,7 +1,7 @@
 on: push
 name: 🚀 Deploy website on push
 jobs:
-  build:
+  web-build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
@@ -27,5 +27,5 @@ jobs:
           **/node_modules/**
           Gemfile
           Gemfile.lock
-          screenshot.jpg
+          screenshot.png
           package-lock.json
