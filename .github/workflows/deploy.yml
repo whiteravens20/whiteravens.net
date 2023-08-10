@@ -1,0 +1,31 @@
+on: push
+name: 🚀 Deploy website on push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-ruby@v1
+      with:
+        ruby-version: '3.0'
+    - name: Setup Environment
+      run: |
+        bundle install
+    - name: Build Site with Jekyll
+      run: JEKYLL_ENV=production bundle exec jekyll build
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: ftp.samkirkland.com
+        username: ${{ secrets.md_ftp_user }}
+        password: ${{ secrets.md_ftp_password }}
+        local-dir: ./_site/
+        server-dir: /domains/whiteravens.net/public_html/
+        exclude: |
+          **/.git*
+          **/.git*/**
+          **/node_modules/**
+          Gemfile
+          Gemfile.lock
+          screenshot.jpg
+          package-lock.json
