@@ -20,7 +20,7 @@ github_username:  whiteravens20
 # medium_url: lorem_ipsum.medium.com
 # gplus_username:  lorem_ipsum
 ##
-public_dev: https://dev.whiteravens.net/?controller=BoardViewController&action=readonly&token=d9ab6bf9453f039493a22fa541024695ed1b9061274eeadb0bc96e70533f
+public_dev: https://github.com/orgs/whiteravens20/projects/8
 
 exclude: ['package.json', 'src', 'node_modules', 'vendor']
 
