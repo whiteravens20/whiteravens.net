@@ -17,6 +17,9 @@
         {% if site.facebook_username %}
         <a aria-label="Nasz Facebook" target="_blank" href="https://www.facebook.com/{{ site.facebook_username }}"><i class="icon fa-brands fa-facebook-f" aria-hidden="true"></i></a>
         {% endif %}
+        {% if site.mastodon_username %}
+        <a aria-label="Nasz Mastodon" target="_blank" href="https://mastodon.social/@{{ site.mastodon_username }}"><i class="icon fa-brands fa-mastodon" aria-hidden="true"></i></a>
+        {% endif %}
         {% if site.linkedin_username %}
         <a aria-label="Nasz LinkedIn" target="_blank" href="https://www.linkedin.com/in/{{ site.linkedin_username }}"><i class="icon fa-brands fa-linkedin-square" aria-hidden="true"></i></a>
         {% endif %}
