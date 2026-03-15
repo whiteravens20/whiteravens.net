@@ -60,6 +60,8 @@ jobs:
       - name: Create Pull Request to dev
         if: steps.check.outputs.has_changes == 'true'
         uses: actions/github-script@v7
+        env:
+          CHANGELOG: ${{ steps.check.outputs.changelog }}
         with:
           script: |
             const { data: prs } = await github.rest.pulls.list({
@@ -69,14 +71,14 @@ jobs:
               base: 'dev',
               state: 'open'
             });
+            const body = `## 🔄 Upstream sync\n\nNew changes from the original repository [murraco/jekyll-theme-minimal-resume](https://github.com/murraco/jekyll-theme-minimal-resume).\n\n### Changelog\n\`\`\`\n${process.env.CHANGELOG}\n\`\`\`\n\n> ⚠️ Review for conflicts before merging. Upstream may overwrite your customizations in _config.yml, _includes/ etc.`;
             if (prs.length > 0) {
               console.log(`PR already exists: #${prs[0].number}`);
-              // Update existing PR body
               await github.rest.pulls.update({
                 owner: context.repo.owner,
                 repo: context.repo.repo,
                 pull_number: prs[0].number,
-                body: `## 🔄 Upstream sync\n\nNew changes from the original repository [murraco/jekyll-theme-minimal-resume](https://github.com/murraco/jekyll-theme-minimal-resume).\n\n### Changelog\n\`\`\`\n${process.env.CHANGELOG}\n\`\`\`\n\n> ⚠️ Review for conflicts before merging. Upstream may overwrite your customizations in _config.yml, _includes/ etc.`
+                body: body
               });
               return;
             }
@@ -86,15 +88,15 @@ jobs:
               title: '🔄 Upstream sync: updates from original repository',
               head: 'upstream-sync',
               base: 'dev',
-              body: `## 🔄 Upstream sync\n\nNew changes from the original repository [murraco/jekyll-theme-minimal-resume](https://github.com/murraco/jekyll-theme-minimal-resume).\n\n### Changelog\n\`\`\`\n${process.env.CHANGELOG}\n\`\`\`\n\n> ⚠️ Review for conflicts before merging. Upstream may overwrite your customizations in _config.yml, _includes/ etc.`
+              body: body
             });
             console.log(`Created PR #${pr.number}`);
-          env:
-            CHANGELOG: ${{ steps.check.outputs.changelog }}
 
       - name: Create notification issue
         if: steps.check.outputs.has_changes == 'true'
         uses: actions/github-script@v7
+        env:
+          CHANGELOG: ${{ steps.check.outputs.changelog }}
         with:
           script: |
             await github.rest.issues.create({
