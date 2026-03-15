@@ -31,15 +31,13 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: '20'
-          cache: 'npm'
 
-      - name: Install Node dependencies
-        run: npm install
-
-      - name: Build assets with Gulp
+      - name: Build assets
         run: |
-          npm install sass
-          npx gulp js sass fonts
+          npm install sass uglify-js
+          npx sass src/styles/main.scss assets/css/main.css --style compressed --no-source-map
+          npx uglifyjs src/js/*.js -o assets/js/main.js -c -m
+          cp -r src/fonts/* assets/fonts/ 2>/dev/null || true
 
       - name: Setup Pages
         uses: actions/configure-pages@v5

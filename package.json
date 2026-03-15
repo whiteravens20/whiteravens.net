@@ -16,6 +16,8 @@
     "gulp-imagemin": "^8.0.0",
     "gulp-plumber": "^1.1.0",
     "gulp-sass": "^5.1.0",
-    "gulp-uglify": "^3.0.2"
+    "gulp-uglify": "^3.0.2",
+    "sass": "^1.98.0",
+    "uglify-js": "^3.19.3"
   }
 }
