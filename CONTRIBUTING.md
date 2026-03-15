@@ -139,6 +139,57 @@ git push origin master
 
 ---
 
+## 5. Testing the site locally
+
+Prerequisites: Ruby, Bundler, Node.js, npm.
+
+### First time setup
+
+```bash
+# Install Ruby dependencies
+bundle install
+
+# Install Node dependencies
+npm install
+```
+
+### Build & preview
+
+```bash
+# 1. Compile assets (SCSS → CSS, JS → minified JS)
+npx gulp js sass fonts
+
+# 2. Build the Jekyll site
+bundle exec jekyll build
+
+# 3. Serve locally with live reload
+bundle exec jekyll serve
+# Site is now at http://localhost:4000
+```
+
+Or use `jekyll serve --watch` to auto-rebuild on file changes:
+
+```bash
+bundle exec jekyll serve --watch
+```
+
+### Rebuilding after changes
+
+| Changed file          | What to run                |
+|-----------------------|----------------------------|
+| `src/styles/*.scss`   | `npx gulp sass`            |
+| `src/js/*.js`         | `npx gulp js`              |
+| `src/fonts/`          | `npx gulp fonts`           |
+| `_includes/*.html`, `_layouts/*.html`, `_config.yml` | Jekyll rebuilds automatically with `--watch` |
+
+### Quick one-liner (build everything then serve)
+
+```bash
+npx gulp js sass fonts && bundle exec jekyll serve --watch
+```
+
+---
+
 ## Useful commands
 
 ```bash
