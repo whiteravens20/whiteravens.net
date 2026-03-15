@@ -1,103 +1,122 @@
 # White Ravens Home Page
 
-[![Static Badge](https://img.shields.io/badge/Discord_PL-White%20Ravens-blue?logo=discord&labelColor=lightgrey&link=https%3A%2F%2Fdiscord.gg%2F5JMk8Z4)](https://discord.gg/5JMk8Z4)
+[![Discord](https://img.shields.io/badge/Discord_PL-White%20Ravens-blue?logo=discord&labelColor=lightgrey)](https://discord.gg/5JMk8Z4)
+[![Website](https://img.shields.io/badge/🌐-whiteravens.net-black)](https://whiteravens.net)
+[![Status](https://img.shields.io/badge/Status-Services-green)](https://status.wrservices.link)
+[![Ko-fi](https://img.shields.io/badge/Ko--fi-Support-red?logo=ko-fi)](https://ko-fi.com/whiteravens20)
 
-**[PL]** Kod źródłowy strony [whiteravens.net](https://whiteravens.net) stworzony przy pomocy [Jekyll](https://jekyllrb.com/) i [Jekyll Resume Theme](https://github.com/murraco/jekyll-theme-minimal-resume). Dzięki [murraco](https://github.com/murraco)!
+## About
 
-**[ENG]** Source code of [whiteravens.net](https://whiteravens.net) created with [Jekyll](https://jekyllrb.com/) and [Jekyll Resume Theme](https://github.com/murraco/jekyll-theme-minimal-resume). Thanks [murraco](https://github.com/murraco)!
+Source code for the **[whiteravens.net](https://whiteravens.net)** landing page — the home of the White Ravens community.
 
-# Jekyll Resume Theme
+Built with [Jekyll](https://jekyllrb.com/) using the [Jekyll Resume Theme](https://github.com/murraco/jekyll-theme-minimal-resume) by [murraco](https://github.com/murraco).
 
-Live demo at https://jekyll-theme-minimal-resume.netlify.app
+> **Note:** The website content is in Polish.
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/24d80ae8-c3d9-4645-a6d8-9e97fc8dec3c/deploy-status)](https://app.netlify.com/sites/jekyll-theme-minimal-resume/deploys)
-
-# Stack
+## Stack
 
 ![](https://img.shields.io/badge/jekyll-✓-blue.svg)
 ![](https://img.shields.io/badge/html5-✓-blue.svg)
 ![](https://img.shields.io/badge/sass-✓-blue.svg)
-![](https://img.shields.io/badge/sweet--scroll-✓-blue.svg)
-![](https://img.shields.io/badge/particle--js-✓-blue.svg)
-![](https://img.shields.io/badge/font--awesome-✓-blue.svg)
-![](https://img.shields.io/badge/devicon-✓-blue.svg)
 ![](https://img.shields.io/badge/gulp-✓-blue.svg)
+![](https://img.shields.io/badge/particle.js-✓-blue.svg)
+![](https://img.shields.io/badge/font--awesome_v6-✓-blue.svg)
+![](https://img.shields.io/badge/github_actions-✓-blue.svg)
 
-# Screenshot
+## Branch Strategy
 
-<p align="center">
-  <img src="https://github.com/murraco/jekyll-theme-minimal-resume/blob/master/screenshot.png" width="90%" />
-</p>
+| Branch          | Purpose                                                           |
+|-----------------|-------------------------------------------------------------------|
+| `master`        | Production — automatic deploy to GitHub Pages                     |
+| `dev`           | Development — active work on the site                             |
+| `upstream-sync` | Clean upstream copy — automatic weekly sync (Monday 06:00 UTC)    |
 
-# If this helped, consider buying me a coffee! ☕️
+### How does upstream sync work?
 
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/murraco)
-
-# Quick Setup
-
-1. Install Jekyll: `gem install jekyll bundler`
-2. Fork this repository and clone your fork
-3. Edit `_config.yml` to personalize your site
-
-# Settings
-
-You have to fill some informations on `_config.yml` to customize your site:
-
-## Site settings
-```yml
-description: A blog about lorem ipsum dolor sit amet
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://localhost:3000" # the base hostname & protocol for your site
+```
+upstream (murraco/jekyll-theme-minimal-resume)
+    │
+    ▼  (GitHub Actions – weekly sync)
+upstream-sync
+    │
+    ▼  (automatic PR for review)
+   dev
+    │
+    ▼  (manual merge after review)
+  master  →  GitHub Pages (whiteravens.net)
 ```
 
-## User settings
-```yml
-username: Lorem Ipsum
-user_description: Software Engineer at Lorem Ipsum Dolor
-user_title: Mauricio Urraco
-email: mauriurraco@gmail.com
+1. **GitHub Actions** (`upstream-sync.yml`) fetches changes from the original repository weekly
+2. If there are new commits, the `upstream-sync` branch is updated
+3. A **PR** is automatically created from `upstream-sync` → `dev`
+4. A notification **issue** is created to alert about new changes
+5. You decide whether and when to merge into `master`
+
+The workflow can also be triggered manually (workflow_dispatch) from the Actions tab.
+
+## Running Locally
+
+```bash
+# Install dependencies
+gem install jekyll bundler
+bundle install
+npm install
+
+# Build assets (SCSS → CSS, JS)
+npx gulp
+
+# Build Jekyll
+bundle exec jekyll build
+
+# Local preview
+bundle exec jekyll serve
 ```
 
-> Don't forget to change your URL before you deploy your site!
+## CI/CD
 
-# Color and Particle Customization
+| Workflow            | Trigger                             | Description                             |
+|---------------------|-------------------------------------|-----------------------------------------|
+| `deploy.yml`        | Push to `master`                    | Build Jekyll + deploy to GitHub Pages   |
+| `upstream-sync.yml` | Cron (Mon 06:00 UTC) / manual       | Sync from upstream + PR + notification  |
 
-- Color Customization
-  - Edit the `.sass` variables
-- Particle Customization
-  - Edit the json data in particle function in `app.js`
-  - Refer to `Particle.js` for help
+### Comparison with Jenkins
 
-# Content
+This project uses **GitHub Actions** — GitHub's native CI/CD. For comparison:
 
-You can (and should) edit the `.html` files for adding your own information, icons, working experience, social links or whatever you want to add. I.e.:
+| Feature             | GitHub Actions                        | Jenkins                                  |
+|---------------------|---------------------------------------|------------------------------------------|
+| Hosting             | Managed by GitHub (cloud)             | Self-hosted (open source, you install it)|
+| Configuration       | YAML in `.github/workflows/`          | Jenkinsfile (Groovy) or GUI              |
+| Cost                | Free for public repos                 | Free (open source), but you pay for the server |
+| Ecosystem           | GitHub Marketplace (Actions)          | 1800+ plugins                            |
+| Scalability         | Automatic                             | Manual (you add agents/nodes)            |
+| Control             | Limited to GitHub API                 | Full — your server, your rules           |
 
-```html
-<a aria-label="My Github" target="_blank" href="https://github.com/murraco">
-  <i class="icon fa fa-github-alt" aria-hidden="true"></i>
-</a>
-```
+**Jenkins** ([jenkins.io](https://www.jenkins.io/)) is an open-source automation server written in Java. It runs on your own server and supports CI/CD pipelines defined in a `Jenkinsfile` (Groovy syntax). Key features:
+- **Full control** — install on your server, configure however you want
+- **Pipeline as Code** — `Jenkinsfile` in the repository defines the entire pipeline
+- **Master-agent architecture** — master manages, agents execute tasks (scaling)
+- **Huge plugin ecosystem** — supports virtually every language/tool
+- **For this project** it would be overkill — GitHub Actions is simpler and sufficient
 
-# Running locally
+## Links
 
-In order to compile the assets and run `Jekyll` locally you need to follow those steps:
+- 🌐 [whiteravens.net](https://whiteravens.net) — homepage
+- 📊 [Service Status](https://status.wrservices.link)
+- 📖 [Documentation](https://wrservices.link)
+- 💬 [Discord](https://discord.gg/5JMk8Z4)
 
-1. Install Jekyll
-2. Run `bundle install`
-3. Run `bundle exec jekyll build`
-4. Start and http-server in the folder `_site`
+---
 
-# Contribution
+## Credits
 
-- Report issues
-- Open pull request with improvements
-- Spread the word
-- Reach out to me directly at <mauriurraco@gmail.com>
+Based on [Jekyll Resume Theme](https://github.com/murraco/jekyll-theme-minimal-resume) by **[Mauricio Urraco](https://github.com/murraco)**.
 
-# Credits
+Additional thanks:
+- [Nathan Randecker](https://github.com/nrandecker) — original contribution to the theme
 
-- [Nathan Randecker](https://github.com/nrandecker)
+> Original theme README available in the upstream repository: [murraco/jekyll-theme-minimal-resume](https://github.com/murraco/jekyll-theme-minimal-resume)
 
-# Buy me a coffee to show your support!
+## License
 
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/murraco)
+[MIT](LICENSE)
