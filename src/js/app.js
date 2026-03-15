@@ -2,11 +2,38 @@
 document.addEventListener("DOMContentLoaded", function () {
   const sweetScroll = new SweetScroll({/* some options */});
 
+  /* Theme toggle */
+  var saved = localStorage.getItem('theme');
+  if (saved === 'dark') {
+    document.documentElement.setAttribute('data-theme', 'dark');
+  }
+  var toggleBtn = document.getElementById('theme-toggle');
+  var toggleIcon = document.getElementById('theme-icon');
+  if (toggleBtn) {
+    function updateIcon() {
+      var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      toggleIcon.className = isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
+    }
+    updateIcon();
+    toggleBtn.addEventListener('click', function () {
+      var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      if (isDark) {
+        document.documentElement.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+      } else {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+      }
+      updateIcon();
+    });
+  }
+
   /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
+  var particleCount = window.innerWidth < 768 ? 60 : 160;
   particlesJS('particles-js', {
     "particles": {
       "number": {
-        "value": 160,
+        "value": particleCount,
         "density": {
           "enable": true,
           "value_area": 500

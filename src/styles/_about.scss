@@ -21,6 +21,15 @@
   }
 }
 
+.tech-icon {
+  font-size: 60px;
+  margin: 0 8px;
+}
+
+[data-theme="dark"] .tech-icon {
+  filter: brightness(1.3);
+}
+
 .user {
   text-align: center;
   font-size: 60px;
@@ -43,4 +52,9 @@
   h1 {
     font-weight: 400;
   }
+}
+
+.theme-toggle-wrapper {
+  text-align: center;
+  padding: 20px 0 0;
 }
