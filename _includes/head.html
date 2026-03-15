@@ -6,9 +6,22 @@
   <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
   <meta name="description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
 
+  <!-- Open Graph -->
+  <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta property="og:description" content="{% if page.description %}{{ page.description | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+  <meta property="og:url" content="{{ page.url | prepend: site.url }}">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="{{ '/assets/favicon.png' | prepend: site.url }}">
+  <meta name="twitter:card" content="summary">
+
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | prepend: site.baseurl }}">
-  <link rel="shortcut icon" type="image/png" href="{{ '/assets/favicon.png' }}" >
-  <a rel="me" href="https://mastodon.social/@whiteravens"></a>
-  <script src="https://kit.fontawesome.com/a772338110.js" crossorigin="anonymous"></script>
-  <script data-goatcounter="https://whiteravens.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+  <link rel="stylesheet" href="{{ '/assets/css/devicon.min.css' | prepend: site.baseurl }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/favicon-32.png' | prepend: site.baseurl }}">
+  <link rel="icon" type="image/png" sizes="192x192" href="{{ '/assets/favicon-192.png' | prepend: site.baseurl }}">
+  <link rel="apple-touch-icon" href="{{ '/assets/favicon-192.png' | prepend: site.baseurl }}">
+  <link rel="manifest" href="{{ '/site.webmanifest' | prepend: site.baseurl }}">
+  <meta name="theme-color" content="#1a222c">
+  <link rel="me" href="https://mastodon.social/@whiteravens">
+  <link rel="stylesheet" href="{{ '/assets/css/fontawesome.css' | prepend: site.baseurl }}">
+  <script data-goatcounter="https://whiteravens.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
 </head>
