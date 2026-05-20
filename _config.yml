@@ -1,6 +1,11 @@
 # Site settings
 title: White Ravens Home
 description: Baza główna White Ravens
+lang: pl
+# Open Graph / Twitter Card image (site root path).
+social_image: /assets/favicon.png
+og_locale: pl_PL
+theme_color: "#1a222c"
 # baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://whiteravens.net" # the base hostname & protocol for your site e.g. http://willianjusten.com.br
 

@@ -1,6 +1,10 @@
 /* sweetScroll load */
 document.addEventListener("DOMContentLoaded", function () {
-  const sweetScroll = new SweetScroll({/* some options */});
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  if (!reduceMotion) {
+    new SweetScroll({/* some options */});
+  }
 
   /* Theme toggle */
   var saved = localStorage.getItem('theme');
@@ -28,9 +32,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
-  var particleCount = window.innerWidth < 768 ? 60 : 160;
-  particlesJS('particles-js', {
+  if (!reduceMotion) {
+    /* particlesJS.load(@dom-id, @path-json, @callback (optional)); */
+    var particleCount = window.innerWidth < 768 ? 60 : 160;
+    particlesJS('particles-js', {
     "particles": {
       "number": {
         "value": particleCount,
@@ -140,5 +145,6 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     "retina_detect": true
   });
+  }
 
 }, false);
