@@ -57,6 +57,26 @@
   }
 }
 
+.theme-toggle {
+  background: none;
+  border: 2px solid var(--heading);
+  border-radius: 50%;
+  color: var(--heading);
+  width: 36px;
+  height: 36px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all .3s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  &:hover {
+    background: var(--heading);
+    color: var(--bg);
+  }
+}
+
 .header-icons {
   display: flex;
   justify-content: center;

@@ -1,17 +1,33 @@
+<div class="theme-toggle-wrapper">
+  <button id="theme-toggle" class="theme-toggle" aria-label="Przełącz motyw">
+    <i class="fa-solid fa-moon" id="theme-icon" aria-hidden="true"></i>
+  </button>
+</div>
 <div class="user-details">
-  <h1>{{ site.data.expertise.intro_title }}</h1>
+  <h1>O Nas</h1>
   <p>{{ site.user_description }}</p>
+  <p><a href="https://discord.gg/5JMk8Z4" target="_blank" rel="noopener noreferrer"><img alt="Static Badge" src="https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white"></a></p>
 </div>
 <div class="user">
-  {% for section in site.data.expertise.sections %}
   <div class="tech">
-    <h2>{{ section.title }}</h2>
-    <div class="tech-icons" aria-hidden="true">
-      {% for icon in section.icons %}
-      <i class="{{ icon }}"></i>
-      {% endfor %}
-    </div>
-    <p>{{ section.body }}</p>
+    <h2>Społeczność</h2>
+    <i class="fa-brands fa-mastodon tech-icon" style="color: #563ACC;" aria-hidden="true"></i>
+    <i class="fa-brands fa-discord tech-icon" style="color: #5865F2;" aria-hidden="true"></i>
+    <i class="fa-brands fa-steam tech-icon" style="color: #1b2838;" aria-hidden="true"></i>
+    <p>Tworzymy kameralną, ale dynamiczną społeczność graczy i pasjonatów technologii. Jeśli cenisz dobrą atmosferę, wolność w sieci i ciekawe dyskusje, dołącz do nas na Discordzie i stań się częścią naszej ekipy!</p>
   </div>
-  {% endfor %}
+  <div class="tech">
+    <h2>Software</h2>
+    <i class="fa-brands fa-git-alt tech-icon" style="color: #DE4C36;" aria-hidden="true"></i>
+    <i class="fa-brands fa-docker tech-icon" style="color: #2396ED;" aria-hidden="true"></i>
+    <i class="fa-brands fa-linux tech-icon" style="color: #FCC624;" aria-hidden="true"></i>
+    <p>Korzystamy wyłącznie z otwartego oprogramowania, a nasze usługi projektujemy z myślą o budowaniu lepszego internetu – bezpiecznego, prywatnego i wolnego od zbędnych ograniczeń.</p>
+  </div>
+  <div class="tech">
+    <h2>Serwery gier</h2>
+    <i class="fa-solid fa-gamepad tech-icon" style="color: #E85D04;" aria-hidden="true"></i>
+    <i class="fa-solid fa-terminal tech-icon" style="color: #4EC94E;" aria-hidden="true"></i>
+    <i class="fa-solid fa-server tech-icon" style="color: #60A5FA;" aria-hidden="true"></i>
+    <p>Dysponujemy niewielką, lecz niezależną siecią serwerów gier, działającą na naszej prywatnej infrastrukturze. To idealne miejsce do wspólnej zabawy w gronie znajomych, bez kompromisów w kwestii jakości i prywatności!</p>
+  </div>
 </div>

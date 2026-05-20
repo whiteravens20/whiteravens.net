@@ -1,0 +1,32 @@
+---
+layout: default
+title: "404 – Nie znaleziono"
+permalink: /404.html
+---
+<style>
+  .error-page {
+    text-align: center;
+    padding: 60px 20px;
+    color: #fff;
+  }
+  .error-page h1 {
+    font-size: 6em;
+    font-weight: 700;
+    margin: 0;
+  }
+  .error-page h2 {
+    font-weight: 400;
+    margin: 10px 0 30px;
+  }
+  .error-page a {
+    color: #fff;
+    text-decoration: underline;
+  }
+</style>
+<div class="error-page">
+  <h1>404</h1>
+  <h2>Strona nie została znaleziona</h2>
+  <p>Wygląda na to, że ta strona nie istnieje.<br>
+    <a href="{{ '/' | prepend: site.baseurl }}">Wróć na stronę główną</a>
+  </p>
+</div>
