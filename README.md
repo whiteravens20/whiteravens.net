@@ -1,6 +1,5 @@
 # White Ravens Home Page
 
-[![Discord](https://img.shields.io/badge/Discord_PL-White%20Ravens-blue?logo=discord&labelColor=lightgrey)](https://discord.gg/5JMk8Z4)
 [![Website](https://img.shields.io/badge/🌐-whiteravens.net-black)](https://whiteravens.net)
 [![Status](https://img.shields.io/badge/Status-Services-green)](https://status.wrservices.link)
 [![Ko-fi](https://img.shields.io/badge/Ko--fi-Support-red?logo=ko-fi)](https://ko-fi.com/whiteravens20)
@@ -11,7 +10,16 @@ Source code for the **[whiteravens.net](https://whiteravens.net)** landing page 
 
 Built with [Jekyll](https://jekyllrb.com/) using the [Jekyll Resume Theme](https://github.com/murraco/jekyll-theme-minimal-resume) by [murraco](https://github.com/murraco).
 
-> **Note:** The website content is in Polish.
+## Localization
+
+The site is bilingual — **English** is the default (served at `/`) and **Polish** is served at `/pl/`.
+
+- UI strings and copy live in `_data/i18n/en.yml` and `_data/i18n/pl.yml`; templates render them via each page's `lang` front matter (`{{ site.data.i18n[page.lang] }}`).
+- First-time visitors are routed by browser language — Polish browsers land on `/pl/`, everyone else on the English page.
+- A switcher in the header lets visitors override the choice; the preference is stored in `localStorage`.
+- `hreflang` tags are emitted for search engines.
+
+To change or add copy, edit the matching key in **both** `_data/i18n/*.yml` files.
 
 ## Stack
 
@@ -102,9 +110,9 @@ This project uses **GitHub Actions** — GitHub's native CI/CD. For comparison:
 ## Links
 
 - 🌐 [whiteravens.net](https://whiteravens.net) — homepage
-- 📊 [Service Status](https://status.wrservices.link)
+- 📝 [Blog](https://blog.whiteravens.net)
 - 📖 [Documentation](https://wrservices.link)
-- 💬 [Discord](https://discord.gg/5JMk8Z4)
+- 📊 [Service Status](https://status.wrservices.link)
 
 ---
 
