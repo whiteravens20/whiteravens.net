@@ -1,0 +1,8 @@
+{% assign t = site.data.i18n[page.lang] | default: site.data.i18n.en %}
+{% assign cur = page.lang | default: 'en' %}
+{% if cur == 'pl' %}{% assign target = '/' %}{% assign target_lang = 'en' %}{% else %}{% assign target = '/pl/' %}{% assign target_lang = 'pl' %}{% endif %}
+<a class="theme-toggle lang-toggle" href="{{ target | relative_url }}"
+   aria-label="{{ t.aria_lang_switcher }}" title="{{ t.aria_lang_switcher }}"
+   onclick="localStorage.setItem('wr-lang','{{ target_lang }}')">
+  <i class="fa-solid fa-language" aria-hidden="true"></i>
+</a>

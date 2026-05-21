@@ -1,0 +1,50 @@
+# English UI strings. See _data/i18n/pl.yml for the Polish counterpart.
+og_locale: en_US
+description: White Ravens home base
+
+user_description: >-
+  Welcome to the White Ravens home base! We build a vibrant community of gamers
+  and offer innovative network services. We believe in free software and a
+  decentralised internet that puts user privacy and independence first. Join us,
+  explore our community, and help shape the future of the digital world!
+
+about_title: About Us
+
+community_title: Community
+community_body: >-
+  We are a close-knit but lively community of gamers and technology enthusiasts.
+  If you value a good atmosphere, freedom online, and interesting discussions,
+  join us on Discord and become part of our crew!
+
+software_title: Software
+software_body: >-
+  We use exclusively open-source software, and we design our services to build a
+  better internet — secure, private, and free of needless restrictions.
+
+gameservers_title: Game Servers
+gameservers_body: >-
+  We run a small but independent network of game servers on our own private
+  infrastructure. It is the perfect place to play together with friends, with no
+  compromises on quality or privacy!
+
+aria_theme_toggle: Toggle theme
+aria_email: Send an email
+aria_twitter: Our Twitter
+aria_instagram: Our Instagram
+aria_facebook: Our Facebook
+aria_mastodon: Our Mastodon
+aria_linkedin: Our LinkedIn
+aria_steam: Our Steam
+aria_github: Our GitHub
+aria_medium: Our Medium
+
+footer_credit_before: "Made with Jekyll and "
+footer_credit_after: " by "
+badge_status: Service Status
+badge_docs: Documentation
+
+aria_lang_switcher: Change language
+
+error_title: Page not found
+error_body: It looks like this page does not exist.
+error_home: Back to the home page
