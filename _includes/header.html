@@ -7,38 +7,40 @@
       </h1>
       <div class="header-icons">
         {% if site.email %}
-        <a aria-label="{{ t.aria_email }}" href="mailto:{{ site.email }}"><i class="icon fa-regular fa-envelope"></i></a>
+        <a aria-label="{{ t.aria_email }}" title="{{ t.aria_email }}" href="mailto:{{ site.email }}"><i class="icon fa-regular fa-envelope" aria-hidden="true"></i></a>
         {% endif %}
+        <a aria-label="{{ t.link_docs }}" title="{{ t.link_docs }}" target="_blank" rel="noopener noreferrer" href="https://wrservices.link"><i class="icon fa-solid fa-book" aria-hidden="true"></i></a>
+        <a aria-label="{{ t.link_blog }}" title="{{ t.link_blog }}" target="_blank" rel="noopener noreferrer" href="https://blog.whiteravens.net"><i class="icon fa-solid fa-blog" aria-hidden="true"></i></a>
         {% if site.twitter_username %}
-        <a aria-label="{{ t.aria_twitter }}" target="_blank" rel="noopener noreferrer" href="https://twitter.com/{{ site.twitter_username }}"><i class="icon fa-brands fa-twitter" aria-hidden="true"></i></a>
+        <a aria-label="{{ t.aria_twitter }}" title="{{ t.aria_twitter }}" target="_blank" rel="noopener noreferrer" href="https://twitter.com/{{ site.twitter_username }}"><i class="icon fa-brands fa-twitter" aria-hidden="true"></i></a>
         {% endif %}
         {% if site.instagram_username %}
-        <a aria-label="{{ t.aria_instagram }}" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/{{ site.instagram_username }}"><i class="icon fa-brands fa-instagram" aria-hidden="true"></i></a>
+        <a aria-label="{{ t.aria_instagram }}" title="{{ t.aria_instagram }}" target="_blank" rel="noopener noreferrer" href="https://www.instagram.com/{{ site.instagram_username }}"><i class="icon fa-brands fa-instagram" aria-hidden="true"></i></a>
         {% endif %}
         {% if site.facebook_username %}
-        <a aria-label="{{ t.aria_facebook }}" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/{{ site.facebook_username }}"><i class="icon fa-brands fa-facebook-f" aria-hidden="true"></i></a>
+        <a aria-label="{{ t.aria_facebook }}" title="{{ t.aria_facebook }}" target="_blank" rel="noopener noreferrer" href="https://www.facebook.com/{{ site.facebook_username }}"><i class="icon fa-brands fa-facebook-f" aria-hidden="true"></i></a>
         {% endif %}
         {% if site.mastodon_username %}
-        <a aria-label="{{ t.aria_mastodon }}" target="_blank" rel="noopener noreferrer" href="https://mastodon.social/@{{ site.mastodon_username }}"><i class="icon fa-brands fa-mastodon" aria-hidden="true"></i></a>
+        <a aria-label="{{ t.aria_mastodon }}" title="{{ t.aria_mastodon }}" target="_blank" rel="noopener noreferrer" href="https://mastodon.social/@{{ site.mastodon_username }}"><i class="icon fa-brands fa-mastodon" aria-hidden="true"></i></a>
         {% endif %}
         {% if site.linkedin_username %}
-        <a aria-label="{{ t.aria_linkedin }}" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/{{ site.linkedin_username }}"><i class="icon fa-brands fa-linkedin-square" aria-hidden="true"></i></a>
+        <a aria-label="{{ t.aria_linkedin }}" title="{{ t.aria_linkedin }}" target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/{{ site.linkedin_username }}"><i class="icon fa-brands fa-linkedin-square" aria-hidden="true"></i></a>
         {% endif %}
         {% if site.steam_group_username %}
-        <a aria-label="{{ t.aria_steam }}" target="_blank" rel="noopener noreferrer" href="https://steamcommunity.com/groups/{{ site.steam_group_username }}"><i class="icon fa-brands fa-steam-symbol" aria-hidden="true"></i></a>
+        <a aria-label="{{ t.aria_steam }}" title="{{ t.aria_steam }}" target="_blank" rel="noopener noreferrer" href="https://steamcommunity.com/groups/{{ site.steam_group_username }}"><i class="icon fa-brands fa-steam-symbol" aria-hidden="true"></i></a>
         {% endif %}
         {% if site.github_username %}
-        <a aria-label="{{ t.aria_github }}" target="_blank" rel="noopener noreferrer" href="https://github.com/{{ site.github_username }}"><i class="icon fa-brands fa-github" aria-hidden="true"></i></a>
+        <a aria-label="{{ t.aria_github }}" title="{{ t.aria_github }}" target="_blank" rel="noopener noreferrer" href="https://github.com/{{ site.github_username }}"><i class="icon fa-brands fa-github" aria-hidden="true"></i></a>
         {% endif %}
         <!--
         {% if site.public_dev %}
-        <a aria-label="Public development" target="_blank" rel="noopener noreferrer" href="{{ site.public_dev }}"><i class="icon fa-solid fa-diagram-project" aria-hidden="true"></i></a>
+        <a aria-label="Public development" title="Public development" target="_blank" rel="noopener noreferrer" href="{{ site.public_dev }}"><i class="icon fa-solid fa-diagram-project" aria-hidden="true"></i></a>
         {% endif %}
         -->
         {% if site.medium_username %}
-        <a aria-label="{{ t.aria_medium }}" target="_blank" rel="noopener noreferrer" href="https://medium.com/{{ site.medium_username }}"><i class="icon fa-brands fa-medium" aria-hidden="true"></i></a>
+        <a aria-label="{{ t.aria_medium }}" title="{{ t.aria_medium }}" target="_blank" rel="noopener noreferrer" href="https://medium.com/{{ site.medium_username }}"><i class="icon fa-brands fa-medium" aria-hidden="true"></i></a>
         {% elsif site.medium_url %}
-        <a aria-label="{{ t.aria_medium }}" target="_blank" rel="noopener noreferrer" href="https://{{ site.medium_url }}"><i class="icon fa-brands fa-medium" aria-hidden="true"></i></a>
+        <a aria-label="{{ t.aria_medium }}" title="{{ t.aria_medium }}" target="_blank" rel="noopener noreferrer" href="https://{{ site.medium_url }}"><i class="icon fa-brands fa-medium" aria-hidden="true"></i></a>
         {% endif %}
       </div>
       <div class="header-links">

@@ -3,25 +3,24 @@ og_locale: pl_PL
 description: Baza główna White Ravens
 
 user_description: >-
-  Witaj na stronie głównej WR! Tworzymy dynamiczną społeczność graczy oraz
-  oferujemy innowacyjne usługi sieciowe. Wierzymy w ideę wolnego oprogramowania
-  i zdecentralizowanego internetu, który stawia na prywatność i niezależność
-  użytkowników. Dołącz do nas, odkryj naszą społeczność i współtwórz przyszłość
-  cyfrowego świata!
+  White Ravens to niewielki kolektyw budujący otwarty i niezależny zakątek
+  internetu. Utrzymujemy własne, samodzielnie hostowane usługi, dzielimy się
+  wiedzą na blogu i wspieramy wolne oprogramowanie oraz zdecentralizowaną sieć,
+  która szanuje prywatność.
 
 about_title: O Nas
 
 community_title: Społeczność
 community_body: >-
-  Tworzymy kameralną, ale dynamiczną społeczność graczy i pasjonatów technologii.
-  Jeśli cenisz dobrą atmosferę, wolność w sieci i ciekawe dyskusje, dołącz do nas
-  na Discordzie i stań się częścią naszej ekipy!
+  Jesteśmy społecznością graczy, pasjonatów technologii i miłośników otwartego
+  oprogramowania. Wierzymy w wolny i otwarty internet, cenimy dobre rozmowy i
+  chętnie uczymy się od siebie nawzajem.
 
 software_title: Software
 software_body: >-
-  Korzystamy wyłącznie z otwartego oprogramowania, a nasze usługi projektujemy z
-  myślą o budowaniu lepszego internetu – bezpiecznego, prywatnego i wolnego od
-  zbędnych ograniczeń.
+  Tworzymy i samodzielnie hostujemy własne usługi w oparciu o otwarte
+  oprogramowanie – szanujące prywatność, wolne od zbędnych ograniczeń i otwarcie
+  udokumentowane dla każdego, kto chce z nich korzystać lub uruchomić je u siebie.
 
 gameservers_title: Serwery gier
 gameservers_body: >-
@@ -42,8 +41,9 @@ aria_medium: Nasz Medium
 
 footer_credit_before: "Stworzone dzięki Jekyll oraz "
 footer_credit_after: " przez "
-badge_status: Status Usługi
-badge_docs: Dokumentacja
+link_docs: Dokumentacja
+link_blog: Blog
+link_status: Status usług
 
 aria_lang_switcher: Zmień język
 

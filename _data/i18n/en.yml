@@ -3,23 +3,24 @@ og_locale: en_US
 description: White Ravens home base
 
 user_description: >-
-  Welcome to the White Ravens home base! We build a vibrant community of gamers
-  and offer innovative network services. We believe in free software and a
-  decentralised internet that puts user privacy and independence first. Join us,
-  explore our community, and help shape the future of the digital world!
+  White Ravens is a small collective building an open and independent corner of
+  the internet. We run our own self-hosted services, share what we learn on our
+  blog, and stand for free software and a decentralised web that respects
+  privacy.
 
 about_title: About Us
 
 community_title: Community
 community_body: >-
-  We are a close-knit but lively community of gamers and technology enthusiasts.
-  If you value a good atmosphere, freedom online, and interesting discussions,
-  join us on Discord and become part of our crew!
+  We are a community of gamers, tech tinkerers, and open-source enthusiasts. We
+  believe in a free and open internet, value good conversations, and enjoy
+  learning from one another.
 
 software_title: Software
 software_body: >-
-  We use exclusively open-source software, and we design our services to build a
-  better internet — secure, private, and free of needless restrictions.
+  We build and self-host our own services on open-source software —
+  privacy-respecting, free of needless restrictions, and openly documented for
+  anyone to use or run themselves.
 
 gameservers_title: Game Servers
 gameservers_body: >-
@@ -40,8 +41,9 @@ aria_medium: Our Medium
 
 footer_credit_before: "Made with Jekyll and "
 footer_credit_after: " by "
-badge_status: Service Status
-badge_docs: Documentation
+link_docs: Documentation
+link_blog: Blog
+link_status: Service Status
 
 aria_lang_switcher: Change language
 

@@ -1,6 +1,6 @@
 {% assign t = site.data.i18n[page.lang] | default: site.data.i18n.en %}
 <div class="theme-toggle-wrapper">
-  <button id="theme-toggle" class="theme-toggle" aria-label="{{ t.aria_theme_toggle }}">
+  <button id="theme-toggle" class="theme-toggle" aria-label="{{ t.aria_theme_toggle }}" title="{{ t.aria_theme_toggle }}">
     <i class="fa-solid fa-moon" id="theme-icon" aria-hidden="true"></i>
   </button>
   {% include lang-switcher.html %}
@@ -8,7 +8,6 @@
 <div class="user-details">
   <h1>{{ t.about_title }}</h1>
   <p>{{ t.user_description }}</p>
-  <p><a href="https://discord.gg/5JMk8Z4" target="_blank" rel="noopener noreferrer"><img alt="Static Badge" src="https://img.shields.io/badge/Discord-%235865F2.svg?style=for-the-badge&logo=discord&logoColor=white"></a></p>
 </div>
 <div class="user">
   <div class="tech">
