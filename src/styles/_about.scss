@@ -70,9 +70,24 @@
 }
 
 .theme-toggle-wrapper {
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
   padding: 20px 0 0;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+}
+
+.link-sep {
+  margin: 0 8px;
+  opacity: 0.5;
+}
+
+.lang-toggle {
+  text-decoration: none;
+
+  // The fa-language glyph is wider than fa-moon/fa-sun; trim it down so both
+  // icons read at the same visual size inside the matching 36px circles.
+  i {
+    font-size: 14px;
+  }
 }

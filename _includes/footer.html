@@ -1,7 +1,14 @@
+{% assign t = site.data.i18n[page.lang] | default: site.data.i18n.en %}
 <footer class="footer">
     <!-- <p>&copy; {{ site.username }}</p> -->
-    <p>Stworzone dzięki Jekyll oraz <span class="love">❤</span> przez <a href="https://github.com/pavlojs">pavlojs</a></p>
-    <p><a href="https://status.wrservices.link" target="_blank" rel="noopener noreferrer"><img alt="Static Badge" src="https://img.shields.io/badge/Status_Us%C5%82ugi-green?style=for-the-badge&link=https%3A%2F%2Fstatus.wrservices.link"></a>  <a href="https://wrservices.link" target="_blank" rel="noopener noreferrer"><img alt="Static Badge" src="https://img.shields.io/badge/Dokumentacja-Dokumentacja?style=for-the-badge&color=blue&link=https%3A%2F%2Fwrservices.link"></a></p>
+    <p>{{ t.footer_credit_before }}<span class="love">❤</span>{{ t.footer_credit_after }}<a href="https://github.com/pavlojs">pavlojs</a></p>
+    <p class="footer-links">
+      <a href="https://wrservices.link" target="_blank" rel="noopener noreferrer">{{ t.link_docs }}</a>
+      <span class="link-sep" aria-hidden="true">|</span>
+      <a href="https://blog.whiteravens.net" target="_blank" rel="noopener noreferrer">{{ t.link_blog }}</a>
+      <span class="link-sep" aria-hidden="true">|</span>
+      <a href="https://status.wrservices.link" target="_blank" rel="noopener noreferrer">{{ t.link_status }}</a>
+    </p>
     <p><a href='https://ko-fi.com/N4N4E0LR2' target='_blank' rel='noopener noreferrer'><img height='36' style='border:0px;height:36px;' src='https://storage.ko-fi.com/cdn/kofi5.png?v=6' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a></p>
 </footer>
 <script src="{{ '/assets/js/particles.min.js' | prepend: site.baseurl }}"></script>

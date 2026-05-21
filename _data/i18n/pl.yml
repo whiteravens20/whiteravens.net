@@ -1,0 +1,52 @@
+# Polish UI strings. See _data/i18n/en.yml for the English counterpart.
+og_locale: pl_PL
+description: Baza główna White Ravens
+
+user_description: >-
+  White Ravens to niewielki kolektyw budujący otwarty i niezależny zakątek
+  internetu. Utrzymujemy własne, samodzielnie hostowane usługi, dzielimy się
+  wiedzą na blogu i wspieramy wolne oprogramowanie oraz zdecentralizowaną sieć,
+  która szanuje prywatność.
+
+about_title: O Nas
+
+community_title: Społeczność
+community_body: >-
+  Jesteśmy społecznością graczy, pasjonatów technologii i miłośników otwartego
+  oprogramowania. Wierzymy w wolny i otwarty internet, cenimy dobre rozmowy i
+  chętnie uczymy się od siebie nawzajem.
+
+software_title: Software
+software_body: >-
+  Tworzymy i samodzielnie hostujemy własne usługi w oparciu o otwarte
+  oprogramowanie – szanujące prywatność, wolne od zbędnych ograniczeń i otwarcie
+  udokumentowane dla każdego, kto chce z nich korzystać lub uruchomić je u siebie.
+
+gameservers_title: Serwery gier
+gameservers_body: >-
+  Dysponujemy niewielką, lecz niezależną siecią serwerów gier, działającą na
+  naszej prywatnej infrastrukturze. To idealne miejsce do wspólnej zabawy w
+  gronie znajomych, bez kompromisów w kwestii jakości i prywatności!
+
+aria_theme_toggle: Przełącz motyw
+aria_email: Wyślij email
+aria_twitter: Nasz Twitter
+aria_instagram: Nasz Instagram
+aria_facebook: Nasz Facebook
+aria_mastodon: Nasz Mastodon
+aria_linkedin: Nasz LinkedIn
+aria_steam: Nasz Steam
+aria_github: Nasz Github
+aria_medium: Nasz Medium
+
+footer_credit_before: "Stworzone dzięki Jekyll oraz "
+footer_credit_after: " przez "
+link_docs: Dokumentacja
+link_blog: Blog
+link_status: Status usług
+
+aria_lang_switcher: Zmień język
+
+error_title: Strona nie została znaleziona
+error_body: Wygląda na to, że ta strona nie istnieje.
+error_home: Wróć na stronę główną

@@ -62,6 +62,9 @@
   border: 2px solid var(--heading);
   border-radius: 50%;
   color: var(--heading);
+  // Force border-box so the <a> language switcher and the <button> theme
+  // toggle render the same overall diameter (an <a> defaults to content-box).
+  box-sizing: border-box;
   width: 36px;
   height: 36px;
   font-size: 16px;
