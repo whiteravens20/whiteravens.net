@@ -34,14 +34,12 @@ jobs:
       - name: Check for new upstream changes
         id: check
         run: |
-          UPSTREAM_HEAD=$(git rev-parse upstream/master)
-          LOCAL_HEAD=$(git rev-parse HEAD)
-          if [ "$UPSTREAM_HEAD" = "$LOCAL_HEAD" ]; then
+          CHANGES=$(git log --oneline HEAD..upstream/master)
+          if [ -z "$CHANGES" ]; then
             echo "has_changes=false" >> "$GITHUB_OUTPUT"
             echo "No new upstream changes."
           else
             echo "has_changes=true" >> "$GITHUB_OUTPUT"
-            CHANGES=$(git log --oneline HEAD..upstream/master)
             echo "New upstream commits:"
             echo "$CHANGES"
             {
