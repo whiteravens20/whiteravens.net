@@ -1,129 +1,68 @@
 # White Ravens Home Page
 
 [![Website](https://img.shields.io/badge/🌐-whiteravens.net-black)](https://whiteravens.net)
-[![Status](https://img.shields.io/badge/Status-Services-green)](https://status.wrservices.link)
+[![Deploy](https://github.com/whiteravens20/whiteravens.net/actions/workflows/deploy.yml/badge.svg)](https://github.com/whiteravens20/whiteravens.net/actions/workflows/deploy.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Ko-fi](https://img.shields.io/badge/Ko--fi-Support-red?logo=ko-fi)](https://ko-fi.com/whiteravens20)
 
-## About
+Source of **[whiteravens.net](https://whiteravens.net)** — the home page of the White Ravens community.
 
-Source code for the **[whiteravens.net](https://whiteravens.net)** landing page — the home of the White Ravens community.
+A single-page, English-only promotional site built with [Astro](https://astro.build): static output, no UI framework, ~1 KB of client JavaScript (theme toggle + scroll reveals), all assets self-hosted.
 
-Built with [Jekyll](https://jekyllrb.com/) using the [Jekyll Resume Theme](https://github.com/murraco/jekyll-theme-minimal-resume) by [murraco](https://github.com/murraco).
+## Editing content
 
-## Localization
+All copy lives in one file — **[`src/content/copy.yml`](src/content/copy.yml)**. Layout and styling never need to be touched to change wording.
 
-The site is bilingual — **English** is the default (served at `/`) and **Polish** is served at `/pl/`.
+Facts (URLs, email, social handles, analytics endpoint) live in **[`src/config/site.ts`](src/config/site.ts)**.
 
-- UI strings and copy live in `_data/i18n/en.yml` and `_data/i18n/pl.yml`; templates render them via each page's `lang` front matter (`{{ site.data.i18n[page.lang] }}`).
-- First-time visitors are routed by browser language — Polish browsers land on `/pl/`, everyone else on the English page.
-- A switcher in the header lets visitors override the choice; the preference is stored in `localStorage`.
-- `hreflang` tags are emitted for search engines.
-
-To change or add copy, edit the matching key in **both** `_data/i18n/*.yml` files.
-
-## Stack
-
-![](https://img.shields.io/badge/jekyll-✓-blue.svg)
-![](https://img.shields.io/badge/html5-✓-blue.svg)
-![](https://img.shields.io/badge/sass-✓-blue.svg)
-![](https://img.shields.io/badge/gulp-✓-blue.svg)
-![](https://img.shields.io/badge/particle.js-✓-blue.svg)
-![](https://img.shields.io/badge/font--awesome_v6-✓-blue.svg)
-![](https://img.shields.io/badge/github_actions-✓-blue.svg)
-
-## Branch Strategy
-
-| Branch          | Purpose                                                           |
-|-----------------|-------------------------------------------------------------------|
-| `master`        | Production — automatic deploy to GitHub Pages                     |
-| `dev`           | Development — active work on the site                             |
-| `upstream-sync` | Clean upstream copy — automatic weekly sync (Monday 06:00 UTC)    |
-
-### How does upstream sync work?
-
-```
-upstream (murraco/jekyll-theme-minimal-resume)
-    │
-    ▼  (GitHub Actions – weekly sync)
-upstream-sync
-    │
-    ▼  (automatic PR for review)
-   dev
-    │
-    ▼  (manual merge after review)
-  master  →  GitHub Pages (whiteravens.net)
-```
-
-1. **GitHub Actions** (`upstream-sync.yml`) fetches changes from the original repository weekly
-2. If there are new commits, the `upstream-sync` branch is updated
-3. A **PR** is automatically created from `upstream-sync` → `dev`
-4. A notification **issue** is created to alert about new changes
-5. You decide whether and when to merge into `master`
-
-The workflow can also be triggered manually (workflow_dispatch) from the Actions tab.
-
-## Running Locally
+## Development
 
 ```bash
-# Install dependencies
-gem install jekyll bundler
-bundle install
 npm install
-
-# Build assets (SCSS → CSS, JS)
-npx gulp
-
-# Build Jekyll
-bundle exec jekyll build
-
-# Local preview
-bundle exec jekyll serve
+npm run dev        # dev server at http://localhost:4321
+npm run build      # type-check + production build to dist/
+npm run preview    # serve the production build locally
 ```
 
-## CI/CD
+## Project structure
 
-| Workflow            | Trigger                             | Description                             |
-|---------------------|-------------------------------------|-----------------------------------------|
-| `deploy.yml`        | Push to `master`                    | Build Jekyll + deploy to GitHub Pages   |
-| `upstream-sync.yml` | Cron (Mon 06:00 UTC) / manual       | Sync from upstream + PR + notification  |
+```
+public/            served as-is: CNAME, healthz, favicons, manifest, robots.txt
+src/
+  assets/          raven logo (optimized at build time)
+  components/      Hero, Aurora, Pillars, LinksStrip, Footer, ThemeToggle, Seo
+  config/site.ts   site facts
+  content/copy.yml all copy
+  layouts/         Base.astro (head, CSP, theme init)
+  pages/           index.astro, 404.astro
+  scripts/         reveal.ts (scroll-triggered reveals)
+  styles/          tokens.css (design tokens, dark + light), global.css
+```
 
-### Comparison with Jenkins
+## Branch strategy
 
-This project uses **GitHub Actions** — GitHub's native CI/CD. For comparison:
+| Branch | Purpose                                          |
+|--------|--------------------------------------------------|
+| `main` | Production — automatic deploy to GitHub Pages    |
+| `dev`  | Development — active work, tested locally first  |
 
-| Feature             | GitHub Actions                        | Jenkins                                  |
-|---------------------|---------------------------------------|------------------------------------------|
-| Hosting             | Managed by GitHub (cloud)             | Self-hosted (open source, you install it)|
-| Configuration       | YAML in `.github/workflows/`          | Jenkinsfile (Groovy) or GUI              |
-| Cost                | Free for public repos                 | Free (open source), but you pay for the server |
-| Ecosystem           | GitHub Marketplace (Actions)          | 1800+ plugins                            |
-| Scalability         | Automatic                             | Manual (you add agents/nodes)            |
-| Control             | Limited to GitHub API                 | Full — your server, your rules           |
+Push to `main` triggers the [deploy workflow](.github/workflows/deploy.yml): `npm ci` → `npm run build` → GitHub Pages (OIDC, no tokens). `/healthz` serves `OK` for uptime monitoring.
 
-**Jenkins** ([jenkins.io](https://www.jenkins.io/)) is an open-source automation server written in Java. It runs on your own server and supports CI/CD pipelines defined in a `Jenkinsfile` (Groovy syntax). Key features:
-- **Full control** — install on your server, configure however you want
-- **Pipeline as Code** — `Jenkinsfile` in the repository defines the entire pipeline
-- **Master-agent architecture** — master manages, agents execute tasks (scaling)
-- **Huge plugin ecosystem** — supports virtually every language/tool
-- **For this project** it would be overkill — GitHub Actions is simpler and sufficient
+## Security & privacy
 
-## Links
+- Strict `Content-Security-Policy` meta tag; the only external origins are [GoatCounter](https://www.goatcounter.com/) (privacy-friendly analytics) and the Ko-fi button image.
+- Fonts and icons are self-hosted/inlined — no CDN or Google Fonts requests.
+- CI: least-privilege workflow permissions, `npm ci` from the committed lockfile, weekly `npm audit` + signature verification, CodeQL, Dependabot.
 
-- 🌐 [whiteravens.net](https://whiteravens.net) — homepage
-- 📝 [Blog](https://blog.whiteravens.net)
-- 📖 [Documentation](https://wrservices.link)
-- 📊 [Service Status](https://status.wrservices.link)
+See [SECURITY.md](SECURITY.md) for the policy and reporting instructions.
 
----
+## Accessibility
 
-## Credits
+Dark theme by default with a persistent light-theme toggle, `prefers-reduced-motion` disables all animation, skip-to-content link, AA contrast in both themes.
 
-Based on [Jekyll Resume Theme](https://github.com/murraco/jekyll-theme-minimal-resume) by **[Mauricio Urraco](https://github.com/murraco)**.
+## History
 
-Additional thanks:
-- [Nathan Randecker](https://github.com/nrandecker) — original contribution to the theme
-
-> Original theme README available in the upstream repository: [murraco/jekyll-theme-minimal-resume](https://github.com/murraco/jekyll-theme-minimal-resume)
+Until 2026 this site was built on Jekyll, based on [jekyll-theme-minimal-resume](https://github.com/murraco/jekyll-theme-minimal-resume) by [murraco](https://github.com/murraco) — thanks! The Astro rewrite shares no code with it.
 
 ## License
 
