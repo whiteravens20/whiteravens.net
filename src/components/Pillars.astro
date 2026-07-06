@@ -106,6 +106,22 @@ const icons: Record<string, string[]> = {
     border-radius: var(--radius-full);
     background: var(--surface);
     color: var(--accent);
+    transition: transform var(--dur) var(--ease);
+  }
+
+  /* the icon trio hops in sequence when the card is hovered */
+  .card:hover .chip {
+    transform: translateY(-4px);
+  }
+
+  .card:hover .chip:nth-child(2),
+  .chip:nth-child(2) {
+    transition-delay: 60ms;
+  }
+
+  .card:hover .chip:nth-child(3),
+  .chip:nth-child(3) {
+    transition-delay: 120ms;
   }
 
   .chip:nth-child(2) {
@@ -122,7 +138,8 @@ const icons: Record<string, string[]> = {
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .card:hover {
+    .card:hover,
+    .card:hover .chip {
       transform: none;
     }
   }

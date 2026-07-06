@@ -22,6 +22,7 @@
   --accent-3: #60a5fa;
   --accent-contrast: #052e2a;
   --glow: 0 0 40px rgba(94, 234, 212, 0.15);
+  --glow-strong: 0 0 70px rgba(94, 234, 212, 0.3);
 
   /* typography */
   --font-display: 'Space Grotesk Variable', 'Space Grotesk', system-ui, sans-serif;
@@ -76,4 +77,5 @@
   --accent-3: #2563eb;
   --accent-contrast: #f0fdfa;
   --glow: 0 0 40px rgba(13, 148, 136, 0.12);
+  --glow-strong: 0 0 70px rgba(13, 148, 136, 0.24);
 }
