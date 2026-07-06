@@ -3,27 +3,36 @@ import { Icon } from 'astro-icon/components';
 import copy from '../content/copy.yml';
 import { site } from '../config/site';
 
+// Display handles are derived from the canonical facts in site.ts.
+const host = (url: string) => url.replace(/^https?:\/\//, '');
+const handle = (url: string) => '@' + (url.split('/').pop() ?? '').replace(/^@/, '');
+
 const links = [
-  { href: `mailto:${site.email}`, label: copy.links.email, icon: 'lucide:mail', external: false },
-  { href: site.docs, label: copy.links.docs, icon: 'lucide:book-open', external: true },
-  { href: site.blog, label: copy.links.blog, icon: 'lucide:rss', external: true },
-  { href: site.mastodon, label: copy.links.mastodon, icon: 'simple-icons:mastodon', external: true },
-  { href: site.steam, label: copy.links.steam, icon: 'simple-icons:steam', external: true },
-  { href: site.github, label: copy.links.github, icon: 'simple-icons:github', external: true },
-  { href: site.status, label: copy.links.status, icon: 'lucide:activity', external: true },
+  { href: `mailto:${site.email}`, label: copy.links.email, sub: site.email, icon: 'lucide:mail', external: false },
+  { href: site.docs, label: copy.links.docs, sub: host(site.docs), icon: 'lucide:book-open', external: true },
+  { href: site.blog, label: copy.links.blog, sub: host(site.blog), icon: 'lucide:rss', external: true },
+  { href: site.mastodon, label: copy.links.mastodon, sub: handle(site.mastodon), icon: 'simple-icons:mastodon', external: true },
+  { href: site.steam, label: copy.links.steam, sub: site.steam.split('/').pop(), icon: 'simple-icons:steam', external: true },
+  { href: site.github, label: copy.links.github, sub: handle(site.github), icon: 'simple-icons:github', external: true },
+  { href: site.status, label: copy.links.status, sub: host(site.status), icon: 'lucide:activity', external: true },
 ];
 ---
 
 <section class="links" aria-labelledby="links-heading">
   <div class="wrap">
     <h2 id="links-heading" data-reveal>{copy.links.heading}</h2>
-    <ul data-reveal>
+    <ul>
       {
-        links.map(({ href, label, icon, external }) => (
-          <li>
+        links.map(({ href, label, sub, icon, external }) => (
+          <li data-reveal>
             <a {href} rel={external ? 'noopener noreferrer' : undefined}>
-              <Icon name={icon} />
-              {label}
+              <span class="chip">
+                <Icon name={icon} />
+              </span>
+              <span class="txt">
+                <span class="label">{label}</span>
+                <span class="sub">{sub}</span>
+              </span>
             </a>
           </li>
         ))
@@ -50,19 +59,53 @@ const links = [
     margin-top: var(--space-xl);
     padding: 0;
     list-style: none;
+  }
+
+  li {
+    width: min(100%, 16.25rem);
+  }
+
+  /* cycle the brand accents across the cards */
+  li:nth-child(3n + 1) {
+    --card-accent: var(--accent);
+  }
+  li:nth-child(3n + 2) {
+    --card-accent: var(--accent-2);
+  }
+  li:nth-child(3n) {
+    --card-accent: var(--accent-3);
+  }
+
+  /* staggered reveal */
+  li:nth-child(2) {
+    --reveal-delay: 60ms;
+  }
+  li:nth-child(3) {
     --reveal-delay: 120ms;
+  }
+  li:nth-child(4) {
+    --reveal-delay: 180ms;
+  }
+  li:nth-child(5) {
+    --reveal-delay: 240ms;
+  }
+  li:nth-child(6) {
+    --reveal-delay: 300ms;
+  }
+  li:nth-child(7) {
+    --reveal-delay: 360ms;
   }
 
   a {
-    display: inline-flex;
+    display: flex;
     align-items: center;
-    gap: var(--space-xs);
-    padding: 0.6rem 1.2rem;
+    gap: var(--space-s);
+    height: 100%;
+    padding: 0.7rem 0.9rem;
     border: 1px solid var(--border);
-    border-radius: var(--radius-full);
+    border-radius: var(--radius);
     background: var(--surface);
-    color: var(--text);
-    font-weight: 500;
+    text-align: left;
     text-decoration: none;
     transition:
       transform var(--dur-fast) var(--ease),
@@ -71,19 +114,52 @@ const links = [
   }
 
   a:hover {
-    transform: translateY(-2px);
-    border-color: var(--accent);
+    transform: translateY(-3px);
+    border-color: var(--card-accent);
     background: var(--surface-hover);
   }
 
-  a [data-icon] {
-    width: 1.15rem;
-    height: 1.15rem;
-    color: var(--accent);
+  .chip {
+    display: inline-flex;
+    flex-shrink: 0;
+    padding: 0.55rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-full);
+    background: color-mix(in srgb, var(--card-accent) 10%, transparent);
+    color: var(--card-accent);
+    transition: transform var(--dur-fast) var(--ease);
+  }
+
+  a:hover .chip {
+    transform: scale(1.1);
+  }
+
+  .chip [data-icon] {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  .txt {
+    display: grid;
+    min-width: 0;
+  }
+
+  .label {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .sub {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   @media (prefers-reduced-motion: reduce) {
-    a:hover {
+    a:hover,
+    a:hover .chip {
       transform: none;
     }
   }
