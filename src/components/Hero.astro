@@ -1,0 +1,205 @@
+---
+import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
+import Aurora from './Aurora.astro';
+import copy from '../content/copy.yml';
+import { site } from '../config/site';
+import logo from '../assets/logo.png';
+---
+
+<header class="hero">
+  <Aurora />
+  <div class="hero-inner wrap">
+    <Image
+      class="logo"
+      src={logo}
+      alt=""
+      width={160}
+      densities={[1, 2]}
+      loading="eager"
+      fetchpriority="high"
+    />
+    <p class="eyebrow">{copy.hero.eyebrow}</p>
+    <h1 class="title">{copy.hero.title}</h1>
+    <p class="tagline">{copy.hero.tagline}</p>
+    <div class="ctas">
+      <a class="btn btn-primary" href={site.docs} rel="noopener noreferrer">
+        {copy.hero.ctaDocs}
+        <Icon name="lucide:arrow-up-right" />
+      </a>
+      <a class="btn" href={site.blog} rel="noopener noreferrer">
+        {copy.hero.ctaBlog}
+      </a>
+      <a class="btn" href={site.github} rel="noopener noreferrer">
+        <Icon name="simple-icons:github" />
+        {copy.hero.ctaGithub}
+      </a>
+    </div>
+  </div>
+  <a class="scroll-cue" href="#pillars" aria-label={copy.hero.scrollCue}>
+    <Icon name="lucide:chevron-down" />
+  </a>
+</header>
+
+<style>
+  .hero {
+    position: relative;
+    isolation: isolate;
+    min-height: 100svh;
+    display: grid;
+    place-items: center;
+    text-align: center;
+    padding-block: var(--space-2xl);
+  }
+
+  .hero-inner {
+    display: grid;
+    justify-items: center;
+    gap: var(--space-l);
+  }
+
+  .logo {
+    width: clamp(96px, 14vw, 150px);
+    height: auto;
+    border-radius: 50%;
+    box-shadow: var(--glow);
+    animation: levitate 6s ease-in-out infinite alternate;
+  }
+
+  @keyframes levitate {
+    to {
+      transform: translateY(-10px);
+    }
+  }
+
+  .eyebrow {
+    font-family: var(--font-display);
+    font-size: var(--step--1);
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .title {
+    font-size: var(--step-5);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    background: linear-gradient(100deg, var(--heading) 55%, var(--accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .tagline {
+    max-width: 46ch;
+    font-size: var(--step-1);
+    color: var(--text-muted);
+  }
+
+  .ctas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-s);
+    margin-top: var(--space-xs);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: 0.8rem 1.5rem;
+    border-radius: var(--radius-full);
+    border: 1px solid var(--border-strong);
+    background: var(--surface);
+    color: var(--text);
+    font-weight: 600;
+    text-decoration: none;
+    transition:
+      transform var(--dur-fast) var(--ease),
+      background var(--dur-fast) var(--ease),
+      border-color var(--dur-fast) var(--ease),
+      box-shadow var(--dur) var(--ease);
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+    background: var(--surface-hover);
+    border-color: var(--accent);
+  }
+
+  .btn [data-icon] {
+    width: 1.1em;
+    height: 1.1em;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--accent-contrast);
+  }
+
+  .btn-primary:hover {
+    background: var(--accent);
+    box-shadow: var(--glow);
+  }
+
+  /* staggered entrance */
+  .hero-inner > * {
+    animation: rise var(--dur-slow) var(--ease) both;
+  }
+
+  .hero-inner > :nth-child(2) {
+    animation-delay: 90ms;
+  }
+  .hero-inner > :nth-child(3) {
+    animation-delay: 180ms;
+  }
+  .hero-inner > :nth-child(4) {
+    animation-delay: 270ms;
+  }
+  .hero-inner > :nth-child(5) {
+    animation-delay: 360ms;
+  }
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(22px);
+    }
+  }
+
+  .scroll-cue {
+    position: absolute;
+    bottom: var(--space-l);
+    left: 50%;
+    translate: -50% 0;
+    color: var(--text-muted);
+    animation: nudge 2.2s ease-in-out infinite;
+    transition: color var(--dur-fast) var(--ease);
+  }
+
+  .scroll-cue:hover {
+    color: var(--accent);
+  }
+
+  .scroll-cue [data-icon] {
+    width: 1.8rem;
+    height: 1.8rem;
+  }
+
+  @keyframes nudge {
+    50% {
+      transform: translateY(6px);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .logo,
+    .hero-inner > *,
+    .scroll-cue {
+      animation: none;
+    }
+  }
+</style>
