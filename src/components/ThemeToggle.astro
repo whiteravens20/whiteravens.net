@@ -1,0 +1,75 @@
+---
+import { Icon } from 'astro-icon/components';
+import copy from '../content/copy.yml';
+---
+
+<button id="theme-toggle" type="button" aria-label={copy.a11y.themeToggle}>
+  <Icon name="lucide:moon" class="moon" />
+  <Icon name="lucide:sun" class="sun" />
+</button>
+
+<script>
+  const toggle = document.getElementById('theme-toggle')!;
+  toggle.addEventListener('click', () => {
+    const root = document.documentElement;
+    const light = root.dataset.theme !== 'light';
+    if (light) {
+      root.dataset.theme = 'light';
+    } else {
+      delete root.dataset.theme;
+    }
+    localStorage.setItem('theme', light ? 'light' : 'dark');
+  });
+</script>
+
+<style>
+  button {
+    position: fixed;
+    top: var(--space-m);
+    right: var(--space-m);
+    z-index: 10;
+    display: grid;
+    place-items: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-full);
+    background: var(--surface);
+    color: var(--text);
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    transition:
+      transform var(--dur-fast) var(--ease),
+      border-color var(--dur-fast) var(--ease);
+  }
+
+  button:hover {
+    transform: rotate(15deg);
+    border-color: var(--accent);
+  }
+
+  [data-icon] {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+
+  /* dark shows the sun (switch to light), light shows the moon */
+  .moon {
+    display: none;
+  }
+
+  :global([data-theme='light']) .sun {
+    display: none;
+  }
+
+  :global([data-theme='light']) .moon {
+    display: block;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    button:hover {
+      transform: none;
+    }
+  }
+</style>
