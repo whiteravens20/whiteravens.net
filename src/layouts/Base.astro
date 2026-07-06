@@ -1,0 +1,53 @@
+---
+import { createHash } from 'node:crypto';
+import '@fontsource-variable/space-grotesk';
+import '@fontsource-variable/inter';
+import '../styles/tokens.css';
+import '../styles/global.css';
+import Seo from '../components/Seo.astro';
+import copy from '../content/copy.yml';
+import { site } from '../config/site';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const { title = copy.meta.title, description = copy.meta.description } = Astro.props;
+
+// Sets the theme before first paint so there is no flash. Dark is the default;
+// only an explicit stored "light" choice overrides it (same key as the old site).
+const themeInit =
+  "if(localStorage.getItem('theme')==='light')document.documentElement.dataset.theme='light';";
+const themeInitHash = createHash('sha256').update(themeInit).digest('base64');
+
+// GitHub Pages cannot send HTTP headers, so the CSP ships as a meta tag.
+// Only emitted for production builds — it would block Vite's dev tooling.
+const csp = [
+  "default-src 'self'",
+  `script-src 'self' https://gc.zgo.at 'sha256-${themeInitHash}'`,
+  "style-src 'self'",
+  "img-src 'self' data: https://storage.ko-fi.com https://whiteravens.goatcounter.com",
+  "font-src 'self'",
+  "connect-src 'self' https://whiteravens.goatcounter.com",
+  "object-src 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
+].join('; ');
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {import.meta.env.PROD && <meta http-equiv="Content-Security-Policy" content={csp} />}
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <script is:inline set:html={themeInit} />
+    <Seo {title} {description} />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">{copy.a11y.skipToContent}</a>
+    <slot />
+  </body>
+</html>
