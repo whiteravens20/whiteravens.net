@@ -1,0 +1,70 @@
+# All human-readable copy for whiteravens.net lives here.
+# Layout, styling and behaviour live in src/components — this file is content only.
+
+meta:
+  title: White Ravens — an open, independent corner of the internet
+  description: >-
+    White Ravens is a small collective building an open and independent corner
+    of the internet — self-hosted services, open source software, and game
+    servers run on our own infrastructure.
+
+hero:
+  eyebrow: Open source · Self-hosted · Privacy-first
+  title: White Ravens
+  tagline: >-
+    A small collective building an open, independent corner of the internet —
+    powered by free software, services we host ourselves, and a community that
+    values privacy.
+  ctaDocs: Explore the docs
+  ctaBlog: Read the blog
+  ctaGithub: GitHub
+  scrollCue: Scroll to learn more
+
+pillars:
+  heading: What we do
+  intro: >-
+    We run our own self-hosted services, share what we learn on our blog, and
+    stand for free software and a decentralised web that respects privacy.
+  items:
+    - id: community
+      title: Community
+      body: >-
+        We are a community of gamers, tech tinkerers, and open-source
+        enthusiasts. We believe in a free and open internet, value good
+        conversations, and enjoy learning from one another.
+    - id: software
+      title: Software
+      body: >-
+        We build and self-host our own services on open-source software —
+        privacy-respecting, free of needless restrictions, and openly
+        documented for anyone to use or run themselves.
+    - id: gameservers
+      title: Game Servers
+      body: >-
+        We run a small but independent network of game servers on our own
+        private infrastructure. It is the perfect place to play together with
+        friends — no compromises on quality or privacy.
+
+links:
+  heading: Find us around the web
+  email: Email
+  docs: Documentation
+  blog: Blog
+  mastodon: Mastodon
+  steam: Steam
+  github: GitHub
+  status: Service Status
+
+footer:
+  creditBefore: 'Made with Astro and '
+  creditAfter: ' by '
+  kofi: Support us on Ko-fi
+
+a11y:
+  themeToggle: Toggle theme
+  skipToContent: Skip to content
+
+notFound:
+  title: Page not found
+  body: It looks like this page does not exist.
+  home: Back to the home page

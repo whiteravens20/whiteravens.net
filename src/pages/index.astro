@@ -1,0 +1,22 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import Pillars from '../components/Pillars.astro';
+import LinksStrip from '../components/LinksStrip.astro';
+import Footer from '../components/Footer.astro';
+import ThemeToggle from '../components/ThemeToggle.astro';
+---
+
+<Base>
+  <ThemeToggle />
+  <main id="main">
+    <Hero />
+    <Pillars />
+    <LinksStrip />
+  </main>
+  <Footer />
+</Base>
+
+<script>
+  import '../scripts/reveal';
+</script>
