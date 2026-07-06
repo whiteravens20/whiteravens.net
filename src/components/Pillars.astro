@@ -1,0 +1,129 @@
+---
+import { Icon } from 'astro-icon/components';
+import copy from '../content/copy.yml';
+
+const icons: Record<string, string[]> = {
+  community: ['lucide:users', 'lucide:messages-square', 'lucide:heart-handshake'],
+  software: ['lucide:git-branch', 'lucide:container', 'lucide:terminal'],
+  gameservers: ['lucide:gamepad-2', 'lucide:server', 'lucide:zap'],
+};
+---
+
+<section id="pillars" class="pillars">
+  <div class="wrap">
+    <h2 data-reveal>{copy.pillars.heading}</h2>
+    <p class="intro" data-reveal>{copy.pillars.intro}</p>
+    <div class="grid">
+      {
+        copy.pillars.items.map((item: { id: string; title: string; body: string }) => (
+          <article class="card" data-reveal>
+            <div class="icons">
+              {icons[item.id]?.map((name) => (
+                <span class="chip">
+                  <Icon name={name} />
+                </span>
+              ))}
+            </div>
+            <h3>{item.title}</h3>
+            <p>{item.body}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .pillars {
+    padding-block: var(--space-3xl);
+  }
+
+  h2 {
+    font-size: var(--step-3);
+    text-align: center;
+  }
+
+  .intro {
+    max-width: 58ch;
+    margin: var(--space-m) auto 0;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: var(--step-1);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
+    gap: var(--space-l);
+    margin-top: var(--space-2xl);
+  }
+
+  /* stagger the card reveals */
+  .grid > :nth-child(2) {
+    --reveal-delay: 120ms;
+  }
+
+  .grid > :nth-child(3) {
+    --reveal-delay: 240ms;
+  }
+
+  .card {
+    padding: var(--space-xl);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--surface);
+    transition:
+      transform var(--dur) var(--ease),
+      border-color var(--dur) var(--ease),
+      box-shadow var(--dur) var(--ease);
+  }
+
+  .card:hover {
+    transform: translateY(-6px);
+    border-color: var(--accent);
+    box-shadow: var(--glow);
+  }
+
+  .card h3 {
+    font-size: var(--step-2);
+    margin-top: var(--space-l);
+  }
+
+  .card p {
+    margin-top: var(--space-s);
+    color: var(--text-muted);
+  }
+
+  .icons {
+    display: flex;
+    gap: var(--space-s);
+  }
+
+  .chip {
+    display: inline-flex;
+    padding: 0.55rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-full);
+    background: var(--surface);
+    color: var(--accent);
+  }
+
+  .chip:nth-child(2) {
+    color: var(--accent-2);
+  }
+
+  .chip:nth-child(3) {
+    color: var(--accent-3);
+  }
+
+  .chip [data-icon] {
+    width: 1.35rem;
+    height: 1.35rem;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .card:hover {
+      transform: none;
+    }
+  }
+</style>

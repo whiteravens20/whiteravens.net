@@ -1,0 +1,90 @@
+---
+import { Icon } from 'astro-icon/components';
+import copy from '../content/copy.yml';
+import { site } from '../config/site';
+
+const links = [
+  { href: `mailto:${site.email}`, label: copy.links.email, icon: 'lucide:mail', external: false },
+  { href: site.docs, label: copy.links.docs, icon: 'lucide:book-open', external: true },
+  { href: site.blog, label: copy.links.blog, icon: 'lucide:rss', external: true },
+  { href: site.mastodon, label: copy.links.mastodon, icon: 'simple-icons:mastodon', external: true },
+  { href: site.steam, label: copy.links.steam, icon: 'simple-icons:steam', external: true },
+  { href: site.github, label: copy.links.github, icon: 'simple-icons:github', external: true },
+  { href: site.status, label: copy.links.status, icon: 'lucide:activity', external: true },
+];
+---
+
+<section class="links" aria-labelledby="links-heading">
+  <div class="wrap">
+    <h2 id="links-heading" data-reveal>{copy.links.heading}</h2>
+    <ul data-reveal>
+      {
+        links.map(({ href, label, icon, external }) => (
+          <li>
+            <a {href} rel={external ? 'noopener noreferrer' : undefined}>
+              <Icon name={icon} />
+              {label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .links {
+    padding-block: 0 var(--space-3xl);
+    text-align: center;
+  }
+
+  h2 {
+    font-size: var(--step-3);
+  }
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-s);
+    margin-top: var(--space-xl);
+    padding: 0;
+    list-style: none;
+    --reveal-delay: 120ms;
+  }
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: 0.6rem 1.2rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-full);
+    background: var(--surface);
+    color: var(--text);
+    font-weight: 500;
+    text-decoration: none;
+    transition:
+      transform var(--dur-fast) var(--ease),
+      border-color var(--dur-fast) var(--ease),
+      background var(--dur-fast) var(--ease);
+  }
+
+  a:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+    background: var(--surface-hover);
+  }
+
+  a [data-icon] {
+    width: 1.15rem;
+    height: 1.15rem;
+    color: var(--accent);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    a:hover {
+      transform: none;
+    }
+  }
+</style>
