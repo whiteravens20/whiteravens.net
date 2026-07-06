@@ -1,7 +1,17 @@
+# build output
+dist/
+# generated types
+.astro/
+
+# dependencies
+node_modules/
+
+# environment
+.DS_Store
+.vscode/
+
+# legacy jekyll artifacts (until removed from disk)
+_site/
 .sass-cache/
 .jekyll-metadata
-node_modules
 Gemfile.lock
-.vscode
-_site/
-.DS_Store

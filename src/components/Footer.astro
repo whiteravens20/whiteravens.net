@@ -1,0 +1,70 @@
+---
+import copy from '../content/copy.yml';
+import { site } from '../config/site';
+---
+
+<footer>
+  <div class="wrap inner">
+    <nav aria-label="Footer">
+      <a href={site.docs} rel="noopener noreferrer">{copy.links.docs}</a>
+      <a href={site.blog} rel="noopener noreferrer">{copy.links.blog}</a>
+      <a href={site.status} rel="noopener noreferrer">{copy.links.status}</a>
+    </nav>
+    <a class="kofi" href={site.kofi} rel="noopener noreferrer">
+      <img src={site.kofiButton} alt={copy.footer.kofi} height="36" loading="lazy" />
+    </a>
+    <p class="credit">
+      {copy.footer.creditBefore}<span class="heart">❤</span>{copy.footer.creditAfter}<a
+        href={site.author.url}
+        rel="noopener noreferrer">{site.author.name}</a
+      >
+    </p>
+  </div>
+</footer>
+
+<style>
+  footer {
+    border-top: 1px solid var(--border);
+    padding-block: var(--space-xl);
+  }
+
+  .inner {
+    display: grid;
+    justify-items: center;
+    gap: var(--space-l);
+    text-align: center;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-l);
+  }
+
+  nav a,
+  .credit a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color var(--dur-fast) var(--ease);
+  }
+
+  nav a:hover,
+  .credit a:hover {
+    color: var(--accent);
+  }
+
+  .kofi img {
+    height: 36px;
+    width: auto;
+  }
+
+  .credit {
+    font-size: var(--step--1);
+    color: var(--text-muted);
+  }
+
+  .heart {
+    color: var(--accent-2);
+  }
+</style>
