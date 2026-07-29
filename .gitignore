@@ -9,9 +9,3 @@ node_modules/
 # environment
 .DS_Store
 .vscode/
-
-# legacy jekyll artifacts (until removed from disk)
-_site/
-.sass-cache/
-.jekyll-metadata
-Gemfile.lock
