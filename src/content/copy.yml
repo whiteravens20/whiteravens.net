@@ -65,6 +65,10 @@ a11y:
   themeToggle: Toggle theme
   skipToContent: Skip to content
 
+document:
+  back: White Ravens
+  updated: Last updated
+
 notFound:
   title: Page not found
   body: It looks like this page does not exist.

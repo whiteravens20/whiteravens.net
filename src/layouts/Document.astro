@@ -1,0 +1,120 @@
+---
+// Long-form pages (privacy policy, terms of use): a Markdown body from
+// src/content/ under a title and its last-updated date.
+import { Icon } from 'astro-icon/components';
+import Base from './Base.astro';
+import ThemeToggle from '../components/ThemeToggle.astro';
+import Footer from '../components/Footer.astro';
+import copy from '../content/copy.yml';
+
+interface Props {
+  title: string;
+  description: string;
+  /** YYYY-MM-DD, quoted in the frontmatter so YAML keeps it a string */
+  updated: string;
+}
+
+const { title, description, updated } = Astro.props;
+const updatedLabel = new Date(`${updated}T00:00:00Z`).toLocaleDateString('en-GB', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+  timeZone: 'UTC',
+});
+---
+
+<Base title={`${title} — White Ravens`} {description}>
+  <ThemeToggle />
+  <main id="main" class="wrap">
+    <a class="back" href="/">
+      <Icon name="lucide:arrow-left" />
+      {copy.document.back}
+    </a>
+    <article>
+      <header>
+        <h1>{title}</h1>
+        <p class="updated">
+          {copy.document.updated} <time datetime={updated}>{updatedLabel}</time>
+        </p>
+      </header>
+      <div class="prose">
+        <slot />
+      </div>
+    </article>
+  </main>
+  <Footer />
+</Base>
+
+<style>
+  main {
+    padding-block: var(--space-2xl) var(--space-3xl);
+  }
+
+  .back {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    color: var(--text-muted);
+    font-size: var(--step--1);
+    font-weight: 600;
+    text-decoration: none;
+    transition: color var(--dur-fast) var(--ease);
+  }
+
+  .back:hover {
+    color: var(--accent);
+  }
+
+  .back [data-icon] {
+    width: 1.1em;
+    height: 1.1em;
+  }
+
+  article {
+    max-width: 44rem;
+    margin-top: var(--space-xl);
+  }
+
+  h1 {
+    font-size: var(--step-4);
+  }
+
+  .updated {
+    margin-top: var(--space-s);
+    color: var(--text-muted);
+    font-size: var(--step--1);
+  }
+
+  .prose {
+    margin-top: var(--space-xl);
+  }
+
+  .prose :global(h2) {
+    margin-top: var(--space-2xl);
+    font-size: var(--step-2);
+  }
+
+  .prose :global(p),
+  .prose :global(ul) {
+    margin-top: var(--space-m);
+  }
+
+  .prose :global(ul) {
+    padding-left: 1.25rem;
+  }
+
+  .prose :global(li + li) {
+    margin-top: var(--space-xs);
+  }
+
+  .prose :global(strong) {
+    color: var(--heading);
+  }
+
+  .prose :global(code) {
+    padding: 0.1em 0.35em;
+    border-radius: 6px;
+    background: var(--surface-hover);
+    font-size: 0.9em;
+  }
+</style>
