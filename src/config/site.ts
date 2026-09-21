@@ -12,6 +12,7 @@ export const site = {
 
   github: 'https://github.com/whiteravens20',
   mastodon: 'https://mastodon.social/@whiteravens',
+  youtube: 'https://www.youtube.com/@whiteravens20',
   steam: 'https://steamcommunity.com/groups/whiteravensgaming',
 
   kofi: 'https://ko-fi.com/N4N4E0LR2',

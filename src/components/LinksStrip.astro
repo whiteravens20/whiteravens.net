@@ -11,6 +11,9 @@ const links = [
   { href: `mailto:${site.email}`, label: copy.links.email, sub: site.email, icon: 'lucide:mail', external: false },
   { href: site.docs, label: copy.links.docs, sub: host(site.docs), icon: 'lucide:book-open', external: true },
   { href: site.blog, label: copy.links.blog, sub: host(site.blog), icon: 'lucide:rss', external: true },
+  // YouTube's icon may not be recoloured (YouTube branding guidelines), so it is a
+  // local full-colour SVG and its card takes YouTube red instead of a brand accent.
+  { href: site.youtube, label: copy.links.youtube, sub: handle(site.youtube), icon: 'youtube', external: true, brand: 'youtube' },
   { href: site.mastodon, label: copy.links.mastodon, sub: handle(site.mastodon), icon: 'simple-icons:mastodon', external: true },
   { href: site.steam, label: copy.links.steam, sub: site.steam.split('/').pop(), icon: 'simple-icons:steam', external: true },
   { href: site.github, label: copy.links.github, sub: handle(site.github), icon: 'simple-icons:github', external: true },
@@ -23,8 +26,8 @@ const links = [
     <h2 id="links-heading" data-reveal>{copy.links.heading}</h2>
     <ul>
       {
-        links.map(({ href, label, sub, icon, external }) => (
-          <li data-reveal>
+        links.map(({ href, label, sub, icon, external, brand }) => (
+          <li class={brand} data-reveal>
             <a {href} rel={external ? 'noopener noreferrer' : undefined}>
               <span class="chip">
                 <Icon name={icon} />
@@ -75,6 +78,9 @@ const links = [
   li:nth-child(3n) {
     --card-accent: var(--accent-3);
   }
+  li.youtube {
+    --card-accent: #ff0000;
+  }
 
   /* staggered reveal */
   li:nth-child(2) {
@@ -94,6 +100,9 @@ const links = [
   }
   li:nth-child(7) {
     --reveal-delay: 360ms;
+  }
+  li:nth-child(8) {
+    --reveal-delay: 420ms;
   }
 
   a {
