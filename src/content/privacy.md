@@ -1,45 +1,134 @@
 ---
 title: Privacy policy
-description: What whiteravens.net and White Ravens Publisher, our YouTube upload tool, collect, why, and how to reach us.
+description: How the White Ravens websites handle your data — what is collected, by whom, why and for how long, and what your rights are.
 updated: '2026-09-21'
 ---
 
-White Ravens is a small non-profit collective, and we collect as little as we can. This page covers this website, whiteravens.net, and White Ravens Publisher, the tool we use to upload videos to our YouTube channel.
+White Ravens is a small non-profit collective. We treat privacy as a feature, not a feature flag, so our websites collect as little as they can. This policy explains exactly what happens to your data when you visit them or write to us.
 
-## Who is responsible
+## 1. What this policy covers
 
-Both are run by the White Ravens maintainer, [pavlojs](https://github.com/pavlojs). For anything about your privacy, write to [kontakt@whiteravens.net](mailto:kontakt@whiteravens.net).
+This policy covers our websites:
 
-## This website
+- [whiteravens.net](https://whiteravens.net), our home page;
+- [blog.whiteravens.net](https://blog.whiteravens.net), our blog;
+- [wrservices.link](https://wrservices.link), our documentation.
 
-**Hosting.** The site is hosted on GitHub Pages. When you open it, your browser connects to GitHub's servers, which process your IP address and browser details to deliver the page and keep the service secure. GitHub does this under the [GitHub Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement); we never see those logs.
+Some of our tools and services handle other data and have their own policies:
 
-**Visitor statistics.** We count visits with [GoatCounter](https://www.goatcounter.com/), a privacy-friendly analytics service. It records details such as the page you opened, the site that linked you here, your browser's name and version, your screen size and your country, worked out from your IP address. It does not store your IP address or your full browser details, and it puts nothing in your browser: no cookies, no local storage. Its servers are in Finland and Germany; [GoatCounter's privacy policy](https://www.goatcounter.com/help/privacy) has the details. We use these numbers to see how many people visit and where they come from, which is our legitimate interest under Art. 6(1)(f) GDPR.
+- **White Ravens Publisher**, the tool we use to upload videos to our YouTube channel through YouTube API Services: see the [White Ravens Publisher privacy policy](/privacy/youtube/).
+- **The community services we host**, such as our chat, each have their own privacy policy, available on the service itself.
 
-**The Ko-fi button.** The button in the footer is an image loaded from Ko-fi's servers, so Ko-fi receives your IP address and browser details when the footer comes into view. If you click it, [Ko-fi's privacy policy](https://more.ko-fi.com/privacy) applies.
+## 2. Who is responsible
 
-**Your theme.** If you switch between the light and dark theme, your browser remembers the choice in its local storage, under the key `theme`. It never leaves your device.
+White Ravens is not a registered company. Its websites are run by the White Ravens maintainer, [pavlojs](https://github.com/pavlojs), who is the controller of the personal data described here. For any question about privacy, or to exercise your rights, write to [kontakt@whiteravens.net](mailto:kontakt@whiteravens.net).
 
-**Email.** If you write to us, we keep your message and address for as long as we need them to reply.
+## 3. What we process, and why
 
-**Other sites.** Links here lead to services such as GitHub, Mastodon, Steam, YouTube and Ko-fi, each with its own privacy policy.
+### 3.1 Delivering and protecting the websites
 
-## YouTube: White Ravens Publisher
+All three websites are static sites hosted on **GitHub Pages**. To deliver a page, GitHub processes your IP address and technical details of your request, such as your browser and the time, and keeps them in its logs for security. This happens under the [GitHub General Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement); we have no access to those logs.
 
-We publish short videos on our YouTube channel, [youtube.com/@whiteravens20](https://www.youtube.com/@whiteravens20). To upload them we use our own tool, White Ravens Publisher, which uses **YouTube API Services**.
+whiteravens.net and wrservices.link are also served through **Cloudflare**, which speeds them up and protects them from attacks and automated abuse. For that, Cloudflare processes your IP address and the details of your request. Before showing a page it may check your browser automatically, which loads a script from `challenges.cloudflare.com`, and it may set the security cookies listed in [section 6](#6-cookies-and-local-storage). Cloudflare shows us aggregated traffic statistics and a log of security events, which can include the IP address, country and browser of a request it blocked or challenged. See the [Cloudflare Privacy Policy](https://www.cloudflare.com/privacypolicy/).
 
-- **Who uses it.** Only White Ravens, for its own channel. The tool has no public interface, nobody else can sign in to it, and it never accesses anyone else's YouTube account or data. Visiting this site or watching our videos gives it nothing about you.
-- **What it accesses.** With our channel's authorization, it uploads our videos (the `youtube.upload` permission) and reads our channel's name and ID and the privacy status of the videos it uploaded (`youtube.readonly`).
-- **What it stores.** The authorization for our channel, kept on our own machines in files only we can read. For each upload, the video's ID, link, title and upload time, so our publishing calendar can link to the video.
-- **What it shares.** Nothing. We do not sell or share this data and do not use it for advertising. No third party serves content or ads through the tool, and it uses no cookies or other tracking technology.
-- **Revoking access.** The authorization can be revoked at any time on the [Google security settings page](https://security.google.com/settings/security/permissions). When it is, we delete the stored authorization and upload records within 30 days.
+*Legal basis:* our legitimate interest in running secure, working websites (Art. 6(1)(f) GDPR).
 
-YouTube and Google handle data about our channel and videos under the [Google Privacy Policy](http://www.google.com/policies/privacy).
+### 3.2 Visitor statistics
 
-## Your rights
+whiteravens.net and wrservices.link count visits with [GoatCounter](https://www.goatcounter.com/), a privacy-friendly analytics service; each site has its own counter. GoatCounter records details such as the page you opened, the site that linked you here, your browser's name and version, your screen size and your country, worked out from your IP address. It does not store your IP address or your full browser details, and it puts nothing in your browser: no cookies, no local storage. Its servers are in Finland and Germany; [GoatCounter's privacy policy](https://www.goatcounter.com/help/privacy) has the details.
 
-Under the GDPR you can ask to see, correct or delete the personal data we hold about you, and to restrict or object to its use. Write to [kontakt@whiteravens.net](mailto:kontakt@whiteravens.net); we act on deletion requests within 7 days. You can also complain to your local data protection authority.
+The blog keeps no statistics at all.
 
-## Changes
+*Legal basis:* our legitimate interest in knowing how many people visit our websites and where they come from (Art. 6(1)(f) GDPR).
 
-When something here changes, we update this page and the date at the top.
+### 3.3 Fonts on the documentation site
+
+wrservices.link loads its fonts from **Google Fonts**, so your browser connects to Google's servers, which receive your IP address. See the [Google Privacy Policy](https://policies.google.com/privacy). whiteravens.net and the blog serve their fonts themselves.
+
+*Legal basis:* our legitimate interest in presenting the documentation consistently (Art. 6(1)(f) GDPR).
+
+### 3.4 The Ko-fi button
+
+The footer of whiteravens.net shows a Ko-fi button, an image loaded from Ko-fi's servers, so Ko-fi receives your IP address and browser details when the footer comes into view. Elsewhere, Ko-fi is only a plain link. Once you open Ko-fi, the [Ko-fi privacy policy](https://more.ko-fi.com/privacy) applies.
+
+*Legal basis:* our legitimate interest in letting people who want to support us find our Ko-fi page (Art. 6(1)(f) GDPR).
+
+### 3.5 Your display preferences
+
+When you choose a light or dark theme, a colour scheme, a code tab or a language, the site remembers it in your browser's local storage (see [section 6](#6-cookies-and-local-storage)). On its first visit, wrservices.link also reads your browser's language setting to show Polish readers the Polish version; that happens only in your browser. None of this is sent to us or to anyone else.
+
+### 3.6 Email
+
+Email to kontakt@whiteravens.net passes through Cloudflare Email Routing, which forwards it to the maintainer's mailbox. We use your address and message only to deal with what you wrote about, and delete them once the matter is closed.
+
+*Legal basis:* our legitimate interest in answering you (Art. 6(1)(f) GDPR), or steps you asked us to take (Art. 6(1)(b) GDPR).
+
+### 3.7 GitHub
+
+If you open an issue or a pull request, or comment in one of our repositories, you do that on GitHub, under GitHub's terms and privacy statement. What you post there is public. We use it only to work on the project with you.
+
+## 4. Who receives your data
+
+We do not sell or rent your data, and we do not share it for advertising. Only these providers process data on our behalf, each for the purpose described above:
+
+- **GitHub** — hosting of all three websites;
+- **Cloudflare** — delivery and protection of whiteravens.net and wrservices.link, and email routing;
+- **GoatCounter** — visitor statistics on whiteravens.net and wrservices.link;
+- **Google** — fonts on wrservices.link;
+- **Ko-fi** — the button image on whiteravens.net.
+
+We disclose data to public authorities only when the law requires it.
+
+GitHub, Cloudflare and Google are based in the United States. Where your data leaves the European Economic Area, these providers rely on safeguards recognised by the GDPR, such as the EU–U.S. Data Privacy Framework or the European Commission's standard contractual clauses.
+
+## 5. How long data is kept
+
+- **GitHub's and Cloudflare's logs** — for the periods set by those providers. The security events Cloudflare shows us are kept for a limited time set by our Cloudflare plan.
+- **Visitor statistics** — GoatCounter keeps only counts, which cannot identify you. The temporary identifier it uses to tell visits apart stays in memory for at most eight hours and is never written down.
+- **Email** — until the matter you wrote about is closed.
+- **Display preferences** — in your browser, until you clear its site data.
+
+## 6. Cookies and local storage
+
+Our websites set no advertising or tracking cookies. The only cookies are Cloudflare's security cookies, and the only local storage holds display choices you made:
+
+| Name | Set by | On | Purpose | Kept for |
+| --- | --- | --- | --- | --- |
+| `cf_clearance` | Cloudflare (cookie) | whiteravens.net, wrservices.link | Remembers that your browser passed a security check, so it is not checked on every page | The period set in our Cloudflare security settings |
+| `__cf_bm` | Cloudflare (cookie) | whiteravens.net, wrservices.link | Tells people from automated traffic | 30 minutes of inactivity |
+| `cf_chl_*` | Cloudflare (cookie) | whiteravens.net, wrservices.link | Used during a security check | While the check runs |
+| `theme` | local storage | whiteravens.net, blog.whiteravens.net | Your light or dark theme | Until you clear it |
+| `__palette`, `__tabs` | local storage | wrservices.link | Your colour scheme and the code tabs you picked | Until you clear it |
+| `wr-lang-chosen` | local storage | wrservices.link | That you picked a language, so you are not redirected | Until you clear it |
+
+Cloudflare's security cookies are strictly necessary to protect the websites, so they need no consent. Cloudflare describes them in its [cookie documentation](https://developers.cloudflare.com/fundamentals/reference/policies-compliances/cloudflare-cookies/). You can delete all of the above in your browser's settings at any time.
+
+## 7. Your rights
+
+Under the GDPR you have the right to:
+
+- access the personal data we hold about you (Art. 15);
+- have it corrected (Art. 16) or erased (Art. 17);
+- restrict its processing (Art. 18);
+- receive it in a portable format (Art. 20);
+- object to processing based on our legitimate interest (Art. 21).
+
+Write to [kontakt@whiteravens.net](mailto:kontakt@whiteravens.net). We answer without undue delay and within one month at the latest. We hold very little that identifies anyone, so we may ask for details that help us find your data.
+
+You may also lodge a complaint with a data protection authority: in Poland, the [President of the Personal Data Protection Office (UODO)](https://uodo.gov.pl/en), or the authority where you live or work.
+
+## 8. Children
+
+Our websites are not directed at children under 16, and we do not knowingly collect their data.
+
+## 9. Security
+
+Every website is served over HTTPS only, and whiteravens.net enforces a strict Content Security Policy. We keep the data we hold to the minimum described here.
+
+## 10. Automated decisions
+
+Apart from Cloudflare's automatic security checks described in [section 3.1](#31-delivering-and-protecting-the-websites), which only decide whether a request may reach a website, we make no automated decisions about you and do no profiling.
+
+## 11. Changes
+
+When anything here changes, we update this page and the date at the top.

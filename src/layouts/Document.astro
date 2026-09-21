@@ -12,9 +12,11 @@ interface Props {
   description: string;
   /** YYYY-MM-DD, quoted in the frontmatter so YAML keeps it a string */
   updated: string;
+  /** the page this one belongs under; the home page when absent */
+  parent?: { href: string; title: string };
 }
 
-const { title, description, updated } = Astro.props;
+const { title, description, updated, parent = { href: '/', title: copy.document.back } } = Astro.props;
 const updatedLabel = new Date(`${updated}T00:00:00Z`).toLocaleDateString('en-GB', {
   day: 'numeric',
   month: 'long',
@@ -26,9 +28,9 @@ const updatedLabel = new Date(`${updated}T00:00:00Z`).toLocaleDateString('en-GB'
 <Base title={`${title} — White Ravens`} {description}>
   <ThemeToggle />
   <main id="main" class="wrap">
-    <a class="back" href="/">
+    <a class="back" href={parent.href}>
       <Icon name="lucide:arrow-left" />
-      {copy.document.back}
+      {parent.title}
     </a>
     <article>
       <header>
@@ -94,9 +96,41 @@ const updatedLabel = new Date(`${updated}T00:00:00Z`).toLocaleDateString('en-GB'
     font-size: var(--step-2);
   }
 
+  .prose :global(h3) {
+    margin-top: var(--space-xl);
+    font-size: var(--step-1);
+  }
+
   .prose :global(p),
-  .prose :global(ul) {
+  .prose :global(ul),
+  .prose :global(table) {
     margin-top: var(--space-m);
+  }
+
+  /* wide tables scroll inside themselves, never the page */
+  .prose :global(table) {
+    display: block;
+    overflow-x: auto;
+    border-collapse: collapse;
+    font-size: var(--step--1);
+  }
+
+  .prose :global(th),
+  .prose :global(td) {
+    padding: 0.55rem 0.75rem;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+    vertical-align: top;
+  }
+
+  .prose :global(th) {
+    color: var(--heading);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .prose :global(td:first-child) {
+    white-space: nowrap;
   }
 
   .prose :global(ul) {

@@ -1,0 +1,13 @@
+---
+import Document from '../../layouts/Document.astro';
+import { Content, frontmatter } from '../../content/terms-youtube.md';
+---
+
+<Document
+  title={frontmatter.title}
+  description={frontmatter.description}
+  updated={frontmatter.updated}
+  parent={frontmatter.parent}
+>
+  <Content />
+</Document>

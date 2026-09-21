@@ -31,6 +31,6 @@ Before merging to `main`, verify in a real browser:
 
 ## Content vs code
 
-Copy changes: edit `src/content/copy.yml` only; the privacy policy and terms of use live in `src/content/privacy.md` and `src/content/terms.md`.
+Copy changes: edit `src/content/copy.yml` only; the privacy policy and terms of use live in `src/content/privacy.md` and `src/content/terms.md`, White Ravens Publisher's in `privacy-youtube.md` and `terms-youtube.md`.
 Link/URL changes: edit `src/config/site.ts` only.
 Anything visual: `src/components/` and `src/styles/tokens.css`.
