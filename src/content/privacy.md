@@ -32,7 +32,7 @@ Our websites serve their own fonts, styles and scripts. The only outside service
 
 whiteravens.net, the blog and the documentation are static sites hosted on **GitHub Pages**. To deliver a page, GitHub processes your IP address and technical details of your request, such as your browser and the time, and keeps them in its logs for security. This happens under the [GitHub General Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement); we have no access to those logs.
 
-home.wrservices.link runs on **our own server**, hosted in the European Union. The web server in front of it logs every request: your IP address, the time, the page, the site that linked you here and your browser's details. We use these logs to keep the server secure and to find faults. An address that keeps attacking the server is blocked automatically for a short time.
+home.wrservices.link runs on **our own server**, hosted in the European Union. The web server in front of it logs every request: your IP address, the time, the page, the site that linked you here and your browser's details. We use these logs to keep the server secure and to find faults. An address that keeps attacking the server is blocked automatically for a short time, and the address, the kind of attack and its time are reported to a shared blocklist run by a security provider in the European Union, which in turn warns us about addresses known to attack others.
 
 whiteravens.net and wrservices.link are also served through **Cloudflare**, which speeds them up and protects them from attacks and automated abuse. For that, Cloudflare processes your IP address and the details of your request. Before showing a page it may check your browser automatically, which loads a script from `challenges.cloudflare.com`, and it may set the security cookies listed in [section 6](#6-cookies-and-local-storage). Cloudflare shows us aggregated traffic statistics and a log of security events, which can include the IP address, country and browser of a request it blocked or challenged. See the [Cloudflare Privacy Policy](https://www.cloudflare.com/privacypolicy/).
 
@@ -72,6 +72,7 @@ We do not sell or rent your data, and we do not share it for advertising. Only t
 
 - **GitHub** — hosting of whiteravens.net, the blog and the documentation;
 - **Our hosting provider** — the server in the European Union that runs home.wrservices.link;
+- **A security provider** — the shared blocklist in the European Union that receives the addresses of attacks on our server;
 - **Cloudflare** — delivery and protection of whiteravens.net and wrservices.link, and email routing;
 - **GoatCounter** — visitor statistics on whiteravens.net and wrservices.link;
 - **Ko-fi** — the button image on whiteravens.net.
@@ -83,7 +84,7 @@ GitHub and Cloudflare are based in the United States. Where your data leaves the
 ## 5. How long data is kept
 
 - **GitHub's and Cloudflare's logs** — for the periods set by those providers. The security events Cloudflare shows us are kept by Cloudflare for a limited time.
-- **Our server's logs** — deleted after at most 15 weeks. Automatic blocks are lifted after a short, fixed time.
+- **Our server's logs** — deleted after at most 5 weeks. Automatic blocks are lifted after a short, fixed time; the shared blocklist keeps its reports under its own rules.
 - **Visitor statistics** — GoatCounter keeps only counts, which cannot identify you. The temporary identifier it uses to tell visits apart stays in memory for at most eight hours and is never written down.
 - **Email** — until the matter you wrote about is closed.
 - **Display preferences** — in your browser, until you clear its site data.
