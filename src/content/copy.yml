@@ -50,6 +50,7 @@ links:
   email: Email
   docs: Documentation
   blog: Blog
+  youtube: YouTube
   mastodon: Mastodon
   steam: Steam
   github: GitHub
@@ -59,10 +60,17 @@ footer:
   creditBefore: 'Made with Astro and '
   creditAfter: ' by '
   kofi: Support us on Ko-fi
+  legal: Legal
+  privacy: Privacy policy
+  terms: Terms of use
 
 a11y:
   themeToggle: Toggle theme
   skipToContent: Skip to content
+
+document:
+  back: White Ravens
+  updated: Last updated
 
 notFound:
   title: Page not found
