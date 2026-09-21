@@ -12,7 +12,8 @@ This policy covers our websites:
 
 - [whiteravens.net](https://whiteravens.net), our home page;
 - [blog.whiteravens.net](https://blog.whiteravens.net), our blog;
-- [wrservices.link](https://wrservices.link), our documentation.
+- [wrservices.link](https://wrservices.link), our documentation;
+- [home.wrservices.link](https://home.wrservices.link), our dashboard of links to the services we run.
 
 Some of our tools and services handle other data and have their own policies:
 
@@ -25,9 +26,13 @@ White Ravens is not a registered company. Its websites are run by the White Rave
 
 ## 3. What we process, and why
 
+Our websites serve their own fonts, styles and scripts. The only outside services a page loads anything from are the ones named in this section.
+
 ### 3.1 Delivering and protecting the websites
 
-All three websites are static sites hosted on **GitHub Pages**. To deliver a page, GitHub processes your IP address and technical details of your request, such as your browser and the time, and keeps them in its logs for security. This happens under the [GitHub General Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement); we have no access to those logs.
+whiteravens.net, the blog and the documentation are static sites hosted on **GitHub Pages**. To deliver a page, GitHub processes your IP address and technical details of your request, such as your browser and the time, and keeps them in its logs for security. This happens under the [GitHub General Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement); we have no access to those logs.
+
+home.wrservices.link runs on **our own server**, hosted in the European Union. The web server in front of it logs every request: your IP address, the time, the page, the site that linked you here and your browser's details. We use these logs to keep the server secure and to find faults. An address that keeps attacking the server is blocked automatically for a short time.
 
 whiteravens.net and wrservices.link are also served through **Cloudflare**, which speeds them up and protects them from attacks and automated abuse. For that, Cloudflare processes your IP address and the details of your request. Before showing a page it may check your browser automatically, which loads a script from `challenges.cloudflare.com`, and it may set the security cookies listed in [section 6](#6-cookies-and-local-storage). Cloudflare shows us aggregated traffic statistics and a log of security events, which can include the IP address, country and browser of a request it blocked or challenged. See the [Cloudflare Privacy Policy](https://www.cloudflare.com/privacypolicy/).
 
@@ -37,33 +42,27 @@ whiteravens.net and wrservices.link are also served through **Cloudflare**, whic
 
 whiteravens.net and wrservices.link count visits with [GoatCounter](https://www.goatcounter.com/), a privacy-friendly analytics service; each site has its own counter. GoatCounter records details such as the page you opened, the site that linked you here, your browser's name and version, your screen size and your country, worked out from your IP address. It does not store your IP address or your full browser details, and it puts nothing in your browser: no cookies, no local storage. Its servers are in Finland and Germany; [GoatCounter's privacy policy](https://www.goatcounter.com/help/privacy) has the details.
 
-The blog keeps no statistics at all.
+The blog and home.wrservices.link keep no statistics at all.
 
 *Legal basis:* our legitimate interest in knowing how many people visit our websites and where they come from (Art. 6(1)(f) GDPR).
 
-### 3.3 Fonts on the documentation site
-
-wrservices.link loads its fonts from **Google Fonts**, so your browser connects to Google's servers, which receive your IP address. See the [Google Privacy Policy](https://policies.google.com/privacy). whiteravens.net and the blog serve their fonts themselves.
-
-*Legal basis:* our legitimate interest in presenting the documentation consistently (Art. 6(1)(f) GDPR).
-
-### 3.4 The Ko-fi button
+### 3.3 The Ko-fi button
 
 The footer of whiteravens.net shows a Ko-fi button, an image loaded from Ko-fi's servers, so Ko-fi receives your IP address and browser details when the footer comes into view. Elsewhere, Ko-fi is only a plain link. Once you open Ko-fi, the [Ko-fi privacy policy](https://more.ko-fi.com/privacy) applies.
 
 *Legal basis:* our legitimate interest in letting people who want to support us find our Ko-fi page (Art. 6(1)(f) GDPR).
 
-### 3.5 Your display preferences
+### 3.4 Your display preferences
 
-When you choose a light or dark theme, a colour scheme, a code tab or a language, the site remembers it in your browser's local storage (see [section 6](#6-cookies-and-local-storage)). On its first visit, wrservices.link also reads your browser's language setting to show Polish readers the Polish version; that happens only in your browser. None of this is sent to us or to anyone else.
+When you choose a light or dark theme, a colour scheme, a code tab or a language, the site remembers it in your browser's local storage (see [section 6](#6-cookies-and-local-storage)). On your first visit, wrservices.link and home.wrservices.link also read your browser's language setting to show Polish readers the Polish version, and the dashboard remembers the language it picked; that happens only in your browser. The dashboard also installs a service worker, which keeps a copy of its own files in your browser so it opens faster; it holds no personal data. None of this is sent to us or to anyone else.
 
-### 3.6 Email
+### 3.5 Email
 
 Email to kontakt@whiteravens.net passes through Cloudflare Email Routing, which forwards it to the maintainer's mailbox. We use your address and message only to deal with what you wrote about, and delete them once the matter is closed.
 
 *Legal basis:* our legitimate interest in answering you (Art. 6(1)(f) GDPR), or steps you asked us to take (Art. 6(1)(b) GDPR).
 
-### 3.7 GitHub
+### 3.6 GitHub
 
 If you open an issue or a pull request, or comment in one of our repositories, you do that on GitHub, under GitHub's terms and privacy statement. What you post there is public. We use it only to work on the project with you.
 
@@ -71,26 +70,27 @@ If you open an issue or a pull request, or comment in one of our repositories, y
 
 We do not sell or rent your data, and we do not share it for advertising. Only these providers process data on our behalf, each for the purpose described above:
 
-- **GitHub** — hosting of all three websites;
+- **GitHub** — hosting of whiteravens.net, the blog and the documentation;
+- **Our hosting provider** — the server in the European Union that runs home.wrservices.link;
 - **Cloudflare** — delivery and protection of whiteravens.net and wrservices.link, and email routing;
 - **GoatCounter** — visitor statistics on whiteravens.net and wrservices.link;
-- **Google** — fonts on wrservices.link;
 - **Ko-fi** — the button image on whiteravens.net.
 
 We disclose data to public authorities only when the law requires it.
 
-GitHub, Cloudflare and Google are based in the United States. Where your data leaves the European Economic Area, these providers rely on safeguards recognised by the GDPR, such as the EU–U.S. Data Privacy Framework or the European Commission's standard contractual clauses.
+GitHub and Cloudflare are based in the United States. Where your data leaves the European Economic Area, these providers rely on safeguards recognised by the GDPR, such as the EU–U.S. Data Privacy Framework or the European Commission's standard contractual clauses.
 
 ## 5. How long data is kept
 
-- **GitHub's and Cloudflare's logs** — for the periods set by those providers. The security events Cloudflare shows us are kept for a limited time set by our Cloudflare plan.
+- **GitHub's and Cloudflare's logs** — for the periods set by those providers. The security events Cloudflare shows us are kept by Cloudflare for a limited time.
+- **Our server's logs** — deleted after at most 15 weeks. Automatic blocks are lifted after a short, fixed time.
 - **Visitor statistics** — GoatCounter keeps only counts, which cannot identify you. The temporary identifier it uses to tell visits apart stays in memory for at most eight hours and is never written down.
 - **Email** — until the matter you wrote about is closed.
 - **Display preferences** — in your browser, until you clear its site data.
 
 ## 6. Cookies and local storage
 
-Our websites set no advertising or tracking cookies. The only cookies are Cloudflare's security cookies, and the only local storage holds display choices you made:
+Our websites set no advertising or tracking cookies. The only cookies are Cloudflare's security cookies, and the only local storage holds display settings:
 
 | Name | Set by | On | Purpose | Kept for |
 | --- | --- | --- | --- | --- |
@@ -100,22 +100,16 @@ Our websites set no advertising or tracking cookies. The only cookies are Cloudf
 | `theme` | local storage | whiteravens.net, blog.whiteravens.net | Your light or dark theme | Until you clear it |
 | `__palette`, `__tabs` | local storage | wrservices.link | Your colour scheme and the code tabs you picked | Until you clear it |
 | `wr-lang-chosen` | local storage | wrservices.link | That you picked a language, so you are not redirected | Until you clear it |
+| `homer-lang` | local storage | home.wrservices.link | The dashboard's language, picked from your browser's language or by you | Until you clear it |
+| `overrideDark` | local storage | home.wrservices.link | Your light or dark mode | Until you clear it |
 
 Cloudflare's security cookies are strictly necessary to protect the websites, so they need no consent. Cloudflare describes them in its [cookie documentation](https://developers.cloudflare.com/fundamentals/reference/policies-compliances/cloudflare-cookies/). You can delete all of the above in your browser's settings at any time.
 
 ## 7. Your rights
 
-Under the GDPR you have the right to:
+Under the GDPR you can ask us for access to the personal data we hold about you, and have it corrected, erased, restricted or handed to you in a portable format. You can also object to processing based on our legitimate interest. Write to [kontakt@whiteravens.net](mailto:kontakt@whiteravens.net); we answer within the time limits the GDPR sets, and may ask for details that help us find your data.
 
-- access the personal data we hold about you (Art. 15);
-- have it corrected (Art. 16) or erased (Art. 17);
-- restrict its processing (Art. 18);
-- receive it in a portable format (Art. 20);
-- object to processing based on our legitimate interest (Art. 21).
-
-Write to [kontakt@whiteravens.net](mailto:kontakt@whiteravens.net). We answer without undue delay and within one month at the latest. We hold very little that identifies anyone, so we may ask for details that help us find your data.
-
-You may also lodge a complaint with a data protection authority: in Poland, the [President of the Personal Data Protection Office (UODO)](https://uodo.gov.pl/en), or the authority where you live or work.
+You can also complain to a data protection authority in the EU member state where you live or work, or where you believe the infringement took place. The European Data Protection Board lists [every national authority](https://www.edpb.europa.eu/about-edpb/our-members_en).
 
 ## 8. Children
 
@@ -127,7 +121,7 @@ Every website is served over HTTPS only, and whiteravens.net enforces a strict C
 
 ## 10. Automated decisions
 
-Apart from Cloudflare's automatic security checks described in [section 3.1](#31-delivering-and-protecting-the-websites), which only decide whether a request may reach a website, we make no automated decisions about you and do no profiling.
+Apart from the automatic security measures described in [section 3.1](#31-delivering-and-protecting-the-websites) — Cloudflare's checks and our server's blocking of attacking addresses — which only decide whether a request may reach a website, we make no automated decisions about you and do no profiling.
 
 ## 11. Changes
 

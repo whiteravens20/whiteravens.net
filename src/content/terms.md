@@ -4,7 +4,7 @@ description: The terms for using the White Ravens websites — what you may do w
 updated: '2026-09-21'
 ---
 
-These terms apply to our websites: [whiteravens.net](https://whiteravens.net), [blog.whiteravens.net](https://blog.whiteravens.net) and [wrservices.link](https://wrservices.link). By using them, you agree to these terms.
+These terms apply to our websites: [whiteravens.net](https://whiteravens.net), [blog.whiteravens.net](https://blog.whiteravens.net), [wrservices.link](https://wrservices.link) and [home.wrservices.link](https://home.wrservices.link). By using them, you agree to these terms.
 
 Some of our tools and services have their own terms:
 

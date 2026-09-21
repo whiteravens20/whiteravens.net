@@ -33,6 +33,7 @@ It uses these permissions for nothing else. It cannot edit or delete anything on
 - **The authorization for our channel** — the tool's OAuth client credentials and a refresh token, stored on our own machines in files that only the maintainer and the tool can read.
 - **Upload records** — for each video: its YouTube ID and link, title, file size, the channel it went to and the time of the upload. They let our publishing calendar link to the video and stop the tool from uploading the same video twice.
 - **Publication status** — while a video is private, the tool checks its privacy status on YouTube and records the result with the time of the check, until the video is public.
+- **Upload logs** — a log of each upload, which names the video, kept to diagnose failed uploads.
 
 The tool stores no data about viewers or any other YouTube users.
 
@@ -40,14 +41,15 @@ The tool stores no data about viewers or any other YouTube users.
 
 The data is used only to upload our videos and to follow them until they are published. We do not sell it, share it with third parties or use it for advertising. The tool shows no ads and no third-party content, has no web interface, and uses no cookies or other tracking technology.
 
-The data leaves our own machines only in requests to YouTube API Services, and as the link to each published video in our publishing calendar, a Google Sheets spreadsheet.
+The data leaves our own machines only in requests to YouTube API Services, and as the link to each published video in our publishing calendar, a Google Sheets spreadsheet. The notifications the tool sends to the maintainer name the project, never the video.
 
 ## 6. How long the data is kept
 
 - **The authorization** — for as long as the tool is connected to our channel; we delete it when we disconnect the tool.
-- **Upload records and publication status** — for as long as the video stays on our channel.
-- **After revocation** — if the tool's access is revoked, we delete the stored authorization and all data obtained through YouTube API Services within 30 days.
-- **On request** — if you believe the tool holds data about you, write to us and we will delete it within 7 days.
+- **Everything obtained through YouTube API Services** — upload records, publication status and the links in our publishing calendar — is read again from YouTube every week and never kept longer than 30 days without being refreshed, as the YouTube API Services policies require. When a video is no longer on our channel, the next weekly check deletes its record and removes its link from the calendar.
+- **Upload logs** — deleted after 30 days.
+- **If YouTube cannot be reached** — for example after the tool's access is revoked — anything not refreshed for 30 days is deleted, and we delete the stored authorization and all data obtained through YouTube API Services within 30 days of the revocation.
+- **On request** — if you believe the tool holds data about you, write to us and we will delete it within 7 days, as those policies require.
 
 ## 7. Revoking access
 
@@ -55,7 +57,7 @@ The tool's access to the channel can be revoked at any time on the [Google secur
 
 ## 8. Security
 
-Only the maintainer can reach the tool and its stored data. The authorization is never shown on screen or committed to any repository, and the machine the tool runs on is on our private network.
+Only the maintainer can reach the tool and its stored data, and the authorization is never shown on screen or committed to any repository.
 
 ## 9. Your rights and changes
 
