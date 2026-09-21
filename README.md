@@ -7,11 +7,11 @@
 
 Source of **[whiteravens.net](https://whiteravens.net)** — the home page of the White Ravens community.
 
-A single-page, English-only promotional site built with [Astro](https://astro.build): static output, no UI framework, ~1 KB of client JavaScript (theme toggle + scroll reveals), all assets self-hosted.
+An English-only promotional site built with [Astro](https://astro.build) — the home page plus a privacy policy and terms of use: static output, no UI framework, ~1 KB of client JavaScript (theme toggle + scroll reveals), all assets self-hosted.
 
 ## Editing content
 
-All copy lives in one file — **[`src/content/copy.yml`](src/content/copy.yml)**. Layout and styling never need to be touched to change wording.
+Home page copy lives in **[`src/content/copy.yml`](src/content/copy.yml)**; the privacy policy and terms of use are Markdown in **[`src/content/privacy.md`](src/content/privacy.md)** and **[`src/content/terms.md`](src/content/terms.md)**. Layout and styling never need to be touched to change wording.
 
 Facts (URLs, email, social handles, analytics endpoint) live in **[`src/config/site.ts`](src/config/site.ts)**.
 
@@ -32,9 +32,10 @@ src/
   assets/          raven logo (optimized at build time)
   components/      Hero, Aurora, Pillars, LinksStrip, Footer, ThemeToggle, Seo
   config/site.ts   site facts
-  content/copy.yml all copy
-  layouts/         Base.astro (head, CSP, theme init)
-  pages/           index.astro, 404.astro
+  content/         copy.yml (all home page copy), privacy.md, terms.md
+  icons/           local icons that keep their own colours (YouTube)
+  layouts/         Base.astro (head, CSP, theme init), Document.astro (long-form pages)
+  pages/           index.astro, privacy.astro, terms.astro, 404.astro
   scripts/         reveal.ts (scroll-triggered reveals)
   styles/          tokens.css (design tokens, dark + light), global.css
 ```
