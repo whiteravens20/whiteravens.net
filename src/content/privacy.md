@@ -1,10 +1,10 @@
 ---
 title: Privacy policy
 description: How the White Ravens websites handle your data — what is collected, by whom, why and for how long, and what your rights are.
-updated: '2026-09-21'
+updated: '2026-09-26'
 ---
 
-White Ravens is a small non-profit collective. We treat privacy as a feature, not a feature flag, so our websites collect as little as they can. This policy explains exactly what happens to your data when you visit them or write to us.
+White Ravens is a small non-profit collective. We treat privacy as a feature, not a feature flag, so our websites collect as little as they can. This policy explains exactly what happens to your data when you visit them, write to us or support us on Ko-fi.
 
 ## 1. What this policy covers
 
@@ -46,11 +46,13 @@ The blog and home.wrservices.link keep no statistics at all.
 
 *Legal basis:* our legitimate interest in knowing how many people visit our websites and where they come from (Art. 6(1)(f) GDPR).
 
-### 3.3 The Ko-fi button
+### 3.3 Ko-fi
 
 The footer of whiteravens.net shows a Ko-fi button, an image loaded from Ko-fi's servers, so Ko-fi receives your IP address and browser details when the footer comes into view. Elsewhere, Ko-fi is only a plain link. Once you open Ko-fi, the [Ko-fi privacy policy](https://more.ko-fi.com/privacy) applies.
 
-*Legal basis:* our legitimate interest in letting people who want to support us find our Ko-fi page (Art. 6(1)(f) GDPR).
+If you support us on Ko-fi, Ko-fi and its payment providers handle the payment. Ko-fi then sends our own server a notification of it: your name, your email address, your message if you wrote one, and the amount, currency, kind and time of the payment with Ko-fi's transaction number. We keep only the time, amount, currency, kind and transaction number, in a private spreadsheet where we track what running White Ravens costs; your name, email address and message are not kept. The notification itself is not stored, except that a notification our server fails to process stays in its error log. Ko-fi also shows us your support in our Ko-fi account, as it does for every creator.
+
+*Legal basis:* our legitimate interest in letting people who want to support us find our Ko-fi page, and in keeping track of the support we receive against our costs (Art. 6(1)(f) GDPR).
 
 ### 3.4 Your display preferences
 
@@ -71,15 +73,16 @@ If you open an issue or a pull request, or comment in one of our repositories, y
 We do not sell or rent your data, and we do not share it for advertising. Only these providers process data on our behalf, each for the purpose described above:
 
 - **GitHub** — hosting of whiteravens.net, the blog and the documentation;
-- **Our hosting provider** — the server in the European Union that runs home.wrservices.link;
+- **Our hosting provider** — the server in the European Union that runs home.wrservices.link and receives Ko-fi's payment notifications;
 - **A security provider** — the shared blocklist in the European Union that receives the addresses of attacks on our server;
 - **Cloudflare** — delivery and protection of whiteravens.net and wrservices.link, and email routing;
 - **GoatCounter** — visitor statistics on whiteravens.net and wrservices.link;
-- **Ko-fi** — the button image on whiteravens.net.
+- **Ko-fi** — the button image on whiteravens.net, and the support payments made there;
+- **A cloud spreadsheet service** — the private spreadsheet with our record of support payments.
 
 We disclose data to public authorities only when the law requires it.
 
-GitHub and Cloudflare are based in the United States. Where your data leaves the European Economic Area, these providers rely on safeguards recognised by the GDPR, such as the EU–U.S. Data Privacy Framework or the European Commission's standard contractual clauses.
+GitHub, Cloudflare and our spreadsheet service are based in the United States. Where your data leaves the European Economic Area, these providers rely on safeguards recognised by the GDPR, such as the EU–U.S. Data Privacy Framework or the European Commission's standard contractual clauses.
 
 ## 5. How long data is kept
 
@@ -87,6 +90,7 @@ GitHub and Cloudflare are based in the United States. Where your data leaves the
 - **Our server's logs** — deleted after at most 5 weeks. Automatic blocks are lifted after a short, fixed time; the shared blocklist keeps its reports under its own rules.
 - **Visitor statistics** — GoatCounter keeps only counts, which cannot identify you. The temporary identifier it uses to tell visits apart stays in memory for at most eight hours and is never written down.
 - **Email** — until the matter you wrote about is closed.
+- **Support payments** — the record of time, amount, currency, kind and transaction number, for as long as we track what White Ravens costs, or until you ask us to delete it. A payment notification our server failed to process is deleted from its error log after at most 7 days.
 - **Display preferences** — in your browser, until you clear its site data.
 
 ## 6. Cookies and local storage
