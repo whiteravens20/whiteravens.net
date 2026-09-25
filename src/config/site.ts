@@ -15,7 +15,7 @@ export const site = {
   youtube: 'https://www.youtube.com/@whiteravens20',
   steam: 'https://steamcommunity.com/groups/whiteravensgaming',
 
-  kofi: 'https://ko-fi.com/N4N4E0LR2',
+  kofi: 'https://ko-fi.com/whiteravens20',
   kofiButton: 'https://storage.ko-fi.com/cdn/kofi5.png?v=6',
   goatcounter: 'https://whiteravens.goatcounter.com/count',
 
