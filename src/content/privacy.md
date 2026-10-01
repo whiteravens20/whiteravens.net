@@ -1,7 +1,7 @@
 ---
 title: Privacy policy
 description: How the White Ravens websites handle your data — what is collected, by whom, why and for how long, and what your rights are.
-updated: '2026-09-26'
+updated: '2026-10-01'
 ---
 
 White Ravens is a small non-profit collective. We treat privacy as a feature, not a feature flag, so our websites collect as little as they can. This policy explains exactly what happens to your data when you visit them, write to us or support us on Ko-fi.
@@ -40,9 +40,14 @@ whiteravens.net and wrservices.link are also served through **Cloudflare**, whic
 
 ### 3.2 Visitor statistics
 
-whiteravens.net and wrservices.link count visits with [GoatCounter](https://www.goatcounter.com/), a privacy-friendly analytics service; each site has its own counter. GoatCounter records details such as the page you opened, the site that linked you here, your browser's name and version, your screen size and your country, worked out from your IP address. It does not store your IP address or your full browser details, and it puts nothing in your browser: no cookies, no local storage. Its servers are in Finland and Germany; [GoatCounter's privacy policy](https://www.goatcounter.com/help/privacy) has the details.
+Three of our websites count visits with [GoatCounter](https://www.goatcounter.com/), privacy-friendly analytics software. It records details such as the page you opened, the site that linked you here, your browser's name and version, your screen size and your country, worked out from your IP address. It does not store your IP address or your full browser details, and it puts nothing in your browser: no cookies, no local storage.
 
-The blog and home.wrservices.link keep no statistics at all.
+Each site has its own counter, and where it runs depends on the site:
+
+- **The blog** — on our own server (see [section 3.1](#31-delivering-and-protecting-the-websites)). What it records stays with us, and the web server in front of it does not log these requests.
+- **whiteravens.net and wrservices.link** — on the service GoatCounter runs itself, on its servers in Finland and Germany; [GoatCounter's privacy policy](https://www.goatcounter.com/help/privacy) has the details.
+
+home.wrservices.link keeps no statistics at all.
 
 *Legal basis:* our legitimate interest in knowing how many people visit our websites and where they come from (Art. 6(1)(f) GDPR).
 
@@ -73,7 +78,7 @@ If you open an issue or a pull request, or comment in one of our repositories, y
 We do not sell or rent your data, and we do not share it for advertising. Only these providers process data on our behalf, each for the purpose described above:
 
 - **GitHub** — hosting of whiteravens.net, the blog and the documentation;
-- **Our hosting provider** — the server in the European Union that runs home.wrservices.link and receives Ko-fi's payment notifications;
+- **Our hosting provider** — the server in the European Union that runs home.wrservices.link and the blog's visit counter, and receives Ko-fi's payment notifications;
 - **A security provider** — the shared blocklist in the European Union that receives the addresses of attacks on our server;
 - **Cloudflare** — delivery and protection of whiteravens.net and wrservices.link, and email routing;
 - **GoatCounter** — visitor statistics on whiteravens.net and wrservices.link;
