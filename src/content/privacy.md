@@ -40,12 +40,7 @@ whiteravens.net and wrservices.link are also served through **Cloudflare**, whic
 
 ### 3.2 Visitor statistics
 
-Three of our websites count visits with [GoatCounter](https://www.goatcounter.com/), privacy-friendly analytics software. It records details such as the page you opened, the site that linked you here, your browser's name and version, your screen size and your country, worked out from your IP address. It does not store your IP address or your full browser details, and it puts nothing in your browser: no cookies, no local storage.
-
-Each site has its own counter, and where it runs depends on the site:
-
-- **The blog** — on our own server (see [section 3.1](#31-delivering-and-protecting-the-websites)). What it records stays with us, and the web server in front of it does not log these requests.
-- **whiteravens.net and wrservices.link** — on the service GoatCounter runs itself, on its servers in Finland and Germany; [GoatCounter's privacy policy](https://www.goatcounter.com/help/privacy) has the details.
+whiteravens.net, the blog and wrservices.link count visits with [GoatCounter](https://www.goatcounter.com/), privacy-friendly analytics software that we run on our own server (see [section 3.1](#31-delivering-and-protecting-the-websites)); each site has its own counter. It records details such as the page you opened, the site that linked you here, your browser's name and version, your screen size and your country, worked out from your IP address. It does not store your IP address or your full browser details, and it puts nothing in your browser: no cookies, no local storage. What it records stays with us, and the web server in front of it does not log these requests.
 
 home.wrservices.link keeps no statistics at all.
 
@@ -78,10 +73,9 @@ If you open an issue or a pull request, or comment in one of our repositories, y
 We do not sell or rent your data, and we do not share it for advertising. Only these providers process data on our behalf, each for the purpose described above:
 
 - **GitHub** — hosting of whiteravens.net, the blog and the documentation;
-- **Our hosting provider** — the server in the European Union that runs home.wrservices.link and the blog's visit counter, and receives Ko-fi's payment notifications;
+- **Our hosting provider** — the server in the European Union that runs home.wrservices.link and our visit counters, and receives Ko-fi's payment notifications;
 - **A security provider** — the shared blocklist in the European Union that receives the addresses of attacks on our server;
 - **Cloudflare** — delivery and protection of whiteravens.net and wrservices.link, and email routing;
-- **GoatCounter** — visitor statistics on whiteravens.net and wrservices.link;
 - **Ko-fi** — the button image on whiteravens.net, and the support payments made there;
 - **A cloud spreadsheet service** — the private spreadsheet with our record of support payments.
 
@@ -93,7 +87,7 @@ GitHub, Cloudflare and our spreadsheet service are based in the United States. W
 
 - **GitHub's and Cloudflare's logs** — for the periods set by those providers. The security events Cloudflare shows us are kept by Cloudflare for a limited time.
 - **Our server's logs** — deleted after at most 5 weeks. Automatic blocks are lifted after a short, fixed time; the shared blocklist keeps its reports under its own rules.
-- **Visitor statistics** — GoatCounter keeps only counts, which cannot identify you. The temporary identifier it uses to tell visits apart stays in memory for at most eight hours and is never written down.
+- **Visitor statistics** — our counters keep only counts, which cannot identify you. The temporary identifier they use to tell visits apart stays in memory for at most eight hours and is never written down.
 - **Email** — until the matter you wrote about is closed.
 - **Support payments** — the record of time, amount, currency, kind and transaction number, for as long as we track what White Ravens costs, or until you ask us to delete it. A payment notification our server failed to process is deleted from its error log after at most 7 days.
 - **Display preferences** — in your browser, until you clear its site data.

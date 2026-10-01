@@ -6,6 +6,7 @@ import '../styles/tokens.css';
 import '../styles/global.css';
 import Seo from '../components/Seo.astro';
 import copy from '../content/copy.yml';
+import { site } from '../config/site';
 
 interface Props {
   title?: string;
@@ -20,15 +21,17 @@ const themeInit =
   "if(localStorage.getItem('theme')==='light')document.documentElement.dataset.theme='light';";
 const themeInitHash = createHash('sha256').update(themeInit).digest('base64');
 
+const counter = new URL(site.goatcounter).origin;
+
 // GitHub Pages cannot send HTTP headers, so the CSP ships as a meta tag.
 // Only emitted for production builds — it would block Vite's dev tooling.
 const csp = [
   "default-src 'self'",
-  `script-src 'self' https://gc.zgo.at 'sha256-${themeInitHash}'`,
+  `script-src 'self' ${counter} 'sha256-${themeInitHash}'`,
   "style-src 'self'",
-  "img-src 'self' data: https://storage.ko-fi.com https://whiteravens.goatcounter.com",
+  `img-src 'self' data: https://storage.ko-fi.com ${counter}`,
   "font-src 'self'",
-  "connect-src 'self' https://whiteravens.goatcounter.com",
+  `connect-src 'self' ${counter}`,
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self'",

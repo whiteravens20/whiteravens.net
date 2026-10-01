@@ -17,8 +17,8 @@ deployed version (built from `main`) is supported.
 ## Hardening in place
 
 - **Content-Security-Policy** meta tag (GitHub Pages cannot send headers):
-  `default-src 'self'`; the only allowed external origins are GoatCounter
-  (analytics) and the Ko-fi button image. The single inline script is
+  `default-src 'self'`; the only other allowed origins are our own visit
+  counter and the Ko-fi button image. The single inline script is
   hash-allowlisted, with the hash computed at build time.
 - **Referrer-Policy**: `strict-origin-when-cross-origin`.
 - **Self-hosted assets** — fonts and icons ship from the same origin; no CDN
