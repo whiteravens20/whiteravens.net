@@ -51,7 +51,7 @@ Push to `main` triggers the [deploy workflow](.github/workflows/deploy.yml): `np
 
 ## Security & privacy
 
-- Strict `Content-Security-Policy` meta tag; the only external origins are [GoatCounter](https://www.goatcounter.com/) (privacy-friendly analytics) and the Ko-fi button image.
+- Strict `Content-Security-Policy` meta tag; the only other origins are our own visit counter ([GoatCounter](https://www.goatcounter.com/) on our own server) and the Ko-fi button image.
 - Fonts and icons are self-hosted/inlined — no CDN or Google Fonts requests.
 - CI: least-privilege workflow permissions, `npm ci` from the committed lockfile, weekly `npm audit` + signature verification, CodeQL, Dependabot.
 

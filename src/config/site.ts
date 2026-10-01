@@ -17,7 +17,7 @@ export const site = {
 
   kofi: 'https://ko-fi.com/whiteravens20',
   kofiButton: 'https://storage.ko-fi.com/cdn/kofi5.png?v=6',
-  goatcounter: 'https://whiteravens.goatcounter.com/count',
+  goatcounter: 'https://stats.whiteravens.net/count',
 
   author: { name: 'pavlojs', url: 'https://github.com/pavlojs' },
 
