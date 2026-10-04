@@ -30,4 +30,5 @@ deployed version (built from `main`) is supported.
 - **CI/CD**: least-privilege per-job workflow `permissions:`; deploys use
   GitHub's OIDC-based Pages deployment (no long-lived tokens or PATs); only
   first-party `actions/*` and `github/*` actions plus
-  `actions/dependency-review-action`.
+  `actions/dependency-review-action`; every action is pinned to a commit SHA
+  and checked against the tag it names on each run.
