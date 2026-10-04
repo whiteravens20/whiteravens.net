@@ -53,7 +53,7 @@ Push to `main` triggers the [deploy workflow](.github/workflows/deploy.yml): `np
 
 - Strict `Content-Security-Policy` meta tag; the only other origins are our own visit counter ([GoatCounter](https://www.goatcounter.com/) on our own server) and the Ko-fi button image.
 - Fonts and icons are self-hosted/inlined — no CDN or Google Fonts requests.
-- CI: least-privilege workflow permissions, actions pinned to commit SHAs and checked against their tags, `npm ci` from the committed lockfile, weekly `npm audit` + signature verification, CodeQL, Dependabot.
+- CI: least-privilege workflow permissions, actions pinned to commit SHAs and checked against their tags, `npm ci` from the committed lockfile, `npm audit` with a documented allowlist + signature verification on every push and weekly, CodeQL, Dependabot.
 
 See [SECURITY.md](SECURITY.md) for the policy and reporting instructions.
 
