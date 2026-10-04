@@ -1,10 +1,10 @@
 ---
 title: Terms of use
 description: The terms for using the White Ravens websites — what you may do with them, what we promise and what we do not.
-updated: '2026-09-21'
+updated: '2026-10-04'
 ---
 
-These terms apply to our websites: [whiteravens.net](https://whiteravens.net), [blog.whiteravens.net](https://blog.whiteravens.net), [wrservices.link](https://wrservices.link) and [home.wrservices.link](https://home.wrservices.link). By using them, you agree to these terms.
+These terms apply to our websites: [whiteravens.net](https://whiteravens.net), [blog.whiteravens.net](https://blog.whiteravens.net), [wrservices.link](https://wrservices.link), [home.wrservices.link](https://home.wrservices.link) and [status.wrservices.link](https://status.wrservices.link). By using them, you agree to these terms.
 
 Some of our tools and services have their own terms:
 
@@ -26,6 +26,8 @@ Our websites are free to use and need no account. When you use them, do not:
 - present yourself as White Ravens or suggest that we endorse you when we do not.
 
 We may block access that breaks these rules.
+
+Accounts in White Ravens SSO, our sign-in service, are created by invitation only. We may close an account that is misused or no longer needed, and you can ask us to close yours at any time.
 
 If you find a security vulnerability, report it privately as described in the security policy (`SECURITY.md`) of the repository concerned. Good-faith research reported that way is welcome.
 
