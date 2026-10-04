@@ -1,38 +1,42 @@
 ---
 name: Bug report
-about: Create a bug report and help us improve
-title: ''
+about: Report something broken or wrong on whiteravens.net
+title: '[BUG] '
 labels: bug
 assignees: pavlojs
-
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+> **Security vulnerability?** Do not open a public issue.
+> Use [private vulnerability reporting](../../security/advisories/new) instead.
 
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+## What is wrong
+A clear and concise description of the problem.
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+## Where
+The page address, and the section of the page if it matters.
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+## Steps to reproduce
+1.
+2.
+3.
 
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
+## Expected
+What you expected to see.
 
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
- - Version [e.g. 22]
+## Environment
 
-**Additional context**
-Add any other context about the problem here.
+| Field | Value |
+|---|---|
+| Browser and version | e.g. Firefox 135 |
+| Device | desktop / phone / tablet |
+| Operating system | e.g. Android 15 |
+| Theme | light / dark |
+| Reduced motion | on / off |
+
+## Console output
+```
+Paste errors from the browser console here, a Content-Security-Policy violation included
+```
+
+## Screenshots
+If applicable, add a screenshot.
