@@ -17,17 +17,22 @@ jobs:
       contents: read
 
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-      - uses: actions/setup-node@v7
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: 24
           cache: npm
 
       # Everything here is a build-time dependency (the site ships static
       # files), so a single high bar keeps the signal useful.
+      #
+      # audit-check.mjs wraps `npm audit` so that an advisory with no installable
+      # fix and no reachable code path can be allowlisted on its own, with a
+      # justification and an expiry, instead of leaving the check red for every
+      # advisory after it. See .github/scripts/audit-allowlist.json.
       - name: Audit dependencies
-        run: npm audit --audit-level=high
+        run: node .github/scripts/audit-check.mjs --dir . --audit-level high
 
       # Verify every installed tarball has a valid registry signature.
       # Requires a fresh install since `audit signatures` reads node_modules.
@@ -47,9 +52,43 @@ jobs:
       pull-requests: write
 
     steps:
-      - uses: actions/checkout@v7
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-      - uses: actions/dependency-review-action@v5.0.0
+      - uses: actions/dependency-review-action@a1d282b36b6f3519aa1f3fc636f609c47dddb294 # v5.0.0
         with:
           fail-on-severity: high
           comment-summary-in-pr: always
+          # Every allowlisted ID is listed here as well, with its justification
+          # in .github/scripts/audit-allowlist.json. Keep the two in sync.
+          allow-ghsas: GHSA-ch52-4w7c-c8xp
+
+  # Every action in these workflows is pinned to a commit SHA, with its version
+  # in a comment. This checks that each SHA is the commit of the version named
+  # beside it, so a wrong SHA and a tag moved upstream both fail here.
+  pins:
+    name: Pinned actions
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Check each SHA against the tag it names
+        run: .github/scripts/verify-pins.sh
+
+  # Dependabot raises no alert for an action pinned by SHA, so this asks GitHub's
+  # advisory database about every pinned version in its place.
+  actions-audit:
+    name: Actions audit
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Look up each pinned version in the advisory database
+        run: .github/scripts/verify-pins.sh --advisories
+        env:
+          GH_TOKEN: ${{ github.token }}
