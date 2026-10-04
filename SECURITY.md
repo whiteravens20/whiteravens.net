@@ -25,8 +25,8 @@ deployed version (built from `main`) is supported.
   scripts, no Google Fonts.
 - **Supply chain**: all npm dependencies are build-time only; CI installs with
   `npm ci` from the committed lockfile; `npm audit` with a documented
-  allowlist, `npm audit signatures` and a Trivy scan on every push and weekly;
-  Dependabot for npm and GitHub Actions; CodeQL analysis on every push.
+  allowlist and `npm audit signatures` on every push and weekly; Dependabot
+  for npm and GitHub Actions; CodeQL analysis on every push.
 - **CI/CD**: least-privilege per-job workflow `permissions:`; deploys use
   GitHub's OIDC-based Pages deployment (no long-lived tokens or PATs); only
   first-party `actions/*` and `github/*` actions plus
