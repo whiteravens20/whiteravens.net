@@ -1,7 +1,7 @@
 ---
 title: Privacy policy
 description: How the White Ravens websites handle your data — what is collected, by whom, why and for how long, and what your rights are.
-updated: '2026-10-01'
+updated: '2026-10-04'
 ---
 
 White Ravens is a small non-profit collective. We treat privacy as a feature, not a feature flag, so our websites collect as little as they can. This policy explains exactly what happens to your data when you visit them, write to us or support us on Ko-fi.
@@ -13,7 +13,10 @@ This policy covers our websites:
 - [whiteravens.net](https://whiteravens.net), our home page;
 - [blog.whiteravens.net](https://blog.whiteravens.net), our blog;
 - [wrservices.link](https://wrservices.link), our documentation;
-- [home.wrservices.link](https://home.wrservices.link), our dashboard of links to the services we run.
+- [home.wrservices.link](https://home.wrservices.link), our dashboard of links to the services we run;
+- [status.wrservices.link](https://status.wrservices.link), the page that shows whether our services are up.
+
+It also covers White Ravens SSO, the sign-in service for accounts we create by invitation ([section 3.7](#37-white-ravens-sso)).
 
 Some of our tools and services handle other data and have their own policies:
 
@@ -32,7 +35,7 @@ Our websites serve their own fonts, styles and scripts. The only outside service
 
 whiteravens.net, the blog and the documentation are static sites hosted on **GitHub Pages**. To deliver a page, GitHub processes your IP address and technical details of your request, such as your browser and the time, and keeps them in its logs for security. This happens under the [GitHub General Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement); we have no access to those logs.
 
-home.wrservices.link runs on **our own server**, hosted in the European Union. The web server in front of it logs every request: your IP address, the time, the page, the site that linked you here and your browser's details. We use these logs to keep the server secure and to find faults. An address that keeps attacking the server is blocked automatically for a short time, and the address, the kind of attack and its time are reported to a shared blocklist run by a security provider in the European Union, which in turn warns us about addresses known to attack others.
+home.wrservices.link and status.wrservices.link run on **our own server**, hosted in the European Union. The web server in front of them logs every request: your IP address, the time, the page, the site that linked you here and your browser's details. We use these logs to keep the server secure and to find faults. An address that keeps attacking the server is blocked automatically for a short time, and the address, the kind of attack and its time are reported to a shared blocklist run by a security provider in the European Union, which in turn warns us about addresses known to attack others.
 
 whiteravens.net and wrservices.link are also served through **Cloudflare**, which speeds them up and protects them from attacks and automated abuse. For that, Cloudflare processes your IP address and the details of your request. Before showing a page it may check your browser automatically, which loads a script from `challenges.cloudflare.com`, and it may set the security cookies listed in [section 6](#6-cookies-and-local-storage). Cloudflare shows us aggregated traffic statistics and a log of security events, which can include the IP address, country and browser of a request it blocked or challenged. See the [Cloudflare Privacy Policy](https://www.cloudflare.com/privacypolicy/).
 
@@ -42,7 +45,7 @@ whiteravens.net and wrservices.link are also served through **Cloudflare**, whic
 
 whiteravens.net, the blog and wrservices.link count visits with [GoatCounter](https://www.goatcounter.com/), privacy-friendly analytics software that we run on our own server (see [section 3.1](#31-delivering-and-protecting-the-websites)); each site has its own counter. It records details such as the page you opened, the site that linked you here, your browser's name and version, your screen size and your country, worked out from your IP address. It does not store your IP address or your full browser details, and it puts nothing in your browser: no cookies, no local storage. What it records stays with us, and the web server in front of it does not log these requests.
 
-home.wrservices.link keeps no statistics at all.
+home.wrservices.link and status.wrservices.link keep no statistics at all.
 
 *Legal basis:* our legitimate interest in knowing how many people visit our websites and where they come from (Art. 6(1)(f) GDPR).
 
@@ -56,7 +59,7 @@ If you support us on Ko-fi, Ko-fi and its payment providers handle the payment. 
 
 ### 3.4 Your display preferences
 
-When you choose a light or dark theme, a colour scheme, a code tab or a language, the site remembers it in your browser's local storage (see [section 6](#6-cookies-and-local-storage)). On your first visit, wrservices.link and home.wrservices.link also read your browser's language setting to show Polish readers the Polish version, and the dashboard remembers the language it picked; that happens only in your browser. The dashboard also installs a service worker, which keeps a copy of its own files in your browser so it opens faster; it holds no personal data. None of this is sent to us or to anyone else.
+When you choose a light or dark theme, a colour scheme, a code tab or a language, the site remembers it in your browser's local storage (see [section 6](#6-cookies-and-local-storage)). On your first visit, wrservices.link and home.wrservices.link also read your browser's language setting to show Polish readers the Polish version, and the dashboard remembers the language it picked; that happens only in your browser. The dashboard also installs a service worker, which keeps a copy of its own files in your browser so it opens faster; it holds no personal data. The status page keeps its display settings the same way and installs a service worker that stores nothing. None of this is sent to us or to anyone else.
 
 ### 3.5 Email
 
@@ -68,12 +71,21 @@ Email to kontakt@whiteravens.net passes through Cloudflare Email Routing, which 
 
 If you open an issue or a pull request, or comment in one of our repositories, you do that on GitHub, under GitHub's terms and privacy statement. What you post there is public. We use it only to work on the project with you.
 
+### 3.7 White Ravens SSO
+
+White Ravens SSO is our own sign-in service, on our own server. Accounts are created by invitation only. An account holds your username, your name, your email address and your password as a hash, and a second sign-in factor if you add one.
+
+Each sign-in, and each use of the account to open one of our services, is recorded with its time, your IP address, the approximate location and network that address points to, and your browser's details. We use this record to notice misuse of an account. While you are signed in, a cookie keeps your session (see [section 6](#6-cookies-and-local-storage)). When you ask for a password reset, the service sends you an email through an email delivery provider in the European Union.
+
+*Legal basis:* steps taken at your request to give you access (Art. 6(1)(b) GDPR); for the record of sign-ins, our legitimate interest in keeping accounts secure (Art. 6(1)(f) GDPR).
+
 ## 4. Who receives your data
 
 We do not sell or rent your data, and we do not share it for advertising. Only these providers process data on our behalf, each for the purpose described above:
 
 - **GitHub** — hosting of whiteravens.net, the blog and the documentation;
-- **Our hosting provider** — the server in the European Union that runs home.wrservices.link and our visit counters, and receives Ko-fi's payment notifications;
+- **Our hosting provider** — the server in the European Union that runs home.wrservices.link, status.wrservices.link, White Ravens SSO and our visit counters, and receives Ko-fi's payment notifications;
+- **An email delivery provider** in the European Union — password-reset emails from White Ravens SSO;
 - **A security provider** — the shared blocklist in the European Union that receives the addresses of attacks on our server;
 - **Cloudflare** — delivery and protection of whiteravens.net and wrservices.link, and email routing;
 - **Ko-fi** — the button image on whiteravens.net, and the support payments made there;
@@ -90,11 +102,12 @@ GitHub, Cloudflare and our spreadsheet service are based in the United States. W
 - **Visitor statistics** — our counters keep only counts, which cannot identify you. The temporary identifier they use to tell visits apart stays in memory for at most eight hours and is never written down.
 - **Email** — until the matter you wrote about is closed.
 - **Support payments** — the record of time, amount, currency, kind and transaction number, for as long as we track what White Ravens costs, or until you ask us to delete it. A payment notification our server failed to process is deleted from its error log after at most 7 days.
+- **White Ravens SSO** — your account, until we close it or you ask us to; the record of sign-ins, for 30 days.
 - **Display preferences** — in your browser, until you clear its site data.
 
 ## 6. Cookies and local storage
 
-Our websites set no advertising or tracking cookies. The only cookies are Cloudflare's security cookies, and the only local storage holds display settings:
+Our websites set no advertising or tracking cookies. The only cookies are Cloudflare's security cookies and the sign-in cookie of White Ravens SSO, and the only local storage holds display settings:
 
 | Name | Set by | On | Purpose | Kept for |
 | --- | --- | --- | --- | --- |
@@ -106,8 +119,10 @@ Our websites set no advertising or tracking cookies. The only cookies are Cloudf
 | `wr-lang-chosen` | local storage | wrservices.link | That you picked a language, so you are not redirected | Until you clear it |
 | `homer-lang` | local storage | home.wrservices.link | The dashboard's language, picked from your browser's language or by you | Until you clear it |
 | `overrideDark` | local storage | home.wrservices.link | Your light or dark mode | Until you clear it |
+| `theme`, `heartbeatBarTheme`, `styleElapsedTime` | local storage | status.wrservices.link | How the status page is displayed | Until you clear it |
+| `authentik_session` | White Ravens SSO (cookie) | The sign-in page | Keeps you signed in | Until you close the browser |
 
-Cloudflare's security cookies are strictly necessary to protect the websites, so they need no consent. Cloudflare describes them in its [cookie documentation](https://developers.cloudflare.com/fundamentals/reference/policies-compliances/cloudflare-cookies/). You can delete all of the above in your browser's settings at any time.
+Cloudflare's security cookies are strictly necessary to protect the websites, and the sign-in cookie is strictly necessary to stay signed in, so they need no consent. Cloudflare describes them in its [cookie documentation](https://developers.cloudflare.com/fundamentals/reference/policies-compliances/cloudflare-cookies/). You can delete all of the above in your browser's settings at any time.
 
 ## 7. Your rights
 
