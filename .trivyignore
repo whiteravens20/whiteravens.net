@@ -1,0 +1,12 @@
+# Trivy vulnerability suppressions
+# Each entry must include a justification.
+
+# GHSA-ch52-4w7c-c8xp — http-cache-semantics can disclose cross-user cached
+# responses when it runs as a shared cache.
+# The package comes in through astro, which uses it only in the build-time
+# loader for remote images. The site has no remote images and no server: it
+# ships static files, so the vulnerable path is unreachable.
+# No fixed version exists yet. Remove when one is installable.
+# Justification mirrored in .github/scripts/audit-allowlist.json.
+GHSA-ch52-4w7c-c8xp
+CVE-2026-93748
