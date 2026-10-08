@@ -1,7 +1,7 @@
 ---
 title: Privacy policy
 description: How the White Ravens websites handle your data — what is collected, by whom, why and for how long, and what your rights are.
-updated: '2026-10-04'
+updated: '2026-10-08'
 ---
 
 White Ravens is a small non-profit collective. We treat privacy as a feature, not a feature flag, so our websites collect as little as they can. This policy explains exactly what happens to your data when you visit them, write to us or support us on Ko-fi.
@@ -43,7 +43,7 @@ whiteravens.net and wrservices.link are also served through **Cloudflare**, whic
 
 ### 3.2 Visitor statistics
 
-whiteravens.net, the blog and wrservices.link count visits with [GoatCounter](https://www.goatcounter.com/), privacy-friendly analytics software that we run on our own server (see [section 3.1](#31-delivering-and-protecting-the-websites)); each site has its own counter. It records details such as the page you opened, the site that linked you here, your browser's name and version, your screen size and your country, worked out from your IP address. It does not store your IP address or your full browser details, and it puts nothing in your browser: no cookies, no local storage. What it records stays with us, and the web server in front of it does not log these requests.
+whiteravens.net, the blog and wrservices.link count visits with [GoatCounter](https://www.goatcounter.com/), privacy-friendly analytics software that we run on our own server (see [section 3.1](#31-delivering-and-protecting-the-websites)); each site has its own counter. It records details such as the page you opened, the site that linked you here, your browser's name and version, your screen size and your country, worked out from your IP address. It does not store your IP address or your full browser details, and it puts nothing in your browser: no cookies, no local storage. The one exception is a request the counter takes for an automated one, such as a crawler, a browser driven by a script, or a visit arriving from the network of a large hosting provider, where some VPNs run. It is left out of the statistics, and for 30 days the counter keeps the page, the time and the full browser details that came with it, still without the IP address. What it records stays with us, and the web server in front of it does not log these requests.
 
 home.wrservices.link and status.wrservices.link keep no statistics at all.
 
@@ -99,7 +99,7 @@ GitHub, Cloudflare and our spreadsheet service are based in the United States. W
 
 - **GitHub's and Cloudflare's logs** — for the periods set by those providers. The security events Cloudflare shows us are kept by Cloudflare for a limited time.
 - **Our server's logs** — deleted after at most 5 weeks. Automatic blocks are lifted after a short, fixed time; the shared blocklist keeps its reports under its own rules.
-- **Visitor statistics** — our counters keep only counts, which cannot identify you. The temporary identifier they use to tell visits apart stays in memory for at most eight hours and is never written down.
+- **Visitor statistics** — our counters keep counts, which cannot identify you. What they keep about a request taken for an automated one ([section 3.2](#32-visitor-statistics)) is deleted after 30 days. The temporary identifier they use to tell visits apart stays in memory for at most eight hours and is never written down.
 - **Email** — until the matter you wrote about is closed.
 - **Support payments** — the record of time, amount, currency, kind and transaction number, for as long as we track what White Ravens costs, or until you ask us to delete it. A payment notification our server failed to process is deleted from its error log after at most 7 days.
 - **White Ravens SSO** — your account, until we close it or you ask us to; the record of sign-ins, for 30 days.
