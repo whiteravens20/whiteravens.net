@@ -1,7 +1,7 @@
 ---
 title: Privacy policy
 description: How the White Ravens websites handle your data — what is collected, by whom, why and for how long, and what your rights are.
-updated: '2026-10-08'
+updated: '2026-10-18'
 ---
 
 White Ravens is a small non-profit collective. We treat privacy as a feature, not a feature flag, so our websites collect as little as they can. This policy explains exactly what happens to your data when you visit them, write to us or support us on Ko-fi.
@@ -21,7 +21,7 @@ It also covers White Ravens SSO, the sign-in service for accounts we create by i
 Some of our tools and services handle other data and have their own policies:
 
 - **White Ravens Publisher**, the tool we use to upload videos to our YouTube channel through YouTube API Services: see the [White Ravens Publisher privacy policy](/privacy/youtube/).
-- **The community services we host**, such as our chat, each have their own privacy policy, available on the service itself.
+- **The community services we host** each have their own privacy policy, available on the service itself.
 
 ## 2. Who is responsible
 

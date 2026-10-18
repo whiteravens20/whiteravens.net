@@ -1,7 +1,7 @@
 ---
 title: Terms of use
 description: The terms for using the White Ravens websites — what you may do with them, what we promise and what we do not.
-updated: '2026-10-04'
+updated: '2026-10-18'
 ---
 
 These terms apply to our websites: [whiteravens.net](https://whiteravens.net), [blog.whiteravens.net](https://blog.whiteravens.net), [wrservices.link](https://wrservices.link), [home.wrservices.link](https://home.wrservices.link) and [status.wrservices.link](https://status.wrservices.link). By using them, you agree to these terms.
@@ -9,7 +9,7 @@ These terms apply to our websites: [whiteravens.net](https://whiteravens.net), [
 Some of our tools and services have their own terms:
 
 - **White Ravens Publisher**, the tool we use to upload videos to our YouTube channel: see the [White Ravens Publisher terms of use](/terms/youtube/).
-- **The community services we host**, such as our chat, each have their own rules and policies, available on the service itself.
+- **The community services we host** each have their own rules and policies, available on the service itself.
 
 ## 1. Who we are
 
