@@ -1,33 +1,28 @@
 ---
-import { Icon } from 'astro-icon/components';
 import Base from '../layouts/Base.astro';
-import Aurora from '../components/Aurora.astro';
+import Instrument from '../components/Instrument.astro';
 import copy from '../content/copy.yml';
 ---
 
 <Base title={`${copy.notFound.title} — White Ravens`}>
   <main id="main">
-    <Aurora />
     <div class="wrap">
+      <div class="stage"><Instrument /></div>
       <p class="code">404</p>
       <h1>{copy.notFound.title}</h1>
       <p class="body">{copy.notFound.body}</p>
-      <a class="home" href="/">
-        <Icon name="lucide:arrow-left" />
-        {copy.notFound.home}
-      </a>
+      <a class="home" href="/"><span>← {copy.notFound.home}</span></a>
     </div>
   </main>
 </Base>
 
 <style>
   main {
-    position: relative;
-    isolation: isolate;
     min-height: 100svh;
     display: grid;
     place-items: center;
     text-align: center;
+    padding-block: var(--space-2xl);
   }
 
   .wrap {
@@ -36,15 +31,19 @@ import copy from '../content/copy.yml';
     gap: var(--space-m);
   }
 
+  .stage {
+    width: min(60vmin, 360px);
+    margin-bottom: var(--space-l);
+  }
+
   .code {
-    font-family: var(--font-display);
-    font-size: var(--step-5);
+    font-family: var(--font-pixel);
+    font-size: var(--step-4);
     font-weight: 700;
     line-height: 1;
-    background: linear-gradient(100deg, var(--heading) 40%, var(--accent));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    text-shadow: var(--glow-text);
   }
 
   h1 {
@@ -56,30 +55,48 @@ import copy from '../content/copy.yml';
   }
 
   .home {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-xs);
+    --cut: 11px;
+    display: inline-block;
     margin-top: var(--space-m);
-    padding: 0.8rem 1.5rem;
-    border: 1px solid var(--border-strong);
-    border-radius: var(--radius-full);
-    background: var(--surface);
+    padding: 1px;
+    background: var(--border-strong);
+    clip-path: polygon(
+      var(--cut) 0,
+      100% 0,
+      100% calc(100% - var(--cut)),
+      calc(100% - var(--cut)) 100%,
+      0 100%,
+      0 var(--cut)
+    );
     color: var(--text);
-    font-weight: 600;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
     text-decoration: none;
     transition:
       transform var(--dur-fast) var(--ease),
-      border-color var(--dur-fast) var(--ease);
+      background var(--dur-fast) var(--ease);
+  }
+
+  .home > span {
+    display: block;
+    padding: 0.85rem 1.5rem;
+    background: var(--bg-raised);
+    clip-path: polygon(
+      var(--cut) 0,
+      100% 0,
+      100% calc(100% - var(--cut)),
+      calc(100% - var(--cut)) 100%,
+      0 100%,
+      0 var(--cut)
+    );
   }
 
   .home:hover {
+    background: var(--accent);
     transform: translateY(-2px);
-    border-color: var(--accent);
-  }
-
-  .home [data-icon] {
-    width: 1.1em;
-    height: 1.1em;
   }
 
   @media (prefers-reduced-motion: reduce) {

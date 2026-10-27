@@ -7,7 +7,7 @@
 
 Source of **[whiteravens.net](https://whiteravens.net)** — the home page of the White Ravens community.
 
-An English-only promotional site built with [Astro](https://astro.build) — the home page plus a privacy policy and terms of use: static output, no UI framework, ~1 KB of client JavaScript (theme toggle + scroll reveals), all assets self-hosted.
+An English-only promotional site built with [Astro](https://astro.build) — the home page plus a privacy policy and terms of use: static output, no UI framework, ~1 KB of client JavaScript (theme toggle, scroll reveals, the HUD's clock), all assets self-hosted.
 
 ## Editing content
 
@@ -30,13 +30,14 @@ npm run preview    # serve the production build locally
 public/            served as-is: CNAME, healthz, favicons, manifest, robots.txt
 src/
   assets/          raven logo (optimized at build time)
-  components/      Hero, Aurora, Pillars, LinksStrip, Footer, ThemeToggle, Seo
+  components/      Hero, Hud (the visor around the logo), Instrument (its rings, drawn at build time),
+                   Pillars, LinksStrip, Footer, ThemeToggle, Seo
   config/site.ts   site facts
   content/         copy.yml (all home page copy), privacy.md, terms.md, privacy-youtube.md, terms-youtube.md
   icons/           local icons that keep their own colours (YouTube)
   layouts/         Base.astro (head, CSP, theme init), Document.astro (long-form pages)
   pages/           index.astro, privacy/ and terms/ (index.astro + youtube.astro each), 404.astro
-  scripts/         reveal.ts (scroll-triggered reveals)
+  scripts/         reveal.ts (scroll-triggered reveals), hud.ts (the HUD's clock and frame counter)
   styles/          tokens.css (design tokens, dark + light), global.css
 ```
 
@@ -51,7 +52,7 @@ Push to `main` triggers the [deploy workflow](.github/workflows/deploy.yml): `np
 
 ## Security & privacy
 
-- Strict `Content-Security-Policy` meta tag; the only other origins are our own visit counter ([GoatCounter](https://www.goatcounter.com/) on our own server) and the Ko-fi button image.
+- Strict `Content-Security-Policy` meta tag; the only other origin is our own visit counter ([GoatCounter](https://www.goatcounter.com/) on our own server).
 - Fonts and icons are self-hosted/inlined — no CDN or Google Fonts requests.
 - CI: least-privilege workflow permissions, actions pinned to commit SHAs and checked against their tags, `npm ci` from the committed lockfile, `npm audit` with a documented allowlist + signature verification on every push and weekly, CodeQL, Dependabot.
 
@@ -59,7 +60,7 @@ See [SECURITY.md](SECURITY.md) for the policy and reporting instructions.
 
 ## Accessibility
 
-Dark theme by default with a persistent light-theme toggle, `prefers-reduced-motion` disables all animation, skip-to-content link, AA contrast in both themes.
+Dark theme by default with a persistent light-theme toggle, `prefers-reduced-motion` disables all animation (the HUD's clock keeps time, its frame counter stops), skip-to-content link, AA contrast in both themes. The HUD's rings, tape and gauge are decorative and hidden from assistive technology; its readouts are plain lists.
 
 ## History
 

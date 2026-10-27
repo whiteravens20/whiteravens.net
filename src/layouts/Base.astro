@@ -2,6 +2,10 @@
 import { createHash } from 'node:crypto';
 import '@fontsource-variable/space-grotesk';
 import '@fontsource-variable/inter';
+import '@fontsource/space-mono/400.css';
+import '@fontsource/space-mono/700.css';
+import '@fontsource/silkscreen/400.css';
+import '@fontsource/silkscreen/700.css';
 import '../styles/tokens.css';
 import '../styles/global.css';
 import Seo from '../components/Seo.astro';
@@ -24,12 +28,13 @@ const themeInitHash = createHash('sha256').update(themeInit).digest('base64');
 const counter = new URL(site.goatcounter).origin;
 
 // GitHub Pages cannot send HTTP headers, so the CSP ships as a meta tag.
+// `data:` in img-src is for the grid and honeycomb patterns drawn as CSS backgrounds.
 // Only emitted for production builds — it would block Vite's dev tooling.
 const csp = [
   "default-src 'self'",
   `script-src 'self' ${counter} 'sha256-${themeInitHash}'`,
   "style-src 'self'",
-  `img-src 'self' data: https://storage.ko-fi.com ${counter}`,
+  `img-src 'self' data: ${counter}`,
   "font-src 'self'",
   `connect-src 'self' ${counter}`,
   "object-src 'none'",
@@ -50,6 +55,7 @@ const csp = [
   </head>
   <body>
     <a class="skip-link" href="#main">{copy.a11y.skipToContent}</a>
+    <div class="ground" aria-hidden="true"></div>
     <slot />
   </body>
 </html>

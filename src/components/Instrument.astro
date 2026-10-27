@@ -1,0 +1,291 @@
+---
+// The instrument at the centre of the HUD: a honeycomb ground, four traces converging on the roundel,
+// a scan ring with a sweeping cursor, an aperture of twelve plates, a ring of bars, a dashed orbit and a
+// reticle, with the raven roundel in the middle. All geometry is computed here at build time; the only
+// motion is CSS.
+import { Image } from 'astro:assets';
+import logo from '../assets/logo.png';
+
+const C = 500;
+type Point = [number, number];
+const pt = (r: number, deg: number): Point => {
+  const a = (deg * Math.PI) / 180;
+  return [C + r * Math.cos(a), C + r * Math.sin(a)];
+};
+const f = (p: Point) => `${p[0].toFixed(1)},${p[1].toFixed(1)}`;
+const rot = (deg: number) => `rotate(${deg} ${C} ${C})`;
+const round = (v: number) => Math.round(v * 10) / 10;
+
+// traces: from the four diagonals, one bend each, into the reticle
+const traces = [-45, 45, 135, 225].map((deg) => {
+  const a = (deg * Math.PI) / 180;
+  const px = Math.cos(a);
+  const py = Math.sin(a);
+  const nx = -py;
+  const ny = px;
+  const points: Point[] = [
+    [C + 700 * px + 70 * nx, C + 700 * py + 70 * ny],
+    [C + 560 * px + 70 * nx, C + 560 * py + 70 * ny],
+    [C + 490 * px, C + 490 * py],
+    [C + 258 * px, C + 258 * py],
+  ];
+  return { points: points.map(f).join(' '), end: points[0] };
+});
+
+// scan ring: a tick every 2 degrees, a longer one every 15
+const ticks = Array.from({ length: 180 }, (_, i) => ({ deg: i * 2, major: (i * 2) % 15 === 0 }));
+
+// aperture: twelve plates between two radii, with gaps
+const plates = Array.from({ length: 12 }, (_, p) => {
+  const s = p * 30 + 3;
+  const e = p * 30 + 27;
+  const r1 = 405;
+  const r2 = 468;
+  const [A, B, Cc, D] = [pt(r1, s), pt(r2, s - 2), pt(r2, e + 2), pt(r1, e)];
+  return `M ${f(A)} L ${f(B)} A ${r2} ${r2} 0 0 1 ${f(Cc)} L ${f(D)} A ${r1} ${r1} 0 0 0 ${f(A)} Z`;
+});
+
+// bars: ninety radial bars whose lengths follow a fixed wave
+const bars = Array.from({ length: 90 }, (_, b) => ({
+  deg: b * 4,
+  h: round(10 + 26 * Math.abs(Math.sin(b * 0.37) * Math.cos(b * 0.11))),
+  alt: b % 9 === 0,
+}));
+---
+
+<div class="instrument" aria-hidden="true">
+  <div class="honeycomb"></div>
+  <svg viewBox="0 0 1000 1000" focusable="false">
+    <g class="traces">
+      {
+        traces.map((t) => (
+          <>
+            <polyline points={t.points} />
+            <polyline class="flow" points={t.points} />
+            <rect
+              x={round(t.end[0] - 5)}
+              y={round(t.end[1] - 5)}
+              width="10"
+              height="10"
+              transform={`rotate(45 ${round(t.end[0])} ${round(t.end[1])})`}
+            />
+          </>
+        ))
+      }
+    </g>
+    <g class="scan">
+      {
+        ticks.map((t) => (
+          <line
+            x1={C}
+            y1={C - 500}
+            x2={C}
+            y2={C - (t.major ? 480 : 490)}
+            transform={rot(t.deg)}
+            class:list={{ major: t.major }}
+          />
+        ))
+      }
+      {[0, 90, 180, 270].map((d) => <line class="cross" x1={C} y1={C - 530} x2={C} y2={C - 505} transform={rot(d)} />)}
+    </g>
+    <g class="ring cursor"><path d="M 500 15 A 485 485 0 0 1 806 118"></path></g>
+    <g class="ring plates">{plates.map((d) => <path d={d} />)}</g>
+    <g class="ring bars">
+      {
+        bars.map((b) => (
+          <line x1={C} y1={C - 352} x2={C} y2={C - (352 + b.h)} transform={rot(b.deg)} class:list={{ alt: b.alt }} />
+        ))
+      }
+    </g>
+    <circle class="orbit" cx={C} cy={C} r="290"></circle>
+    <g class="reticle">
+      <circle cx={C} cy={C} r="255"></circle>
+      {[45, 135, 225, 315].map((d) => <line x1={C} y1={C - 270} x2={C} y2={C - 248} transform={rot(d)} />)}
+    </g>
+  </svg>
+  <div class="sweep"></div>
+  <Image class="logo" src={logo} alt="" width={320} densities={[1, 2]} loading="eager" fetchpriority="high" />
+</div>
+
+<style>
+  .instrument {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1;
+    animation: boot 1.4s var(--ease) both;
+  }
+
+  @keyframes boot {
+    from {
+      opacity: 0.2;
+      transform: scale(0.94);
+    }
+  }
+
+  .honeycomb {
+    position: absolute;
+    inset: -6%;
+    border-radius: 50%;
+    background-image: var(--hex);
+    background-size: 56px 97px;
+    mask-image: radial-gradient(circle at 50% 50%, #000 20%, transparent 68%);
+    opacity: 0.45;
+  }
+
+  svg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+  }
+
+  .instrument > .logo {
+    position: absolute;
+    inset: 27%;
+    width: 46%;
+    height: 46%;
+    border-radius: 50%;
+    box-shadow:
+      0 0 0 2px var(--border-strong),
+      0 0 60px var(--accent-dim);
+  }
+
+  .sweep {
+    position: absolute;
+    inset: 24.5%;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, transparent 0 80%, var(--accent-dim) 97%, transparent 100%);
+    opacity: 0.5;
+    animation: spin 8s linear infinite;
+  }
+
+  .ring {
+    transform-box: view-box;
+    transform-origin: 50% 50%;
+  }
+
+  .traces polyline {
+    fill: none;
+    stroke: var(--border);
+    stroke-width: 2;
+  }
+
+  .traces .flow {
+    stroke: var(--accent);
+    stroke-width: 2.5;
+    stroke-dasharray: 16 26;
+    opacity: 0.8;
+    animation: flow 1.8s linear infinite;
+  }
+
+  .traces rect {
+    fill: var(--label);
+  }
+
+  @keyframes flow {
+    to {
+      stroke-dashoffset: -42;
+    }
+  }
+
+  .scan line {
+    stroke: var(--border-strong);
+    stroke-width: 1.5;
+  }
+
+  .scan .major {
+    stroke: var(--label);
+    stroke-width: 2.5;
+  }
+
+  .scan .cross {
+    stroke: var(--accent);
+    stroke-width: 3;
+  }
+
+  .cursor {
+    animation: spin 12s linear infinite;
+  }
+
+  .cursor path {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 10;
+    filter: drop-shadow(0 0 6px var(--accent-dim));
+  }
+
+  .plates {
+    animation: spin 150s linear infinite;
+  }
+
+  .plates path {
+    fill: var(--plate);
+    stroke: var(--border-strong);
+    stroke-width: 1.5;
+  }
+
+  .plates path:nth-child(3n) {
+    fill: var(--plate-alt);
+  }
+
+  .bars {
+    animation: spin 200s linear infinite reverse;
+  }
+
+  .bars line {
+    stroke: var(--bar);
+    stroke-width: 4;
+    opacity: 0.7;
+  }
+
+  .bars .alt {
+    stroke: var(--bar-alt);
+  }
+
+  .orbit {
+    fill: none;
+    stroke: var(--border);
+    stroke-width: 1.5;
+    stroke-dasharray: 2 6;
+  }
+
+  .reticle circle {
+    fill: none;
+    stroke: var(--border-strong);
+    stroke-width: 1.5;
+  }
+
+  .reticle line {
+    stroke: var(--accent);
+    stroke-width: 2.5;
+  }
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @media (max-width: 960px) {
+    /* the traces stop at the box on narrow screens, where panels sit right below */
+    svg {
+      overflow: hidden;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .instrument,
+    .sweep,
+    .traces .flow,
+    .cursor,
+    .plates,
+    .bars {
+      animation: none;
+    }
+
+    .sweep {
+      display: none;
+    }
+  }
+</style>
