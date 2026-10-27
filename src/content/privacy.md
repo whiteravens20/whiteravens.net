@@ -1,7 +1,7 @@
 ---
 title: Privacy policy
 description: How the White Ravens websites handle your data — what is collected, by whom, why and for how long, and what your rights are.
-updated: '2026-10-18'
+updated: '2026-10-27'
 ---
 
 White Ravens is a small non-profit collective. We treat privacy as a feature, not a feature flag, so our websites collect as little as they can. This policy explains exactly what happens to your data when you visit them, write to us or support us on Ko-fi.
@@ -51,7 +51,7 @@ home.wrservices.link and status.wrservices.link keep no statistics at all.
 
 ### 3.3 Ko-fi
 
-The footer of whiteravens.net shows a Ko-fi button, an image loaded from Ko-fi's servers, so Ko-fi receives your IP address and browser details when the footer comes into view. Elsewhere, Ko-fi is only a plain link. Once you open Ko-fi, the [Ko-fi privacy policy](https://more.ko-fi.com/privacy) applies.
+On our websites Ko-fi is only a plain link: nothing is loaded from Ko-fi's servers until you open it. Once you do, the [Ko-fi privacy policy](https://more.ko-fi.com/privacy) applies.
 
 If you support us on Ko-fi, Ko-fi and its payment providers handle the payment. Ko-fi then sends our own server a notification of it: your name, your email address, your message if you wrote one, and the amount, currency, kind and time of the payment with Ko-fi's transaction number. We keep only the time, amount, currency, kind and transaction number, in a private spreadsheet where we track what running White Ravens costs; your name, email address and message are not kept. The notification itself is not stored, except that a notification our server fails to process stays in its error log. Ko-fi also shows us your support in our Ko-fi account, as it does for every creator.
 
@@ -88,7 +88,7 @@ We do not sell or rent your data, and we do not share it for advertising. Only t
 - **An email delivery provider** in the European Union — password-reset emails from White Ravens SSO;
 - **A security provider** — the shared blocklist in the European Union that receives the addresses of attacks on our server;
 - **Cloudflare** — delivery and protection of whiteravens.net and wrservices.link, and email routing;
-- **Ko-fi** — the button image on whiteravens.net, and the support payments made there;
+- **Ko-fi** — the support payments made there;
 - **A cloud spreadsheet service** — the private spreadsheet with our record of support payments.
 
 We disclose data to public authorities only when the law requires it.

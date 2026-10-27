@@ -5,9 +5,8 @@ import { site } from '../config/site';
 
 <footer>
   <div class="wrap inner">
-    <a class="kofi" href={site.kofi} rel="noopener noreferrer">
-      <img src={site.kofiButton} alt={copy.footer.kofi} height="36" loading="lazy" />
-    </a>
+    <p class="motto">{copy.footer.motto}</p>
+    <a class="kofi" href={site.kofi} rel="noopener noreferrer"><span>{copy.footer.kofi}</span></a>
     <p class="credit">
       {copy.footer.creditBefore}<span class="heart">❤</span>{copy.footer.creditAfter}<a
         href={site.author.url}
@@ -23,8 +22,20 @@ import { site } from '../config/site';
 
 <style>
   footer {
+    position: relative;
     border-top: 1px solid var(--border);
     padding-block: var(--space-xl);
+  }
+
+  /* tick marks along the top edge, like the compass tape */
+  footer::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 0;
+    right: 0;
+    height: 7px;
+    background: repeating-linear-gradient(90deg, var(--border-strong) 0 1px, transparent 1px 14px);
   }
 
   .inner {
@@ -32,6 +43,66 @@ import { site } from '../config/site';
     justify-items: center;
     gap: var(--space-l);
     text-align: center;
+  }
+
+  .motto {
+    font-family: var(--font-display);
+    font-size: var(--step-1);
+    font-weight: 700;
+    color: var(--heading);
+    letter-spacing: -0.01em;
+  }
+
+  .motto::before {
+    content: '// ';
+    font-family: var(--font-mono);
+    font-weight: 400;
+    color: var(--accent);
+  }
+
+  /* a smaller chamfered button than the hero's */
+  .kofi {
+    --cut: 9px;
+    display: inline-block;
+    padding: 1px;
+    background: var(--border-strong);
+    clip-path: polygon(
+      var(--cut) 0,
+      100% 0,
+      100% calc(100% - var(--cut)),
+      calc(100% - var(--cut)) 100%,
+      0 100%,
+      0 var(--cut)
+    );
+    color: var(--text);
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition:
+      transform var(--dur-fast) var(--ease),
+      background var(--dur-fast) var(--ease);
+  }
+
+  .kofi > span {
+    display: block;
+    padding: 0.6rem 1.1rem;
+    background: var(--bg-raised);
+    clip-path: polygon(
+      var(--cut) 0,
+      100% 0,
+      100% calc(100% - var(--cut)),
+      calc(100% - var(--cut)) 100%,
+      0 100%,
+      0 var(--cut)
+    );
+  }
+
+  .kofi:hover {
+    background: var(--accent);
+    transform: translateY(-2px);
   }
 
   .credit a,
@@ -54,17 +125,18 @@ import { site } from '../config/site';
     font-size: var(--step--1);
   }
 
-  .kofi img {
-    height: 36px;
-    width: auto;
-  }
-
   .credit {
     font-size: var(--step--1);
     color: var(--text-muted);
   }
 
   .heart {
-    color: var(--accent-2);
+    color: var(--accent-3);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .kofi:hover {
+      transform: none;
+    }
   }
 </style>
