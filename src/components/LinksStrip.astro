@@ -3,21 +3,17 @@ import { Icon } from 'astro-icon/components';
 import copy from '../content/copy.yml';
 import { site } from '../config/site';
 
-// Display handles are derived from the canonical facts in site.ts.
+// Only the places the HUD does not already show; display handles are derived from site.ts.
 const host = (url: string) => url.replace(/^https?:\/\//, '');
 const handle = (url: string) => '@' + (url.split('/').pop() ?? '').replace(/^@/, '');
 
 const links = [
-  { href: `mailto:${site.email}`, label: copy.links.email, sub: site.email, icon: 'lucide:mail', external: false },
-  { href: site.docs, label: copy.links.docs, sub: host(site.docs), icon: 'lucide:book-open', external: true },
-  { href: site.blog, label: copy.links.blog, sub: host(site.blog), icon: 'lucide:rss', external: true },
+  { href: site.blog, label: copy.links.blog, sub: host(site.blog), icon: 'lucide:rss' },
   // YouTube's icon may not be recoloured (YouTube branding guidelines), so it is a
   // local full-colour SVG and its card takes YouTube red instead of a brand accent.
-  { href: site.youtube, label: copy.links.youtube, sub: handle(site.youtube), icon: 'youtube', external: true, brand: 'youtube' },
-  { href: site.mastodon, label: copy.links.mastodon, sub: handle(site.mastodon), icon: 'simple-icons:mastodon', external: true },
-  { href: site.steam, label: copy.links.steam, sub: site.steam.split('/').pop(), icon: 'simple-icons:steam', external: true },
-  { href: site.github, label: copy.links.github, sub: handle(site.github), icon: 'simple-icons:github', external: true },
-  { href: site.status, label: copy.links.status, sub: host(site.status), icon: 'lucide:activity', external: true },
+  { href: site.youtube, label: copy.links.youtube, sub: handle(site.youtube), icon: 'youtube', brand: 'youtube' },
+  { href: site.mastodon, label: copy.links.mastodon, sub: handle(site.mastodon), icon: 'simple-icons:mastodon' },
+  { href: site.steam, label: copy.links.steam, sub: site.steam.split('/').pop(), icon: 'simple-icons:steam' },
 ];
 ---
 
@@ -26,9 +22,9 @@ const links = [
     <h2 id="links-heading" data-reveal>{copy.links.heading}</h2>
     <ul>
       {
-        links.map(({ href, label, sub, icon, external, brand }) => (
+        links.map(({ href, label, sub, icon, brand }) => (
           <li class={brand} data-reveal>
-            <a {href} rel={external ? 'noopener noreferrer' : undefined}>
+            <a {href} rel="noopener noreferrer">
               <span class="chip">
                 <Icon name={icon} />
               </span>
@@ -65,10 +61,10 @@ const links = [
   }
 
   li {
-    width: min(100%, 16.25rem);
+    width: min(100%, 15rem);
   }
 
-  /* cycle the brand accents across the cards */
+  /* cycle the accents across the cards */
   li:nth-child(3n + 1) {
     --card-accent: var(--accent);
   }
@@ -92,27 +88,15 @@ const links = [
   li:nth-child(4) {
     --reveal-delay: 180ms;
   }
-  li:nth-child(5) {
-    --reveal-delay: 240ms;
-  }
-  li:nth-child(6) {
-    --reveal-delay: 300ms;
-  }
-  li:nth-child(7) {
-    --reveal-delay: 360ms;
-  }
-  li:nth-child(8) {
-    --reveal-delay: 420ms;
-  }
 
   a {
+    position: relative;
     display: flex;
     align-items: center;
     gap: var(--space-s);
     height: 100%;
     padding: 0.7rem 0.9rem;
     border: 1px solid var(--border);
-    border-radius: var(--radius);
     background: var(--surface);
     text-align: left;
     text-decoration: none;
@@ -120,6 +104,28 @@ const links = [
       transform var(--dur-fast) var(--ease),
       border-color var(--dur-fast) var(--ease),
       background var(--dur-fast) var(--ease);
+  }
+
+  a::before,
+  a::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-color: var(--label);
+    border-style: solid;
+  }
+
+  a::before {
+    top: -1px;
+    left: -1px;
+    border-width: 2px 0 0 2px;
+  }
+
+  a::after {
+    bottom: -1px;
+    right: -1px;
+    border-width: 0 2px 2px 0;
   }
 
   a:hover {
@@ -133,7 +139,6 @@ const links = [
     flex-shrink: 0;
     padding: 0.55rem;
     border: 1px solid var(--border);
-    border-radius: var(--radius-full);
     background: color-mix(in srgb, var(--card-accent) 10%, transparent);
     color: var(--card-accent);
     transition: transform var(--dur-fast) var(--ease);
@@ -160,7 +165,8 @@ const links = [
 
   .sub {
     color: var(--text-muted);
-    font-size: 0.85rem;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

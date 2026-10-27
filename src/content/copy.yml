@@ -111,14 +111,10 @@ pillars:
 
 links:
   heading: Find us around the web
-  email: Email
-  docs: Documentation
   blog: Blog
   youtube: YouTube
   mastodon: Mastodon
   steam: Steam
-  github: GitHub
-  status: Service Status
 
 footer:
   creditBefore: 'Made with Astro and '
