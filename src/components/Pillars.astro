@@ -40,11 +40,9 @@ const icons: Record<string, string[]> = {
                   <Icon name={name} />
                 </span>
               ))}
-            </div>
-            <div class="head">
-              <h3>{item.title}</h3>
               <span class="node">node {i + 1}</span>
             </div>
+            <h3>{item.title}</h3>
             <p set:html={render(item.body)} />
           </article>
         ))
@@ -136,21 +134,15 @@ const icons: Record<string, string[]> = {
     border-color: var(--accent);
   }
 
-  .head {
-    display: flex;
-    align-items: baseline;
-    justify-content: space-between;
-    gap: var(--space-m);
+  .card h3 {
+    font-size: var(--step-2);
     margin-top: var(--space-l);
   }
 
-  .card h3 {
-    font-size: var(--step-2);
-  }
-
-  /* the node number the HUD's "nodes active" link counts */
+  /* the node number the HUD's "nodes active" link counts: top right, level with the icons */
   .node {
     flex: none;
+    margin-left: auto;
     font-family: var(--font-pixel);
     font-size: 0.56rem;
     letter-spacing: 0.2em;
@@ -158,18 +150,19 @@ const icons: Record<string, string[]> = {
     color: var(--text-muted);
   }
 
-  .head + p {
+  .card h3 + p {
     margin-top: var(--space-s);
     color: var(--text-muted);
   }
 
-  .head + p a {
+  .card h3 + p a {
     color: var(--accent);
     text-underline-offset: 3px;
   }
 
   .icons {
     display: flex;
+    align-items: flex-start;
     gap: var(--space-s);
   }
 
