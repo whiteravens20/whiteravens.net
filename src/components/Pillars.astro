@@ -16,9 +16,12 @@ const icons: Record<string, string[]> = {
     <p class="intro" data-reveal>{copy.pillars.intro}</p>
     <div class="grid">
       {
-        copy.pillars.items.map((item: { id: string; title: string; body: string }) => (
+        copy.pillars.items.map((item: { id: string; title: string; body: string }, i: number) => (
           <article class="card" data-reveal>
-            <p class="tag">{item.title}</p>
+            <p class="tag">
+              {item.title}
+              <span>node {i + 1}</span>
+            </p>
             <div class="icons">
               {icons[item.id]?.map((name) => (
                 <span class="chip">
@@ -136,6 +139,13 @@ const icons: Record<string, string[]> = {
     border: 2px solid var(--accent);
     transform: rotate(45deg);
     flex: none;
+  }
+
+  /* the node number the HUD's "nodes active" link counts */
+  .tag span {
+    margin-left: auto;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
   }
 
   .card h3 {

@@ -27,6 +27,7 @@ const hud = copy.hud as {
   banner: string;
   cells: string[];
   gauge: string;
+  nodes: { title: string; active: string };
   source: Slate;
   privacy: Slate;
   hosting: Slate;
@@ -66,9 +67,9 @@ const glyphs = ['hex', 'diamond', 'ring', 'triangle'];
       <span class="lbl">{hud.bannerLabel}</span>
       <strong>{hud.banner}</strong>
     </p>
-    <div class="cells right" aria-hidden="true">
+    <div class="cells right">
       <span class="cell wide" id="hud-clock">00:00:00 UTC</span>
-      <span class="cell wide" id="hud-frame">0x00000</span>
+      <span class="cell wide" id="hud-frame" aria-hidden="true">0x00000</span>
     </div>
   </div>
 
@@ -110,6 +111,10 @@ const glyphs = ['hex', 'diamond', 'ring', 'triangle'];
             ))
           }
         </dl>
+      </section>
+      <section class="slate nodes">
+        <h2>{hud.nodes.title}</h2>
+        <a href="#pillars">{copy.pillars.items.length} {hud.nodes.active}</a>
       </section>
     </div>
 
@@ -252,10 +257,18 @@ const glyphs = ['hex', 'diamond', 'ring', 'triangle'];
 
   .cells {
     display: flex;
+    flex-wrap: wrap;
     gap: 0.45rem;
     margin: 0;
     padding: 0;
     list-style: none;
+  }
+
+  /* keep the row clear of the fixed theme toggle in the top right corner */
+  @media (min-width: 961px) {
+    .top {
+      padding-right: 3.25rem;
+    }
   }
 
   .cells.right {
@@ -323,6 +336,7 @@ const glyphs = ['hex', 'diamond', 'ring', 'triangle'];
   .cell.wide {
     width: auto;
     padding: 0 0.75rem;
+    white-space: nowrap;
     animation: none;
     font-family: var(--font-mono);
     font-size: 0.72rem;
@@ -334,6 +348,7 @@ const glyphs = ['hex', 'diamond', 'ring', 'triangle'];
   .cell.wide::after {
     content: none;
   }
+
 
   .banner {
     position: relative;
@@ -545,6 +560,36 @@ const glyphs = ['hex', 'diamond', 'ring', 'triangle'];
 
   .slate a:hover {
     text-decoration: underline;
+  }
+
+  /* the nodes panel is the one link into the page: it leads to the pillars it counts */
+  .nodes a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-shadow: var(--glow-text);
+  }
+
+  .nodes a::before {
+    content: '';
+    width: 7px;
+    height: 7px;
+    background: var(--accent);
+    box-shadow: var(--glow-small);
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+
+  .nodes a::after {
+    content: '→';
+  }
+
+  @keyframes pulse {
+    50% {
+      opacity: 0.25;
+    }
   }
 
   .ticker {
@@ -892,6 +937,7 @@ const glyphs = ['hex', 'diamond', 'ring', 'triangle'];
   @media (prefers-reduced-motion: reduce) {
     .hud,
     .cell,
+    .nodes a::before,
     .banner strong,
     .ticker ul,
     .gauge i,

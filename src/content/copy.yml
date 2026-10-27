@@ -27,6 +27,10 @@ hud:
   # short labels under the four pillar glyphs, in the order of the pillars below
   cells: [cmn, sft, srv, knw]
   gauge: waveform
+  # the panel that links to the pillars; the count comes from them
+  nodes:
+    title: Nodes
+    active: nodes active
   source:
     title: Source
     rows:
