@@ -4,7 +4,7 @@ import copy from '../content/copy.yml';
 import { site } from '../config/site';
 
 // A body may carry an inline link written as [text](key), where the key names an address in site.ts.
-const links: Record<string, string> = { home: site.home };
+const links: Record<string, string> = { home: site.home, docs: site.docs, status: site.status };
 const escape = (t: string) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const render = (body: string) =>
   escape(body).replace(
@@ -34,10 +34,6 @@ const icons: Record<string, string[]> = {
       {
         copy.pillars.items.map((item: Pillar, i: number) => (
           <article class="card" data-reveal>
-            <p class="tag">
-              {item.title}
-              <span>node {i + 1}</span>
-            </p>
             <div class="icons">
               {icons[item.id]?.map((name) => (
                 <span class="chip">
@@ -45,7 +41,10 @@ const icons: Record<string, string[]> = {
                 </span>
               ))}
             </div>
-            <h3>{item.title}</h3>
+            <div class="head">
+              <h3>{item.title}</h3>
+              <span class="node">node {i + 1}</span>
+            </div>
             <p set:html={render(item.body)} />
           </article>
         ))
@@ -137,44 +136,34 @@ const icons: Record<string, string[]> = {
     border-color: var(--accent);
   }
 
-  .tag {
+  .head {
     display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    font-family: var(--font-pixel);
-    font-size: 0.56rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--label);
-  }
-
-  .tag::before {
-    content: '';
-    width: 10px;
-    height: 10px;
-    border: 2px solid var(--accent);
-    transform: rotate(45deg);
-    flex: none;
-  }
-
-  /* the node number the HUD's "nodes active" link counts */
-  .tag span {
-    margin-left: auto;
-    color: var(--text-muted);
-    letter-spacing: 0.1em;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: var(--space-m);
+    margin-top: var(--space-l);
   }
 
   .card h3 {
     font-size: var(--step-2);
-    margin-top: var(--space-m);
   }
 
-  .card h3 + p {
+  /* the node number the HUD's "nodes active" link counts */
+  .node {
+    flex: none;
+    font-family: var(--font-pixel);
+    font-size: 0.56rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .head + p {
     margin-top: var(--space-s);
     color: var(--text-muted);
   }
 
-  .card h3 + p a {
+  .head + p a {
     color: var(--accent);
     text-underline-offset: 3px;
   }
@@ -182,7 +171,6 @@ const icons: Record<string, string[]> = {
   .icons {
     display: flex;
     gap: var(--space-s);
-    margin-top: var(--space-l);
   }
 
   .chip {

@@ -108,7 +108,8 @@ pillars:
         We run services for the community on our own infrastructure:
         [open-source tools we recommend](home) and find useful, and the
         software we build ourselves. All of them are free and ad-free, each one
-        is documented, and a public status page shows how they are doing.
+        is [documented](docs), and a public [status page](status) shows how
+        they are doing.
     - id: knowledge
       title: Knowledge
       body: >-
