@@ -67,6 +67,35 @@ a {
   color: var(--accent-contrast);
 }
 
+/* the ground behind every page: a grid that fades towards the edges of the viewport, a soft glow
+   where the instrument sits, and scanlines; fixed, so no part of a page is plain background */
+.ground {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 85% 75% at 50% 38%, #000 15%, rgba(0, 0, 0, 0.55) 55%, transparent 100%);
+}
+
+.ground::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 50% 45% at 50% 40%, var(--glow-bg), transparent 70%);
+}
+
+.ground::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(0deg, transparent 0 3px, var(--scan) 3px 4px);
+  opacity: 0.55;
+}
+
 /* layout container */
 .wrap {
   max-width: 72rem;

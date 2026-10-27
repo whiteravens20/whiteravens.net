@@ -21,6 +21,6 @@ export const site = {
 
   author: { name: 'pavlojs', url: 'https://github.com/pavlojs' },
 
-  themeColor: '#0a0f1e',
+  themeColor: '#060a0c',
   ogImage: '/android-chrome-512x512.png',
 } as const;
