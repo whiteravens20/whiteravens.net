@@ -16,11 +16,10 @@ export const site = {
   steam: 'https://steamcommunity.com/groups/whiteravensgaming',
 
   kofi: 'https://ko-fi.com/whiteravens20',
-  kofiButton: 'https://storage.ko-fi.com/cdn/kofi5.png?v=6',
   goatcounter: 'https://stats.whiteravens.net/count',
 
   author: { name: 'pavlojs', url: 'https://github.com/pavlojs' },
 
-  themeColor: '#0a0f1e',
+  themeColor: '#060a0c',
   ogImage: '/android-chrome-512x512.png',
 } as const;

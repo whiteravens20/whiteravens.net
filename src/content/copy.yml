@@ -5,8 +5,8 @@ meta:
   title: White Ravens — an open, independent corner of the internet
   description: >-
     White Ravens is a small collective building an open and independent corner
-    of the internet — self-hosted services, open source software, and game
-    servers run on our own infrastructure.
+    of the internet — self-hosted services, open source software, and a
+    community that values privacy.
 
 hero:
   eyebrow: Open source · Self-hosted · Privacy-first
@@ -18,48 +18,109 @@ hero:
   ctaDocs: Explore the docs
   ctaBlog: Read the blog
   ctaGithub: GitHub
-  scrollCue: Scroll to learn more
+
+# The visor around the logo. Every readout states a fact about the site or the collective;
+# a row with `link` shows that address from src/config/site.ts.
+hud:
+  bannerLabel: '// principles'
+  banner: open · self-hosted · private
+  # short labels under the four pillar glyphs, in the order of the pillars below
+  cells: [cmn, sft, srv, knw]
+  gauge: waveform
+  source:
+    title: Source
+    rows:
+      - { key: code, link: github }
+      - { key: licences, value: MIT · AGPL-3.0 }
+      - { key: this site, value: static · Astro }
+  privacy:
+    title: Privacy
+    rows:
+      - { key: cookies, value: '0' }
+      - { key: ads, value: '0' }
+      - { key: accounts needed, value: '0' }
+  hosting:
+    title: Hosting
+    rows:
+      - { key: infrastructure, value: our own }
+      - { key: docs, link: docs }
+      - { key: status, link: status, value: status page }
+  manifest:
+    title: Manifest
+    items:
+      - { name: community, note: people first }
+      - { name: software, note: open source, documented }
+      - { name: services, note: self-hosted, ad-free }
+      - { name: knowledge, note: free to read }
+  projects:
+    title: Projects
+    items:
+      - { name: archivum-null, note: encrypted file sharing }
+      - { name: raven-forge, note: Minecraft launcher }
+      - { name: darknode, note: browser hacking game }
+      - { name: exemplar, note: Discord bot }
+      - { name: diet-app, note: meal planning }
+      - { name: raven-packs, note: Minecraft modpacks }
+  log:
+    title: Boot log
+    rows:
+      - { key: fonts, value: self-hosted }
+      - { key: icons, value: self-hosted }
+      - { key: csp, value: enforced }
+      - { key: scripts, value: own servers only }
+      - { key: visit counter, value: cookie-free }
+      - { key: build, value: static }
+  notice:
+    - no cookies
+    - no ads
+    - no accounts needed
+    - all assets self-hosted
+    - open source
+    - documented for self-hosting
 
 pillars:
   heading: What we do
   intro: >-
-    We run our own self-hosted services, share what we learn on our blog, and
-    stand for free software and a decentralised web that respects privacy.
+    We build open-source software, run our own services on our own
+    infrastructure, and share what we learn along the way.
   items:
     - id: community
       title: Community
       body: >-
-        We are a community of gamers, tech tinkerers, and open-source
+        We are a community of gamers, tech tinkerers and open-source
         enthusiasts. We believe in a free and open internet, value good
         conversations, and enjoy learning from one another.
     - id: software
       title: Software
       body: >-
-        We build and self-host our own services on open-source software —
-        privacy-respecting, free of needless restrictions, and openly
-        documented for anyone to use or run themselves.
-    - id: gameservers
-      title: Game Servers
+        We build and publish our own open-source software, from small tools to
+        full self-hostable applications. Everything is documented so anyone can
+        use it, run it themselves, or build on it.
+    - id: services
+      title: Services
       body: >-
-        We run a small but independent network of game servers on our own
-        private infrastructure. It is the perfect place to play together with
-        friends — no compromises on quality or privacy.
+        We host our own services on our own infrastructure, free and ad-free,
+        for the community and anyone who wants to use them. Each one is
+        documented, and a public status page shows how they are doing.
+    - id: knowledge
+      title: Knowledge
+      body: >-
+        We write down what we learn running all of this: engineering notes on
+        the blog, guides in the documentation, and videos on our channel.
+        Everything is free to read.
 
 links:
   heading: Find us around the web
-  email: Email
-  docs: Documentation
   blog: Blog
   youtube: YouTube
   mastodon: Mastodon
   steam: Steam
-  github: GitHub
-  status: Service Status
 
 footer:
+  motto: Open source. Privacy. A web worth trusting.
+  kofi: Support us on Ko-fi
   creditBefore: 'Made with Astro and '
   creditAfter: ' by '
-  kofi: Support us on Ko-fi
   legal: Legal
   privacy: Privacy policy
   terms: Terms of use
