@@ -58,9 +58,6 @@ jobs:
         with:
           fail-on-severity: high
           comment-summary-in-pr: always
-          # Every allowlisted ID is listed here as well, with its justification
-          # in .github/scripts/audit-allowlist.json. Keep the two in sync.
-          allow-ghsas: GHSA-ch52-4w7c-c8xp
 
   # Every action in these workflows is pinned to a commit SHA, with its version
   # in a comment. This checks that each SHA is the commit of the version named

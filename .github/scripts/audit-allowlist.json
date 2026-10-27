@@ -17,12 +17,5 @@
     "  { \"ghsa\": \"GHSA-xxxx-xxxx-xxxx\", \"reason\": \"why it cannot be reached\",",
     "    \"expires\": \"YYYY-MM-DD\", \"workspaces\": [\".\"] }"
   ],
-  "allow": [
-    {
-      "ghsa": "GHSA-ch52-4w7c-c8xp",
-      "reason": "http-cache-semantics comes in through astro, which uses it only in the build-time loader for remote images. The site has no remote images and no server: it ships static files, so there is no shared cache answering clients for the advisory to apply to. No fixed version exists yet.",
-      "expires": "2026-12-31",
-      "workspaces": ["."]
-    }
-  ]
+  "allow": []
 }
