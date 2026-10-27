@@ -53,11 +53,18 @@ const icons: Record<string, string[]> = {
     font-size: var(--step-1);
   }
 
+  /* four cards in two rows of two, so each keeps a comfortable measure */
   .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(230px, 100%), 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--space-m);
     margin-top: var(--space-2xl);
+  }
+
+  @media (max-width: 640px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
   }
 
   /* stagger the card reveals */
@@ -75,7 +82,7 @@ const icons: Record<string, string[]> = {
 
   .card {
     position: relative;
-    padding: var(--space-l) var(--space-l) var(--space-xl);
+    padding: var(--space-xl);
     border: 1px solid var(--border);
     background: var(--surface);
     min-width: 0;
