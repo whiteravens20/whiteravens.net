@@ -1,6 +1,18 @@
 ---
 import { Icon } from 'astro-icon/components';
 import copy from '../content/copy.yml';
+import { site } from '../config/site';
+
+const host = (url: string) => url.replace(/^https?:\/\//, '');
+const links: Record<string, string> = { home: site.home };
+
+interface Pillar {
+  id: string;
+  title: string;
+  body: string;
+  link?: string;
+  linkText?: string;
+}
 
 const icons: Record<string, string[]> = {
   community: ['lucide:users', 'lucide:messages-square', 'lucide:heart-handshake'],
@@ -16,7 +28,7 @@ const icons: Record<string, string[]> = {
     <p class="intro" data-reveal>{copy.pillars.intro}</p>
     <div class="grid">
       {
-        copy.pillars.items.map((item: { id: string; title: string; body: string }, i: number) => (
+        copy.pillars.items.map((item: Pillar, i: number) => (
           <article class="card" data-reveal>
             <p class="tag">
               {item.title}
@@ -31,6 +43,11 @@ const icons: Record<string, string[]> = {
             </div>
             <h3>{item.title}</h3>
             <p>{item.body}</p>
+            {item.link && (
+              <a class="more" href={links[item.link]} rel="noopener noreferrer">
+                {item.linkText} {host(links[item.link])} →
+              </a>
+            )}
           </article>
         ))
       }
@@ -153,9 +170,23 @@ const icons: Record<string, string[]> = {
     margin-top: var(--space-m);
   }
 
-  .card p:last-child {
+  .card h3 + p {
     margin-top: var(--space-s);
     color: var(--text-muted);
+  }
+
+  .more {
+    display: inline-block;
+    margin-top: var(--space-m);
+    font-family: var(--font-mono);
+    font-size: var(--step--1);
+    color: var(--accent);
+    text-decoration: none;
+    text-shadow: var(--glow-text);
+  }
+
+  .more:hover {
+    text-decoration: underline;
   }
 
   .icons {

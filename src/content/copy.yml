@@ -47,6 +47,7 @@ hud:
     title: Hosting
     rows:
       - { key: infrastructure, value: our own }
+      - { key: services, link: home }
       - { key: docs, link: docs }
       - { key: status, link: status, value: status page }
   manifest:
@@ -85,8 +86,8 @@ hud:
 pillars:
   heading: What we do
   intro: >-
-    We build open-source software, run our own services on our own
-    infrastructure, and share what we learn along the way.
+    We build open-source software, run services on our own infrastructure
+    for the community, and share what we learn along the way.
   items:
     - id: community
       title: Community
@@ -99,13 +100,18 @@ pillars:
       body: >-
         We build and publish our own open-source software, from small tools to
         full self-hostable applications. Everything is documented so anyone can
-        use it, run it themselves, or build on it.
+        use it, run it themselves, or build on it, and we run it ourselves as
+        part of our services.
     - id: services
       title: Services
       body: >-
-        We host our own services on our own infrastructure, free and ad-free,
-        for the community and anyone who wants to use them. Each one is
-        documented, and a public status page shows how they are doing.
+        We run services for the community on our own infrastructure: open-source
+        tools we recommend and find useful, and the software we build ourselves.
+        All of them are free and ad-free, each one is documented, and a public
+        status page shows how they are doing.
+      # an optional link under the body; `link` names an address in src/config/site.ts
+      link: home
+      linkText: All of them at
     - id: knowledge
       title: Knowledge
       body: >-

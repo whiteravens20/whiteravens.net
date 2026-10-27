@@ -7,7 +7,7 @@ import copy from '../content/copy.yml';
 import { site } from '../config/site';
 
 const host = (url: string) => url.replace(/^https?:\/\//, '');
-const links: Record<string, string> = { github: site.github, docs: site.docs, status: site.status };
+const links: Record<string, string> = { github: site.github, home: site.home, docs: site.docs, status: site.status };
 
 interface Row {
   key: string;

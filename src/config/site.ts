@@ -7,6 +7,7 @@ export const site = {
   email: 'kontakt@whiteravens.net',
 
   docs: 'https://wrservices.link',
+  home: 'https://home.wrservices.link',
   blog: 'https://blog.whiteravens.net',
   status: 'https://status.wrservices.link',
 
