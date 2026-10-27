@@ -47,7 +47,6 @@ hud:
     title: Hosting
     rows:
       - { key: infrastructure, value: our own }
-      - { key: services, link: home }
       - { key: docs, link: docs }
       - { key: status, link: status, value: status page }
   manifest:
@@ -104,14 +103,12 @@ pillars:
         part of our services.
     - id: services
       title: Services
+      # [text](key) in a body is a link; the key names an address in src/config/site.ts
       body: >-
-        We run services for the community on our own infrastructure: open-source
-        tools we recommend and find useful, and the software we build ourselves.
-        All of them are free and ad-free, each one is documented, and a public
-        status page shows how they are doing.
-      # an optional link under the body; `link` names an address in src/config/site.ts
-      link: home
-      linkText: All of them at
+        We run services for the community on our own infrastructure:
+        [open-source tools we recommend](home) and find useful, and the
+        software we build ourselves. All of them are free and ad-free, each one
+        is documented, and a public status page shows how they are doing.
     - id: knowledge
       title: Knowledge
       body: >-

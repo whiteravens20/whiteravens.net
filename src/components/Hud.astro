@@ -7,7 +7,7 @@ import copy from '../content/copy.yml';
 import { site } from '../config/site';
 
 const host = (url: string) => url.replace(/^https?:\/\//, '');
-const links: Record<string, string> = { github: site.github, home: site.home, docs: site.docs, status: site.status };
+const links: Record<string, string> = { github: site.github, docs: site.docs, status: site.status };
 
 interface Row {
   key: string;
@@ -264,10 +264,11 @@ const glyphs = ['hex', 'diamond', 'ring', 'triangle'];
     list-style: none;
   }
 
-  /* keep the row clear of the fixed theme toggle in the top right corner */
+  /* keep the row clear of the fixed theme toggle in the top right corner; the same inset on the
+     left keeps the banner centred on the instrument below */
   @media (min-width: 961px) {
     .top {
-      padding-right: 3.25rem;
+      padding-inline: 3.25rem;
     }
   }
 
