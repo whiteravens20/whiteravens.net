@@ -7,10 +7,11 @@ import { site } from '../config/site';
 const links: Record<string, string> = { home: site.home, docs: site.docs, status: site.status };
 const escape = (t: string) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 const render = (body: string) =>
-  escape(body).replace(
-    /\[([^\]]+)\]\((\w+)\)/g,
-    (_, text: string, key: string) => `<a href="${links[key]}" rel="noopener noreferrer">${text}</a>`,
-  );
+  escape(body).replace(/\[([^\]]+)\]\((\w+)\)/g, (_, text: string, key: string) => {
+    const href = links[key];
+    if (!href) throw new Error(`copy.yml: unknown link key "${key}" in a pillar body; known: ${Object.keys(links).join(', ')}`);
+    return `<a href="${href}" rel="noopener noreferrer">${text}</a>`;
+  });
 
 interface Pillar {
   id: string;
