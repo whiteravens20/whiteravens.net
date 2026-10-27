@@ -5,8 +5,8 @@ meta:
   title: White Ravens — an open, independent corner of the internet
   description: >-
     White Ravens is a small collective building an open and independent corner
-    of the internet — self-hosted services, open source software, and game
-    servers run on our own infrastructure.
+    of the internet — self-hosted services, open source software, and a
+    community that values privacy.
 
 hero:
   eyebrow: Open source · Self-hosted · Privacy-first
@@ -81,27 +81,33 @@ hud:
 pillars:
   heading: What we do
   intro: >-
-    We run our own self-hosted services, share what we learn on our blog, and
-    stand for free software and a decentralised web that respects privacy.
+    We build open-source software, run our own services on our own
+    infrastructure, and share what we learn along the way.
   items:
     - id: community
       title: Community
       body: >-
-        We are a community of gamers, tech tinkerers, and open-source
+        We are a community of gamers, tech tinkerers and open-source
         enthusiasts. We believe in a free and open internet, value good
         conversations, and enjoy learning from one another.
     - id: software
       title: Software
       body: >-
-        We build and self-host our own services on open-source software —
-        privacy-respecting, free of needless restrictions, and openly
-        documented for anyone to use or run themselves.
-    - id: gameservers
-      title: Game Servers
+        We build and publish our own open-source software, from small tools to
+        full self-hostable applications. Everything is documented so anyone can
+        use it, run it themselves, or build on it.
+    - id: services
+      title: Services
       body: >-
-        We run a small but independent network of game servers on our own
-        private infrastructure. It is the perfect place to play together with
-        friends — no compromises on quality or privacy.
+        We host our own services on our own infrastructure, free and ad-free,
+        for the community and anyone who wants to use them. Each one is
+        documented, and a public status page shows how they are doing.
+    - id: knowledge
+      title: Knowledge
+      body: >-
+        We write down what we learn running all of this: engineering notes on
+        the blog, guides in the documentation, and videos on our channel.
+        Everything is free to read.
 
 links:
   heading: Find us around the web
