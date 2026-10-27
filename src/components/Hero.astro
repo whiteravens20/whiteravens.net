@@ -1,89 +1,52 @@
 ---
-import { Image } from 'astro:assets';
-import { Icon } from 'astro-icon/components';
-import Aurora from './Aurora.astro';
+import Hud from './Hud.astro';
 import copy from '../content/copy.yml';
 import { site } from '../config/site';
-import logo from '../assets/logo.png';
 ---
 
 <header class="hero">
-  <Aurora />
-  <div class="hero-inner wrap">
-    <Image
-      class="logo"
-      src={logo}
-      alt=""
-      width={160}
-      densities={[1, 2]}
-      loading="eager"
-      fetchpriority="high"
-    />
+  <div class="wrap">
+    <Hud />
+  </div>
+  <div class="intro wrap">
     <p class="eyebrow">{copy.hero.eyebrow}</p>
     <h1 class="title">{copy.hero.title}</h1>
     <p class="tagline">{copy.hero.tagline}</p>
     <div class="ctas">
-      <a class="btn btn-primary" href={site.docs} rel="noopener noreferrer">
-        {copy.hero.ctaDocs}
-        <Icon name="lucide:arrow-up-right" />
-      </a>
-      <a class="btn" href={site.blog} rel="noopener noreferrer">
-        {copy.hero.ctaBlog}
-      </a>
-      <a class="btn" href={site.github} rel="noopener noreferrer">
-        <Icon name="simple-icons:github" />
-        {copy.hero.ctaGithub}
-      </a>
+      <a class="btn btn-primary" href={site.docs} rel="noopener noreferrer"><span>{copy.hero.ctaDocs} ↗</span></a>
+      <a class="btn" href={site.blog} rel="noopener noreferrer"><span>{copy.hero.ctaBlog}</span></a>
+      <a class="btn" href={site.github} rel="noopener noreferrer"><span>{copy.hero.ctaGithub}</span></a>
     </div>
   </div>
-  <a class="scroll-cue" href="#pillars" aria-label={copy.hero.scrollCue}>
-    <Icon name="lucide:chevron-down" />
-  </a>
 </header>
 
 <style>
   .hero {
-    position: relative;
-    isolation: isolate;
-    min-height: 100svh;
-    display: grid;
-    place-items: center;
+    padding-block: var(--space-xl) var(--space-2xl);
     text-align: center;
-    padding-block: var(--space-2xl);
   }
 
-  .hero-inner {
+  .hero > .wrap {
+    max-width: 82rem;
+  }
+
+  .intro {
     display: grid;
     justify-items: center;
     gap: var(--space-l);
-  }
-
-  .logo {
-    width: clamp(96px, 14vw, 150px);
-    height: auto;
-    border-radius: 50%;
-    box-shadow: var(--glow);
-  }
-
-  @keyframes levitate {
-    to {
-      transform: translateY(-10px);
-    }
-  }
-
-  @keyframes breathe {
-    to {
-      box-shadow: var(--glow-strong);
-    }
+    margin-top: var(--space-2xl);
   }
 
   .eyebrow {
-    font-family: var(--font-display);
+    font-family: var(--font-mono);
     font-size: var(--step--1);
-    font-weight: 600;
-    letter-spacing: 0.14em;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
     color: var(--accent);
+  }
+
+  .eyebrow::before {
+    content: '// ';
   }
 
   .title {
@@ -92,8 +55,7 @@ import logo from '../assets/logo.png';
     letter-spacing: -0.02em;
     /* sheen band layered over the brand gradient; only the band's position animates */
     background:
-      linear-gradient(100deg, transparent 44%, var(--title-sheen) 50%, transparent 56%)
-        no-repeat,
+      linear-gradient(100deg, transparent 44%, var(--title-sheen) 50%, transparent 56%) no-repeat,
       linear-gradient(100deg, var(--heading) 55%, var(--accent));
     background-size:
       250% 100%,
@@ -101,6 +63,7 @@ import logo from '../assets/logo.png';
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    animation: sheen 8s var(--ease) infinite;
   }
 
   @keyframes sheen {
@@ -131,146 +94,71 @@ import logo from '../assets/logo.png';
     margin-top: var(--space-xs);
   }
 
+  /* chamfered buttons: the outer element paints the border, the inner one the face */
   .btn {
-    position: relative;
-    overflow: hidden;
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-xs);
-    padding: 0.8rem 1.5rem;
-    border-radius: var(--radius-full);
-    border: 1px solid var(--border-strong);
-    background: var(--surface);
+    --cut: 11px;
+    display: inline-block;
+    padding: 1px;
+    background: var(--border-strong);
+    clip-path: polygon(
+      var(--cut) 0,
+      100% 0,
+      100% calc(100% - var(--cut)),
+      calc(100% - var(--cut)) 100%,
+      0 100%,
+      0 var(--cut)
+    );
     color: var(--text);
-    font-weight: 600;
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
     text-decoration: none;
     transition:
       transform var(--dur-fast) var(--ease),
-      background var(--dur-fast) var(--ease),
-      border-color var(--dur-fast) var(--ease),
-      box-shadow var(--dur) var(--ease);
+      background var(--dur-fast) var(--ease);
+  }
+
+  .btn > span {
+    display: block;
+    padding: 0.85rem 1.5rem;
+    background: var(--bg-raised);
+    clip-path: polygon(
+      var(--cut) 0,
+      100% 0,
+      100% calc(100% - var(--cut)),
+      calc(100% - var(--cut)) 100%,
+      0 100%,
+      0 var(--cut)
+    );
   }
 
   .btn:hover {
+    background: var(--accent);
     transform: translateY(-2px);
-    background: var(--surface-hover);
-    border-color: var(--accent);
-  }
-
-  .btn [data-icon] {
-    width: 1.1em;
-    height: 1.1em;
   }
 
   .btn-primary {
     background: var(--accent);
-    border-color: var(--accent);
     color: var(--accent-contrast);
   }
 
-  .btn-primary:hover {
+  .btn-primary > span {
     background: var(--accent);
-    box-shadow: var(--glow);
   }
 
-  /* light sweep across the primary button on hover */
-  .btn-primary::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      105deg,
-      transparent 40%,
-      rgba(255, 255, 255, 0.35) 50%,
-      transparent 60%
-    );
-    transform: translateX(-120%);
-  }
-
-  .btn-primary:hover::after {
-    transform: translateX(120%);
-    transition: transform 600ms var(--ease);
-  }
-
-  /* staggered entrance */
-  .hero-inner > * {
-    animation: rise var(--dur-slow) var(--ease) both;
-  }
-
-  .hero-inner > :nth-child(2) {
-    animation-delay: 90ms;
-  }
-  .hero-inner > :nth-child(3) {
-    animation-delay: 180ms;
-  }
-  .hero-inner > :nth-child(4) {
-    animation-delay: 270ms;
-  }
-  .hero-inner > :nth-child(5) {
-    animation-delay: 360ms;
-  }
-
-  @keyframes rise {
-    from {
-      opacity: 0;
-      transform: translateY(22px);
-    }
-  }
-
-  /* continuous motion layered on top of the entrance; the .hero-inner >
-     prefix is needed to out-rank the stagger rule above */
-  .hero-inner > .logo {
-    animation:
-      rise var(--dur-slow) var(--ease) both,
-      levitate 6s ease-in-out var(--dur-slow) infinite alternate,
-      breathe 6s ease-in-out var(--dur-slow) infinite alternate;
-  }
-
-  .hero-inner > .title {
-    animation:
-      rise var(--dur-slow) var(--ease) both,
-      sheen 8s var(--ease) infinite;
-  }
-
-  .scroll-cue {
-    position: absolute;
-    bottom: var(--space-l);
-    left: 50%;
-    translate: -50% 0;
-    color: var(--text-muted);
-    animation: nudge 2.2s ease-in-out infinite;
-    transition: color var(--dur-fast) var(--ease);
-  }
-
-  .scroll-cue:hover {
-    color: var(--accent);
-  }
-
-  .scroll-cue [data-icon] {
-    width: 1.8rem;
-    height: 1.8rem;
-  }
-
-  @keyframes nudge {
-    50% {
-      transform: translateY(6px);
-    }
+  .btn-primary:hover {
+    box-shadow: var(--glow-small);
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .hero-inner > .logo,
-    .hero-inner > .title,
-    .hero-inner > *,
-    .scroll-cue {
+    .title {
       animation: none;
     }
 
     .btn:hover {
       transform: none;
-    }
-
-    .btn-primary::after {
-      display: none;
     }
   }
 </style>

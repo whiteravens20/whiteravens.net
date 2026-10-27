@@ -18,7 +18,65 @@ hero:
   ctaDocs: Explore the docs
   ctaBlog: Read the blog
   ctaGithub: GitHub
-  scrollCue: Scroll to learn more
+
+# The visor around the logo. Every readout states a fact about the site or the collective;
+# a row with `link` shows that address from src/config/site.ts.
+hud:
+  bannerLabel: '// principles'
+  banner: open · self-hosted · private
+  # short labels under the four pillar glyphs, in the order of the pillars below
+  cells: [cmn, sft, srv, knw]
+  gauge: waveform
+  source:
+    title: Source
+    rows:
+      - { key: code, link: github }
+      - { key: licences, value: MIT · AGPL-3.0 }
+      - { key: this site, value: static · Astro }
+  privacy:
+    title: Privacy
+    rows:
+      - { key: cookies, value: '0' }
+      - { key: ads, value: '0' }
+      - { key: accounts needed, value: '0' }
+  hosting:
+    title: Hosting
+    rows:
+      - { key: infrastructure, value: our own }
+      - { key: docs, link: docs }
+      - { key: status, link: status, value: status page }
+  manifest:
+    title: Manifest
+    items:
+      - { name: community, note: people first }
+      - { name: software, note: open source, documented }
+      - { name: services, note: self-hosted, ad-free }
+      - { name: knowledge, note: free to read }
+  projects:
+    title: Projects
+    items:
+      - { name: archivum-null, note: encrypted file sharing }
+      - { name: raven-forge, note: Minecraft launcher }
+      - { name: darknode, note: browser hacking game }
+      - { name: exemplar, note: Discord bot }
+      - { name: diet-app, note: meal planning }
+      - { name: raven-packs, note: Minecraft modpacks }
+  log:
+    title: Boot log
+    rows:
+      - { key: fonts, value: self-hosted }
+      - { key: icons, value: self-hosted }
+      - { key: csp, value: enforced }
+      - { key: scripts, value: own servers only }
+      - { key: visit counter, value: cookie-free }
+      - { key: build, value: static }
+  notice:
+    - no cookies
+    - no ads
+    - no accounts needed
+    - all assets self-hosted
+    - open source
+    - documented for self-hosting
 
 pillars:
   heading: What we do
