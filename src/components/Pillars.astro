@@ -1,6 +1,23 @@
 ---
 import { Icon } from 'astro-icon/components';
 import copy from '../content/copy.yml';
+import { site } from '../config/site';
+
+// A body may carry an inline link written as [text](key), where the key names an address in site.ts.
+const links: Record<string, string> = { home: site.home, docs: site.docs, status: site.status };
+const escape = (t: string) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const render = (body: string) =>
+  escape(body).replace(/\[([^\]]+)\]\((\w+)\)/g, (_, text: string, key: string) => {
+    const href = links[key];
+    if (!href) throw new Error(`copy.yml: unknown link key "${key}" in a pillar body; known: ${Object.keys(links).join(', ')}`);
+    return `<a href="${href}" rel="noopener noreferrer">${text}</a>`;
+  });
+
+interface Pillar {
+  id: string;
+  title: string;
+  body: string;
+}
 
 const icons: Record<string, string[]> = {
   community: ['lucide:users', 'lucide:messages-square', 'lucide:heart-handshake'],
@@ -16,18 +33,18 @@ const icons: Record<string, string[]> = {
     <p class="intro" data-reveal>{copy.pillars.intro}</p>
     <div class="grid">
       {
-        copy.pillars.items.map((item: { id: string; title: string; body: string }) => (
+        copy.pillars.items.map((item: Pillar, i: number) => (
           <article class="card" data-reveal>
-            <p class="tag">{item.title}</p>
             <div class="icons">
               {icons[item.id]?.map((name) => (
                 <span class="chip">
                   <Icon name={name} />
                 </span>
               ))}
+              <span class="node">node {i + 1}</span>
             </div>
             <h3>{item.title}</h3>
-            <p>{item.body}</p>
+            <p set:html={render(item.body)} />
           </article>
         ))
       }
@@ -53,11 +70,18 @@ const icons: Record<string, string[]> = {
     font-size: var(--step-1);
   }
 
+  /* four cards in two rows of two, so each keeps a comfortable measure */
   .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(230px, 100%), 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: var(--space-m);
     margin-top: var(--space-2xl);
+  }
+
+  @media (max-width: 640px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
   }
 
   /* stagger the card reveals */
@@ -75,7 +99,7 @@ const icons: Record<string, string[]> = {
 
   .card {
     position: relative;
-    padding: var(--space-l) var(--space-l) var(--space-xl);
+    padding: var(--space-xl);
     border: 1px solid var(--border);
     background: var(--surface);
     min-width: 0;
@@ -111,40 +135,36 @@ const icons: Record<string, string[]> = {
     border-color: var(--accent);
   }
 
-  .tag {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
+  .card h3 {
+    font-size: var(--step-2);
+    margin-top: var(--space-l);
+  }
+
+  /* the node number the HUD's "nodes active" link counts: top right, level with the icons */
+  .node {
+    flex: none;
+    margin-left: auto;
     font-family: var(--font-pixel);
     font-size: 0.56rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--label);
+    color: var(--text-muted);
   }
 
-  .tag::before {
-    content: '';
-    width: 10px;
-    height: 10px;
-    border: 2px solid var(--accent);
-    transform: rotate(45deg);
-    flex: none;
-  }
-
-  .card h3 {
-    font-size: var(--step-2);
-    margin-top: var(--space-m);
-  }
-
-  .card p:last-child {
+  .card h3 + p {
     margin-top: var(--space-s);
     color: var(--text-muted);
   }
 
+  .card h3 + p a {
+    color: var(--accent);
+    text-underline-offset: 3px;
+  }
+
   .icons {
     display: flex;
+    align-items: flex-start;
     gap: var(--space-s);
-    margin-top: var(--space-l);
   }
 
   .chip {
